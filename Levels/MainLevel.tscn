@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://ctxnukihvjuxy"]
+
+[ext_resource type="Script" uid="uid://cd4baerkk8krn" path="res://Script/Level/MainLevel.gd" id="1_ovnwc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ovnwc"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ovnwc"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ovnwc"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ovnwc"]
+
+[sub_resource type="Sky" id="Sky_dncm7"]
+sky_material = SubResource("ProceduralSkyMaterial_ovnwc")
+
+[sub_resource type="Environment" id="Environment_j5hpt"]
+background_mode = 2
+sky = SubResource("Sky_dncm7")
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_ovnwc")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.847122, -0.220367, 0.483552, 0, 0.909961, 0.414693, -0.531399, -0.351296, 0.770848, 3.42474, 3.72993, 6.47953)
+
+[node name="AudioListener3D" type="AudioListener3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0107213, -0.00813544, 0.0117579)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.766044, -0.604023, -0.219846, -2.99004e-08, -0.34202, 0.939693, -0.642788, -0.719846, -0.262003, 1.72084, 2.59704, 15.0236)
+shadow_enabled = true
+
+[node name="Cube" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.221961, 0.5319, 0.172192)
+material_override = SubResource("StandardMaterial3D_ovnwc")
+mesh = SubResource("BoxMesh_ovnwc")
+skeleton = NodePath("")
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+transform = Transform3D(212.573, 0, 0, 0, 1, 0, 0, 0, 255.449, -0.221961, -2.77693, 0.172192)
+mesh = SubResource("CylinderMesh_ovnwc")
+skeleton = NodePath("")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_j5hpt")

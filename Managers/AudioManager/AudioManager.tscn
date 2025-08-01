@@ -1,0 +1,19 @@
+[gd_scene load_steps=6 format=3 uid="uid://drtdnosfxt2ts"]
+
+[ext_resource type="Script" uid="uid://pc16x5omxab2" path="res://Script/Audio/AudioManager.gd" id="1_2muuk"]
+[ext_resource type="Script" uid="uid://djnsnumx3et4m" path="res://Script/Audio/audio_resource.gd" id="2_kbg0k"]
+[ext_resource type="AudioStream" uid="uid://g61bipnrvhi" path="res://Audio/s_hit_sound_00.wav" id="3_kbg0k"]
+[ext_resource type="PackedScene" uid="uid://bwpx0o3aidcdp" path="res://Managers/AudioManager/AudioStream.tscn" id="3_p5vuj"]
+
+[sub_resource type="Resource" id="Resource_ve20k"]
+script = ExtResource("2_kbg0k")
+audio_id = "test_audio"
+can_be_played_multiple_time = true
+increase_pitch_on_each_play = false
+audio_to_play = Array[Resource]([ExtResource("3_kbg0k")])
+metadata/_custom_type_script = "uid://djnsnumx3et4m"
+
+[node name="AudioManager" type="Node"]
+script = ExtResource("1_2muuk")
+audio_descriptor = Array[ExtResource("2_kbg0k")]([SubResource("Resource_ve20k")])
+audio_stream = ExtResource("3_p5vuj")
