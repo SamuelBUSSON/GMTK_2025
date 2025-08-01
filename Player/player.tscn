@@ -17,3 +17,5 @@ debug_color = Color(0.141176, 0.427451, 0.92549, 0.784314)
 [node name="Camera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 fov = 80.0
+
+[node name="AudioListener3D" type="AudioListener3D" parent="Camera"]

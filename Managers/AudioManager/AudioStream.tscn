@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://bwpx0o3aidcdp"]
+[gd_scene load_steps=2 format=3 uid="uid://bwpx0o3aidcdp"]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+[sub_resource type="AudioStream" id="AudioStream_juwnq"]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D"]
+stream = SubResource("AudioStream_juwnq")

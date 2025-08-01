@@ -7,7 +7,7 @@ class_name audio_manager;
 
 class pooled_audio:
 	var audio_resource: audio_description;
-	var stream: AudioStreamPlayer;
+	var stream: AudioStreamPlayer3D;
 
 class pooled_audio_array:
 	var array: Array[pooled_audio];
@@ -74,11 +74,12 @@ func get_from_pool_or_spawn(audio_id: String) -> pooled_audio:
 
 	return new_pooled_item_bis;
 
-func request_audio(audio_id: String):
+func request_audio(audio_id: String, position : Vector3):
 	var audio_to_spawn = get_from_pool_or_spawn(audio_id);
 	if (audio_to_spawn == null):
 		return
 
+	audio_to_spawn.stream.position = position;
 	audio_to_spawn.stream.stream = audio_to_spawn.audio_resource.audio_to_play.pick_random();
 	audio_to_spawn.stream.play();
 	pass ;
