@@ -8,6 +8,7 @@ enum CurrentTool  { CISORS, IRON, DYE_0, DYE_1, DYE_2 }
 var current_tool : int;
 var current_celebrity : hair_character
 var rng := RandomNumberGenerator.new()
+var player_score : int;
 
 func is_current_tool(tool_id : int):
     return current_tool == tool_id;
@@ -54,16 +55,31 @@ func get_random_hair_size() -> int:
 func get_random_hair_hash() -> int:
     return _hash(get_random_hair_style(), get_random_hair_size());
 
+func is_hair_matching(hair_to_test : hair) -> bool:
+    for celebrity_hair in current_celebrity.spawned_hair:
+        var client_hair_position = hair_to_test.position;
+        var celebrity_hair_position = celebrity_hair.position;
+        # if it's the same hair
+        if (client_hair_position.distance_to(celebrity_hair_position) < 0.05):
+            # compare hash
+            if (_hair_hash(hair_to_test) != _hair_hash(celebrity_hair)):
+                return false;
+            # compare color
+            if (hair_to_test.hair_color != celebrity_hair.hair_color):
+                return false;
+            return true;
+    return false;
+
 func is_character_matching(character : hair_character) -> bool:
     var matching_hair = 0;
     for client_hair in character.spawned_hair:
         for celebrity_hair in current_celebrity.spawned_hair:
-            var client_hair_position = client_hair.global_position;
-            var celebrity_hair_position = celebrity_hair.global_position;
+            var client_hair_position = client_hair.position;
+            var celebrity_hair_position = celebrity_hair.position;
             # if it's the same hair
             if (client_hair_position.distance_to(celebrity_hair_position) < 0.05):
                 # compare hash
-                if (_hair_hash(client_hair) != _hair_hash(client_hair)):
+                if (_hair_hash(client_hair) != _hair_hash(celebrity_hair)):
                     return false;
                 # compare color
                 if (client_hair.hair_color != celebrity_hair.hair_color):

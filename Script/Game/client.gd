@@ -24,12 +24,20 @@ func _ready():
 		hairLookUp[hair_hash] = scene;
 		hairMeshLookUp[hair_hash] = new_hair.get_mesh()
 
-	_spawn_hair_style()
 
 	if (!is_celebrity):
 		GlobalSignals.connect("on_hair_click", on_hair_click)
+		GlobalSignals.connect("on_celebrity_select", on_celebrity_select)
+		if (GameGlobal.current_celebrity != null):
+			_spawn_hair_style()
+
 	else:
 		GameGlobal.current_celebrity = self;
+		_spawn_hair_style()
+
+
+func on_celebrity_select():
+	_spawn_hair_style();
 
 
 func on_hair_click(hair_click : hair):
@@ -40,7 +48,6 @@ func on_hair_click(hair_click : hair):
 			hair_click.size = 2;
 
 		replace_air_mesh(hair_click);
-		return
 
 	if (GameGlobal.is_using_dye()):
 		var dye_color = GameGlobal.get_current_dye_color();
@@ -52,10 +59,15 @@ func on_hair_click(hair_click : hair):
 			hair_click.style = 1;
 		replace_air_mesh(hair_click);
 
+	if (GameGlobal.is_hair_matching(hair_click)):
+		hair_click.on_hair_match_event();
+		pass;
+
 	# increment score + switch character
 	if (GameGlobal.is_character_matching(self)):
-		print("Bravo !");
 		_spawn_hair_style();
+		GameGlobal.player_score += 1;
+		GameGlobal.current_celebrity._spawn_hair_style();
 		pass;
 
 	pass;
@@ -81,15 +93,12 @@ func _process(delta):
 	if Input.is_action_just_pressed("swap_tool"):
 		GameGlobal.swap_tool()
 
-
-
-
-
 func _spawn_hair_style():
 	for h in spawned_hair:
 		h.queue_free()
 	spawned_hair.clear()
 
+	var i = 0;
 	for spawn_point in spawn_positions:
 		var current_pos: Vector3 = spawn_point.global_position
 		var current_rot: Vector3 = spawn_point.global_transform.basis.get_euler()
@@ -101,16 +110,26 @@ func _spawn_hair_style():
 
 		add_child(new_hair)
 		new_hair.global_position = current_pos
-		var delta_angle_x = deg_to_rad(rng.randf_range(-angle_variation_degrees.x, angle_variation_degrees.x))
-		var delta_angle_y = deg_to_rad(rng.randf_range(-angle_variation_degrees.y, angle_variation_degrees.y))
-		var delta_angle_z = deg_to_rad(rng.randf_range(-angle_variation_degrees.z, angle_variation_degrees.z))
 
-		new_hair.rotation = current_rot
-		new_hair.rotation.x =  delta_angle_x
-		new_hair.rotation.y =  delta_angle_y
-		new_hair.rotation.z =  delta_angle_z
+		if (is_celebrity):
+			var delta_angle_x = deg_to_rad(rng.randf_range(-angle_variation_degrees.x, angle_variation_degrees.x))
+			var delta_angle_y = deg_to_rad(rng.randf_range(-angle_variation_degrees.y, angle_variation_degrees.y))
+			var delta_angle_z = deg_to_rad(rng.randf_range(-angle_variation_degrees.z, angle_variation_degrees.z))
 
+			new_hair.rotation = current_rot
+			new_hair.rotation.x =  delta_angle_x
+			new_hair.rotation.y =  delta_angle_y
+			new_hair.rotation.z =  delta_angle_z
+		else:
+			var celebrity = GameGlobal.current_celebrity;
+			var celebrity_rot = celebrity.spawned_hair[i].rotation;
+			new_hair.rotation = celebrity_rot
+
+		i += 1;
 		spawned_hair.append(new_hair)
+
+	if (self.is_celebrity):
+		GlobalSignals.emit_signal("on_celebrity_select")
 
 func _select_at_screen(mouse_pos: Vector2) -> void:
 	var cam = get_viewport().get_camera_3d()
