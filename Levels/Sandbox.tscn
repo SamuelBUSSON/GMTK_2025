@@ -156,11 +156,13 @@ texture = SubResource("ViewportTexture_kng65")
 expand_mode = 1
 
 [node name="FrontViewPort" type="SubViewport" parent="."]
+transparent_bg = true
 
 [node name="Camera3D" type="Camera3D" parent="FrontViewPort"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.8, 1.8, -10)
 
 [node name="BackViewPort" type="SubViewport" parent="."]
+transparent_bg = true
 
 [node name="Camera3D" type="Camera3D" parent="BackViewPort"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.8, 1.8, -10)
