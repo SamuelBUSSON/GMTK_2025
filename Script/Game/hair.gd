@@ -11,6 +11,7 @@ enum HairSize  { SHORT, MEDIUM, LONG }
 # @export var mesh : Mesh;
 
 var hair_color : Color;
+var lock : bool;
 
 func get_mesh() -> MeshInstance3D:
 	var mesh = $MeshInstance3D
@@ -20,6 +21,7 @@ func set_mesh(mesh : MeshInstance3D):
 	var mesh_instance = $MeshInstance3D
 	mesh_instance.scale = mesh.scale;
 	mesh_instance.position = mesh.position;
+	mesh_instance.mesh = mesh.mesh;
 
 
 func set_mesh_color(color : Color):
@@ -36,6 +38,8 @@ func set_mesh_color(color : Color):
 	hair_color = color;
 
 func on_hair_match_event():
+	if (lock):
+		return
 	var mesh_inst = $MeshInstance3D
 	var mat = mesh_inst.get_active_material(0)
 	if mat == null:
@@ -51,8 +55,14 @@ func on_hair_match_event():
 	var tween = create_tween()
 
 	tween.tween_property(mat,      "albedo_color", Color.WHITE, 0.3)
-	tween.tween_property(mesh_inst, "scale",       original_scale * 1.2, 0.3)
+	tween.parallel().tween_property(mesh_inst, "scale",       original_scale * 1.2, 0.3)
 
 	tween.tween_property(mat,      "albedo_color", original_color, 0.3).set_delay(0.3)
-	tween.tween_property(mesh_inst, "scale",       original_scale, 0.3).set_delay(0.3)
+	tween.parallel().tween_property(mesh_inst, "scale",       original_scale, 0.3).set_delay(0.3)
+
+	tween.tween_callback(free_lock);
+	lock = true;
 	pass;
+
+func free_lock() -> void:
+	lock = false;

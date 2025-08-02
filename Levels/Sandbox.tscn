@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://7luc516gncmd" path="res://Script/SelectToolUI.gd" id="5_kld8x"]
 [ext_resource type="Script" uid="uid://cyd5sr7auhq8t" path="res://Script/UI/game_score.gd" id="6_kng65"]
 [ext_resource type="Material" uid="uid://nr0j7j660s45" path="res://Art/Materials/mat_wall.tres" id="7_m5lms"]
-[ext_resource type="Material" uid="uid://bok1camfpa3l3" path="res://Art/Texture/prototype_dark.material" id="8_25dgi"]
+[ext_resource type="Material" path="res://Art/Texture/prototype_dark.material" id="8_25dgi"]
 [ext_resource type="Material" uid="uid://d1gkpjjlnk4tf" path="res://Art/Materials/mat_floor.tres" id="8_wlehf"]
 [ext_resource type="Material" uid="uid://c1o6altg54q33" path="res://Art/Materials/mat_lightsr.tres" id="9_5hxgg"]
 
@@ -42,12 +42,12 @@ light_energy = 0.511
 sky_mode = 1
 
 [node name="Player" parent="." instance=ExtResource("1_ndiqr")]
-transform = Transform3D(-4.37114e-08, -0.34202, 0.939693, 0, 0.939693, 0.34202, -1, 1.49502e-08, -4.10753e-08, 0.860232, 1.83242, -1)
+transform = Transform3D(-4.37114e-08, -0.34202, 0.939693, 0, 0.939693, 0.34202, -1, 1.49502e-08, -4.10753e-08, 0.751203, 1.35047, -1)
 
 [node name="AudioScene" parent="." instance=ExtResource("4_nwgsj")]
 
 [node name="Celebrity" parent="." instance=ExtResource("2_ecytd")]
-transform = Transform3D(1.00115, 0, 0, 0, 1.00115, 0, 0, 0, 1.00115, 0, 1, -10)
+transform = Transform3D(-4.37617e-08, 0, 1.00115, 0, 1.00115, 0, -1.00115, 0, -4.37617e-08, 0, 1, -10)
 is_celebrity = true
 
 [node name="Chair" parent="." instance=ExtResource("3_q2e3v")]
@@ -169,13 +169,13 @@ expand_mode = 1
 transparent_bg = true
 
 [node name="Camera3D" type="Camera3D" parent="FrontViewPort"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.8, 1.8, -10)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.8, 1.24605, -10)
 
 [node name="BackViewPort" type="SubViewport" parent="."]
 transparent_bg = true
 
 [node name="Camera3D" type="Camera3D" parent="BackViewPort"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.8, 1.8, -10)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.8, 1.24605, -10)
 
 [node name="GreyBox" type="Node" parent="."]
 

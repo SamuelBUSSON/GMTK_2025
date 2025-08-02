@@ -1,18 +1,18 @@
 [gd_scene load_steps=4 format=3 uid="uid://bg2f1kr0nynw3"]
 
 [ext_resource type="Script" uid="uid://b88kw7pf52jqa" path="res://Script/Game/hair.gd" id="1_ei1k8"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_hbkb4"]
+[ext_resource type="ArrayMesh" uid="uid://sb3mlb0rueun" path="res://Art/Mesh/TrueMesh/Strait long.tres" id="2_0xu8a"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ei1k8"]
+size = Vector3(0.209534, 0.276184, 0.230713)
 
 [node name="Hair" type="Node3D"]
 script = ExtResource("1_ei1k8")
 size = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.01, 0, 0, 0, 0.4, 0, 0, 0, 0.01, 0, 0.2, 0)
-mesh = SubResource("BoxMesh_hbkb4")
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -0.189968, -0.172928, -0.00441131)
+mesh = ExtResource("2_0xu8a")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="MeshInstance3D"]
 sleeping = true
@@ -20,4 +20,5 @@ lock_rotation = true
 freeze = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.215546, 0.120331, -0.00744629)
 shape = SubResource("BoxShape3D_ei1k8")
