@@ -1,10 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://2r2xorepwlip"]
+[gd_scene load_steps=15 format=3 uid="uid://2r2xorepwlip"]
 
 [ext_resource type="PackedScene" uid="uid://cdk6hwb4hi2wc" path="res://Player/player.tscn" id="1_ndiqr"]
 [ext_resource type="PackedScene" uid="uid://xf5n1prpkpxt" path="res://Prefabs/GAME_Client.tscn" id="2_ecytd"]
 [ext_resource type="PackedScene" uid="uid://b76n4885ldf8m" path="res://Prefabs/GAME_Chair.tscn" id="3_q2e3v"]
 [ext_resource type="PackedScene" uid="uid://b2n231sfdc2dh" path="res://Levels/AudioScene.tscn" id="4_nwgsj"]
-[ext_resource type="Script" uid="uid://7luc516gncmd" path="res://Script/SelectToolUI.gd" id="5_kld8x"]
 [ext_resource type="Script" uid="uid://cyd5sr7auhq8t" path="res://Script/UI/game_score.gd" id="6_kng65"]
 [ext_resource type="Material" uid="uid://nr0j7j660s45" path="res://Art/Materials/mat_wall.tres" id="7_m5lms"]
 [ext_resource type="Material" path="res://Art/Texture/prototype_dark.material" id="8_25dgi"]
@@ -64,71 +63,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-
-[node name="Label" type="Label" parent="Control" node_paths=PackedStringArray("label")]
-layout_mode = 0
-offset_left = 157.0
-offset_top = 602.0
-offset_right = 213.0
-offset_bottom = 625.0
-mouse_filter = 0
-mouse_default_cursor_shape = 2
-text = "CISORS"
-script = ExtResource("5_kld8x")
-tool_to_use = 0
-label = NodePath(".")
-
-[node name="Label2" type="Label" parent="Control" node_paths=PackedStringArray("label")]
-layout_mode = 0
-offset_left = 248.0
-offset_top = 603.0
-offset_right = 304.0
-offset_bottom = 626.0
-mouse_filter = 0
-mouse_default_cursor_shape = 2
-text = "CISORS"
-script = ExtResource("5_kld8x")
-tool_to_use = 1
-label = NodePath(".")
-
-[node name="Label3" type="Label" parent="Control" node_paths=PackedStringArray("label")]
-layout_mode = 0
-offset_left = 342.0
-offset_top = 603.0
-offset_right = 398.0
-offset_bottom = 626.0
-mouse_filter = 0
-mouse_default_cursor_shape = 2
-text = "CISORS"
-script = ExtResource("5_kld8x")
-tool_to_use = 2
-label = NodePath(".")
-
-[node name="Label4" type="Label" parent="Control" node_paths=PackedStringArray("label")]
-layout_mode = 0
-offset_left = 428.0
-offset_top = 598.0
-offset_right = 484.0
-offset_bottom = 621.0
-mouse_filter = 0
-mouse_default_cursor_shape = 2
-text = "CISORS"
-script = ExtResource("5_kld8x")
-tool_to_use = 3
-label = NodePath(".")
-
-[node name="Label5" type="Label" parent="Control" node_paths=PackedStringArray("label")]
-layout_mode = 0
-offset_left = 525.0
-offset_top = 606.0
-offset_right = 581.0
-offset_bottom = 629.0
-mouse_filter = 0
-mouse_default_cursor_shape = 2
-text = "CISORS"
-script = ExtResource("5_kld8x")
-tool_to_use = 4
-label = NodePath(".")
 
 [node name="Score Label" type="Label" parent="Control" node_paths=PackedStringArray("label")]
 layout_mode = 0
