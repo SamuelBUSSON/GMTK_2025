@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://2r2xorepwlip"]
+[gd_scene load_steps=8 format=3 uid="uid://2r2xorepwlip"]
 
 [ext_resource type="PackedScene" uid="uid://cdk6hwb4hi2wc" path="res://Player/player.tscn" id="1_ndiqr"]
-[ext_resource type="Material" path="res://Art/Texture/prototype_dark.material" id="2_gaqdb"]
+[ext_resource type="Material" uid="uid://bok1camfpa3l3" path="res://Art/Texture/prototype_dark.material" id="2_gaqdb"]
 [ext_resource type="Script" uid="uid://3dv7owbceueu" path="res://Script/Audio/play_audio_test.gd" id="3_q2e3v"]
+[ext_resource type="PackedScene" uid="uid://b2n231sfdc2dh" path="res://Levels/AudioScene.tscn" id="4_nwgsj"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_yxtyg"]
 
@@ -111,3 +112,5 @@ material = ExtResource("2_gaqdb")
 [node name="PlayAudioTest" type="Node3D" parent="."]
 script = ExtResource("3_q2e3v")
 audio_id = "test_audio"
+
+[node name="AudioScene" parent="." instance=ExtResource("4_nwgsj")]

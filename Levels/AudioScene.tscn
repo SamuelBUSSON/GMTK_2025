@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://b2n231sfdc2dh"]
+
+[node name="AudioScene" type="Node3D"]
+
+[node name="AudioRoom" type="Node3D" parent="."]
+
+[node name="Menu" type="Node3D" parent="AudioRoom"]
+
+[node name="Game" type="Node3D" parent="AudioRoom"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="AudioRoom/Game"]
