@@ -1,0 +1,122 @@
+[gd_scene load_steps=7 format=3 uid="uid://b6naxhkl5slnh"]
+
+[ext_resource type="Theme" uid="uid://c8x5dndyxu50h" path="res://UI/Themes/Title.tres" id="1_7m1sl"]
+[ext_resource type="Script" uid="uid://bvxlao2xvfpjx" path="res://Script/UI/ui_manager.gd" id="1_fqe6j"]
+[ext_resource type="Theme" uid="uid://cger3kmfn1hhk" path="res://UI/Themes/text.tres" id="3_06wgh"]
+[ext_resource type="Texture2D" uid="uid://k3wb0w0xtvef" path="res://UI/Assets/Placeholders/Brad_Pitt_Cannes_2012.jpg" id="4_06wgh"]
+[ext_resource type="Texture2D" uid="uid://diu7ocgkcn55l" path="res://UI/Assets/Placeholders/cog-wheel-silhouette.png" id="5_jbdiv"]
+[ext_resource type="PackedScene" uid="uid://dqj7gfkx3u2s4" path="res://Managers/UIManager/pause_menu.tscn" id="6_lt6e0"]
+
+[node name="UIManager" type="Control"]
+z_index = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fqe6j")
+
+[node name="Dialogue" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="DialogueBG" type="ColorRect" parent="Dialogue"]
+layout_mode = 0
+offset_left = -920.0
+offset_top = -208.0
+offset_right = -24.0
+offset_bottom = -16.0
+color = Color(0, 0, 0, 0.439216)
+
+[node name="DialogueText" type="Label" parent="Dialogue"]
+layout_mode = 0
+offset_left = -904.0
+offset_top = -136.0
+offset_right = -40.0
+offset_bottom = -24.0
+theme = ExtResource("3_06wgh")
+text = "\"Je veux trop ressembler à Brad PittJe veux trop ressembler à Brad PittJe veux trop ressembler à Brad PittJe veux trop ressembler à Brad PittJe veux trop ressembler à Brad PittJe veux trop ressembler\""
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="DialogueName" type="Label" parent="Dialogue"]
+layout_mode = 0
+offset_left = -904.0
+offset_top = -192.0
+offset_right = -40.0
+offset_bottom = -144.0
+theme = ExtResource("1_7m1sl")
+text = "Nom client"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="DialogueTimer" type="Timer" parent="Dialogue"]
+one_shot = true
+
+[node name="Photo" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="PhotoFrontTexture" type="TextureRect" parent="Photo"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = -464.0
+offset_right = 384.0
+offset_bottom = -16.0
+texture = ExtResource("4_06wgh")
+expand_mode = 1
+
+[node name="PhotoBackTexture" type="TextureRect" parent="Photo"]
+layout_mode = 0
+offset_left = 424.0
+offset_top = -464.0
+offset_right = 744.0
+offset_bottom = -16.0
+texture = ExtResource("4_06wgh")
+expand_mode = 1
+
+[node name="PhotoTimer" type="Timer" parent="Photo"]
+one_shot = true
+
+[node name="PauseButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -72.0
+offset_top = 24.0
+offset_right = -24.0
+offset_bottom = 72.0
+grow_horizontal = 0
+texture_normal = ExtResource("5_jbdiv")
+texture_pressed = ExtResource("5_jbdiv")
+texture_hover = ExtResource("5_jbdiv")
+texture_disabled = ExtResource("5_jbdiv")
+texture_focused = ExtResource("5_jbdiv")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="PauseMenu" parent="." instance=ExtResource("6_lt6e0")]
+visible = false
+layout_mode = 1
+
+[connection signal="timeout" from="Dialogue/DialogueTimer" to="." method="_on_dialogue_timer_timeout"]
+[connection signal="timeout" from="Photo/PhotoTimer" to="." method="_on_photo_timer_timeout"]
+[connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="visibility_changed" from="PauseMenu" to="." method="_on_pause_menu_visibility_changed"]
