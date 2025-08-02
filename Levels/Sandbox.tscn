@@ -24,7 +24,7 @@ transform = Transform3D(-0.678961, 0.262875, -0.685499, -0.027831, 0.923814, 0.3
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_ndiqr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.38419e-07, 1.51541, 0.067161)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.38419e-07, 1.51541, -0.147957)
 
 [node name="AudioScene" parent="." instance=ExtResource("4_nwgsj")]
 
@@ -32,3 +32,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.38419e-07, 1.51541, 0.06716
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.308844, -0.814256)
 
 [node name="Client" parent="Chair" instance=ExtResource("2_ecytd")]
+transform = Transform3D(1.00115, 0, 0, 0, 1.00115, 0, 0, 0, 1.00115, 0.00351608, 0.505171, 0.00166607)

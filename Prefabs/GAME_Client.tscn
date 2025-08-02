@@ -1,8 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://xf5n1prpkpxt"]
+[gd_scene load_steps=13 format=3 uid="uid://xf5n1prpkpxt"]
 
 [ext_resource type="Script" uid="uid://bwotumntdsqjm" path="res://Script/Game/client.gd" id="1_scgdo"]
-[ext_resource type="PackedScene" uid="uid://clj63qgtsrlwq" path="res://Prefabs/Hairs/GAME_Hair_test_1.tscn" id="2_v1nf5"]
-[ext_resource type="PackedScene" uid="uid://idkwtbsfjo58" path="res://Prefabs/Hairs/GAME_Hair_test_2.tscn" id="3_wesn0"]
+[ext_resource type="PackedScene" uid="uid://6hjuniq7iw3v" path="res://Prefabs/Hairs/GAME_Hair_Curly_Long.tscn" id="2_cdf56"]
+[ext_resource type="PackedScene" uid="uid://detsde15j2dyy" path="res://Prefabs/Hairs/GAME_Hair_Curly_Medium.tscn" id="3_rw0qo"]
+[ext_resource type="PackedScene" uid="uid://clj63qgtsrlwq" path="res://Prefabs/Hairs/GAME_Hair_Curly_Short.tscn" id="4_4x0kx"]
+[ext_resource type="PackedScene" uid="uid://bg2f1kr0nynw3" path="res://Prefabs/Hairs/GAME_Hair_Straight_Long.tscn" id="5_8bwxi"]
+[ext_resource type="PackedScene" uid="uid://bc57nldv4brj0" path="res://Prefabs/Hairs/GAME_Hair_Straight_Medium.tscn" id="6_0a3ld"]
+[ext_resource type="PackedScene" uid="uid://xtxmotqc4s3u" path="res://Prefabs/Hairs/GAME_Hair_Straight_Short.tscn" id="7_ecsbc"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_u6xht"]
 
@@ -20,11 +24,10 @@ material = SubResource("StandardMaterial3D_ebe2p")
 [node name="Client" type="Node3D" node_paths=PackedStringArray("spawn_positions")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00351608, 0.505171, 0.00166607)
 script = ExtResource("1_scgdo")
-hairs_template = Array[PackedScene]([ExtResource("2_v1nf5"), ExtResource("3_wesn0")])
 spawn_positions = [NodePath("Head/SpawnPos"), NodePath("Head/SpawnPos3"), NodePath("Head/SpawnPos4"), NodePath("Head/SpawnPos5")]
-max_hair_length = 4
-min_hair_length = 1
 angle_variation_degrees = Vector3(15, 15, 15)
+hair_styles = Array[PackedScene]([ExtResource("2_cdf56"), ExtResource("3_rw0qo"), ExtResource("4_4x0kx"), ExtResource("5_8bwxi"), ExtResource("6_0a3ld"), ExtResource("7_ecsbc")])
+hair_color = Array[Color]([Color(0.679717, 0.416355, 0.734936, 1), Color(8.66354e-07, 0.360028, 0.537104, 1), Color(2.02149e-06, 0.574567, 0.411422, 1)])
 
 [node name="Body" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.200665, 0, 0, 0, 1, 0, 0, 0, 0.203522, 0, 0, 0)
