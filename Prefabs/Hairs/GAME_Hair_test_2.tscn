@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://idkwtbsfjo58"]
+
+[ext_resource type="Script" uid="uid://b88kw7pf52jqa" path="res://Script/Game/hair.gd" id="1_u51qb"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_hbkb4"]
+
+[node name="Hair" type="Node3D" node_paths=PackedStringArray("bottom", "top")]
+script = ExtResource("1_u51qb")
+bottom = NodePath("Bottom")
+top = NodePath("Top")
+
+[node name="Bottom" type="Node3D" parent="."]
+
+[node name="Top" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.109965, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0177348, 0, 0, 0, 0.103285, 0, 0, 0, 0.0193843, 0, 0.0573992, 0)
+mesh = SubResource("BoxMesh_hbkb4")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.00297033, -0.125939, 0, 0.00709141, 0.0527513, 0, 0, 0, 0.00666106, 0.00556344, 0.0469097, 0.00337197)
+mesh = SubResource("BoxMesh_hbkb4")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.00540462, 0.0971118, 0, -0.00546819, 0.0959828, 0, 0, 0, 0.00666106, 0.00378716, 0.0725702, 0.00281693)
+mesh = SubResource("BoxMesh_hbkb4")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.00254797, 0.0457827, 0.00587437, -0.00546819, 0.0959828, 0, -0.00476631, -0.0856426, 0.00314031, 0.00378716, 0.0725702, 0.00281693)
+mesh = SubResource("BoxMesh_hbkb4")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.00353767, -0.00491389, 0.00590916, -0.00682462, -0.000308, -0.00306744, 0.000142802, -0.136452, -0.000205876, 0.00378716, 0.0725702, 0.00281693)
+mesh = SubResource("BoxMesh_hbkb4")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.00511756, 0.00384037, 0.00496754, -0.00446836, -0.0882604, -0.00329293, 0.00359935, -0.104109, 0.00297488, 0.00378716, 0.0725702, 0.00281693)
+mesh = SubResource("BoxMesh_hbkb4")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.00271481, -0.0796397, 0.00487268, -7.74628e-07, 0.106762, 0.00415248, -0.00719311, 0.0300459, -0.00183948, 0.00378716, 0.0725702, 0.00281693)
+mesh = SubResource("BoxMesh_hbkb4")
