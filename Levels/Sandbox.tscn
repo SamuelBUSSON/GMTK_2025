@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://xf5n1prpkpxt" path="res://Prefabs/GAME_Client.tscn" id="2_ecytd"]
 [ext_resource type="PackedScene" uid="uid://b76n4885ldf8m" path="res://Prefabs/GAME_Chair.tscn" id="3_q2e3v"]
 [ext_resource type="PackedScene" uid="uid://b2n231sfdc2dh" path="res://Levels/AudioScene.tscn" id="4_nwgsj"]
-[ext_resource type="Script" path="res://Script/SelectToolUI.gd" id="5_kld8x"]
+[ext_resource type="Script" uid="uid://7luc516gncmd" path="res://Script/SelectToolUI.gd" id="5_kld8x"]
 [ext_resource type="Script" uid="uid://cyd5sr7auhq8t" path="res://Script/UI/game_score.gd" id="6_kng65"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_yxtyg"]
@@ -32,7 +32,7 @@ transform = Transform3D(-0.678961, 0.262875, -0.685499, -0.027831, 0.923814, 0.3
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_ndiqr")]
-transform = Transform3D(-4.37114e-08, -0.21644, 0.976296, 0, 0.976296, 0.21644, -1, 9.46088e-09, -4.26752e-08, 0.6, 1.888, -1)
+transform = Transform3D(-4.37114e-08, -0.34202, 0.939693, 0, 0.939693, 0.34202, -1, 1.49502e-08, -4.10753e-08, 0.860232, 1.83242, -1)
 
 [node name="AudioScene" parent="." instance=ExtResource("4_nwgsj")]
 
@@ -168,7 +168,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.8, 
 [node name="GreyBox" type="Node" parent="."]
 
 [node name="wall1" type="CSGBox3D" parent="GreyBox"]
-transform = Transform3D(0.890308, -0.455358, -1.35707e-08, 0, 2.98023e-08, -1, 0.455358, 0.890308, 2.65333e-08, -0.031269, 1.17056, 1.34503)
+transform = Transform3D(0.890308, -0.455358, -1.35707e-08, 0, 2.98023e-08, -1, 0.455358, 0.890308, 2.65333e-08, 0.920209, 0.746018, 0.78668)
 size = Vector3(6.6, 0.8, 3.9)
 
 [node name="subwall1*" type="CSGBox3D" parent="GreyBox/wall1"]
@@ -177,24 +177,24 @@ operation = 2
 size = Vector3(2.1, 0.455859, 1.3)
 
 [node name="Wall2" type="CSGBox3D" parent="GreyBox"]
-transform = Transform3D(0.455358, 0.890308, -1.40209e-08, -2.98023e-08, 0, -1, -0.890308, 0.455358, 4.30401e-08, -1.59932, 1.16183, -2.82972)
+transform = Transform3D(0.455358, 0.890308, -1.40209e-08, -2.98023e-08, 0, -1, -0.890308, 0.455358, 4.30401e-08, -0.647842, 0.737288, -3.38807)
 size = Vector3(6.6, 0.8, 3.9)
 
 [node name="coiff" type="CSGBox3D" parent="GreyBox"]
-transform = Transform3D(0.167484, 0.912404, -1.40209e-08, -1.09615e-08, 1.08507e-22, -1, -0.327461, 0.46666, 4.30401e-08, -1.69224, 1.87056, -1.69475)
+transform = Transform3D(0.167484, 0.912404, -1.40209e-08, -1.09615e-08, 1.08507e-22, -1, -0.327461, 0.46666, 4.30401e-08, -0.740762, 1.44602, -2.2531)
 size = Vector3(2, 0.143982, 1.5)
 
 [node name="table" type="CSGBox3D" parent="GreyBox"]
-transform = Transform3D(0.455358, 0.890308, -1.40209e-08, -2.98023e-08, 0, -1, -0.890308, 0.455358, 4.30401e-08, -1.45812, 0.870556, -1.575)
+transform = Transform3D(0.455358, 0.890308, -1.40209e-08, -2.98023e-08, 0, -1, -0.890308, 0.455358, 4.30401e-08, -0.506642, 0.446014, -2.13335)
 use_collision = true
 size = Vector3(2.1, 0.8, 1.3)
 
 [node name="sol" type="CSGBox3D" parent="GreyBox"]
-transform = Transform3D(0.890308, 0, -0.455358, 0, 1, 0, 0.455358, 0, 0.890308, 1.27477, 0.499834, -1.42811)
+transform = Transform3D(0.890308, 0, -0.455358, 0, 1, 0, 0.455358, 0, 0.890308, 2.22625, 0.0752919, -1.98646)
 use_collision = true
 size = Vector3(6.6, 0.2, 5.7)
 
 [node name="sol2" type="CSGBox3D" parent="GreyBox"]
-transform = Transform3D(0.890308, 0, -0.455358, 0, 1, 0, 0.455358, 0, 0.890308, 1.27477, 3.06698, -1.42811)
+transform = Transform3D(0.890308, 0, -0.455358, 0, 1, 0, 0.455358, 0, 0.890308, 2.22625, 2.64244, -1.98646)
 use_collision = true
 size = Vector3(6.6, 0.2, 5.7)
