@@ -7,6 +7,9 @@ enum CurrentTool  { CISORS, IRON, DYE_0, DYE_1, DYE_2 }
 
 var current_tool : int;
 
+func is_current_tool(tool_id : int):
+    return current_tool == tool_id;
+
 func is_using_cisors() -> bool:
     return current_tool == CurrentTool.CISORS;
 
@@ -29,3 +32,6 @@ func swap_tool():
     current_tool = current_tool - 1;
     if (current_tool < 0):
         current_tool = CurrentTool.DYE_2;
+
+func set_current_tool(tool_id: int):
+    current_tool = tool_id;
