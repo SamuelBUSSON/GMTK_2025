@@ -19,30 +19,31 @@ script = ExtResource("1_fqe6j")
 
 [node name="Dialogue" type="Control" parent="."]
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
+anchors_preset = 7
+anchor_left = 0.5
 anchor_top = 1.0
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -40.0
+offset_left = -20.0
 offset_top = -40.0
-grow_horizontal = 0
+offset_right = 20.0
+grow_horizontal = 2
 grow_vertical = 0
 
 [node name="DialogueBG" type="ColorRect" parent="Dialogue"]
 layout_mode = 0
-offset_left = -920.0
-offset_top = -208.0
-offset_right = -24.0
+offset_left = -428.0
+offset_top = -216.0
+offset_right = 468.0
 offset_bottom = -16.0
 color = Color(0, 0, 0, 0.439216)
 
 [node name="DialogueText" type="Label" parent="Dialogue"]
 layout_mode = 0
-offset_left = -904.0
-offset_top = -136.0
-offset_right = -40.0
-offset_bottom = -24.0
+offset_left = -412.0
+offset_top = -144.0
+offset_right = 452.0
+offset_bottom = -32.0
 theme = ExtResource("3_06wgh")
 text = "\"Je veux trop ressembler à Brad PittJe veux trop ressembler à Brad PittJe veux trop ressembler à Brad PittJe veux trop ressembler à Brad PittJe veux trop ressembler à Brad PittJe veux trop ressembler\""
 horizontal_alignment = 1
@@ -51,10 +52,10 @@ autowrap_mode = 3
 
 [node name="DialogueName" type="Label" parent="Dialogue"]
 layout_mode = 0
-offset_left = -904.0
-offset_top = -192.0
-offset_right = -40.0
-offset_bottom = -144.0
+offset_left = -412.0
+offset_top = -200.0
+offset_right = 452.0
+offset_bottom = -152.0
 theme = ExtResource("1_7m1sl")
 text = "Nom client"
 horizontal_alignment = 1
@@ -76,23 +77,35 @@ grow_vertical = 0
 [node name="PhotoFrontTexture" type="TextureRect" parent="Photo"]
 layout_mode = 0
 offset_left = 64.0
-offset_top = -464.0
-offset_right = 384.0
-offset_bottom = -16.0
+offset_top = -336.0
+offset_right = 256.0
+offset_bottom = -80.0
 texture = ExtResource("4_06wgh")
 expand_mode = 1
 
 [node name="PhotoBackTexture" type="TextureRect" parent="Photo"]
 layout_mode = 0
-offset_left = 424.0
-offset_top = -464.0
-offset_right = 744.0
-offset_bottom = -16.0
+offset_left = 280.0
+offset_top = -336.0
+offset_right = 472.0
+offset_bottom = -80.0
 texture = ExtResource("4_06wgh")
 expand_mode = 1
 
 [node name="PhotoTimer" type="Timer" parent="Photo"]
 one_shot = true
+
+[node name="Label" type="Label" parent="Photo"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = -64.0
+offset_right = 472.0
+offset_bottom = -16.0
+theme = ExtResource("1_7m1sl")
+text = "Brad Pitt"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="PauseButton" type="TextureButton" parent="."]
 layout_mode = 1
@@ -115,6 +128,69 @@ stretch_mode = 0
 [node name="PauseMenu" parent="." instance=ExtResource("6_lt6e0")]
 visible = false
 layout_mode = 1
+
+[node name="Toolbar" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="ScissorsButton" type="TextureButton" parent="Toolbar"]
+layout_mode = 0
+offset_left = -112.0
+offset_top = -296.0
+offset_right = 16.0
+offset_bottom = -168.0
+texture_normal = ExtResource("5_jbdiv")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="IronButton" type="TextureButton" parent="Toolbar"]
+layout_mode = 0
+offset_left = -112.0
+offset_top = -144.0
+offset_right = 16.0
+offset_bottom = -16.0
+texture_normal = ExtResource("5_jbdiv")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="DyeSprayButton1" type="TextureButton" parent="Toolbar"]
+layout_mode = 0
+offset_left = -112.0
+offset_top = 8.0
+offset_right = 16.0
+offset_bottom = 136.0
+texture_normal = ExtResource("5_jbdiv")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="DyeSprayButton2" type="TextureButton" parent="Toolbar"]
+layout_mode = 0
+offset_left = -112.0
+offset_top = 160.0
+offset_right = 16.0
+offset_bottom = 288.0
+texture_normal = ExtResource("5_jbdiv")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="DyeSprayButton3" type="TextureButton" parent="Toolbar"]
+layout_mode = 0
+offset_left = -112.0
+offset_top = 312.0
+offset_right = 16.0
+offset_bottom = 440.0
+texture_normal = ExtResource("5_jbdiv")
+ignore_texture_size = true
+stretch_mode = 0
 
 [connection signal="timeout" from="Dialogue/DialogueTimer" to="." method="_on_dialogue_timer_timeout"]
 [connection signal="timeout" from="Photo/PhotoTimer" to="." method="_on_photo_timer_timeout"]

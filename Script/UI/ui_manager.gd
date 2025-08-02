@@ -13,6 +13,8 @@ extends Control
 @onready var pause_menu = $PauseMenu
 @onready var pause_button = $PauseButton
 
+@onready var tool_buttons = [$Toolbar/ScissorsButton,$Toolbar/IronButton,$Toolbar/DyeSprayButton1,$Toolbar/DyeSprayButton2,$Toolbar/DyeSprayButton3]
+
 func talk(talker_name : String, talker_text : String, time_talking : float):
 	if !dialogue_block.visible:
 		dialogue_block.visible = true
@@ -25,14 +27,16 @@ func talk(talker_name : String, talker_text : String, time_talking : float):
 func _on_dialogue_timer_timeout() -> void:
 	dialogue_block.visible = false
 
-func show_photos(photo_front : TextureRect, photo_back : TextureRect, time_showing : float):
+func show_photos(photo_front : TextureRect, photo_back : TextureRect, star_name : float):
 	if !photo_block.visible:
 		photo_block.visible = true
 		photo_front_texture.texture = photo_front
 		photo_back_texture.texture = photo_back
-		photo_timer.start(time_showing)
 	else:
 		print("je montre déjà une photo")
+
+func hide_photos():
+	photo_block.visible = false
 
 func _on_photo_timer_timeout() -> void:
 	photo_block.visible = false
