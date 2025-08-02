@@ -8,10 +8,21 @@ enum HairSize  { SHORT, MEDIUM, LONG }
 
 @export_enum("SHORT", "MEDIUM", "LONG" ) var size: int;
 @export_enum("STRAIGHT", "CURLY") var style: int;
-# @export var mesh : Mesh;
 
 var hair_color : Color;
 var lock : bool;
+var spawn_nodex_index : int;
+var select : bool;
+var outline_mat : StandardMaterial3D;
+
+func _ready():
+	var outline_mesh : MeshInstance3D = %Outline
+	var base_mat = outline_mesh.material_override
+	if base_mat:
+		outline_mat = base_mat.duplicate(true) as StandardMaterial3D
+	else:
+		outline_mat = StandardMaterial3D.new()
+	outline_mesh.material_override = outline_mat;
 
 func get_mesh() -> MeshInstance3D:
 	var mesh = $MeshInstance3D
@@ -22,6 +33,14 @@ func set_mesh(mesh : MeshInstance3D):
 	mesh_instance.scale = mesh.scale;
 	mesh_instance.position = mesh.position;
 	mesh_instance.mesh = mesh.mesh;
+
+func select_hair_mesh(is_selected : bool):
+	if select == is_selected:
+		return
+	select = is_selected
+
+	var target_color =   Color.WHITE if is_selected else Color.BLACK
+	outline_mat.albedo_color = target_color
 
 
 func set_mesh_color(color : Color):

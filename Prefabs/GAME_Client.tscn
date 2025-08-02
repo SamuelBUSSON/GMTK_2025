@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://detsde15j2dyy" path="res://Prefabs/Hairs/GAME_Hair_Curly_Medium.tscn" id="3_rw0qo"]
 [ext_resource type="PackedScene" uid="uid://clj63qgtsrlwq" path="res://Prefabs/Hairs/GAME_Hair_Curly_Short.tscn" id="4_4x0kx"]
 [ext_resource type="PackedScene" uid="uid://bg2f1kr0nynw3" path="res://Prefabs/Hairs/GAME_Hair_Straight_Long.tscn" id="5_8bwxi"]
-[ext_resource type="PackedScene" uid="uid://bc57nldv4brj0" path="res://Prefabs/Hairs/GAME_Hair_Straight_Medium.tscn" id="6_0a3ld"]
+[ext_resource type="PackedScene" uid="uid://c36lm5en1o0gk" path="res://Prefabs/Hairs/GAME_Hair_Straight_Medium.tscn" id="6_0a3ld"]
 [ext_resource type="PackedScene" uid="uid://xtxmotqc4s3u" path="res://Prefabs/Hairs/GAME_Hair_Straight_Short.tscn" id="7_ecsbc"]
 [ext_resource type="PackedScene" uid="uid://dm2kuxif382xq" path="res://Art/Mesh/chara.fbx" id="8_rw0qo"]
 

@@ -89,20 +89,34 @@ func spawn_new_celebrity():
 
 func replace_air_mesh(hair_click : hair):
 	var new_hash = GameGlobal._hair_hash(hair_click);
-	var new_hair_mesh = hairMeshLookUp[new_hash];
-	hair_click.set_mesh(new_hair_mesh);
+	var new_hair_to_spawn = hairLookUp[new_hash];
+	var new_hair:hair = new_hair_to_spawn.instantiate() as hair
+	new_hair.set_mesh_color(hair_click.hair_color);
+	add_child(new_hair)
+	var spawn_point = spawn_positions[hair_click.spawn_nodex_index];
+	new_hair.global_position = spawn_point.global_position;
+	new_hair.rotation = spawn_point.rotation;
+	new_hair.spawn_nodex_index = hair_click.spawn_nodex_index;
+	remove_hair(hair_click)
+	spawned_hair.append(new_hair)
 
 func remove_hair(h: hair) -> void:
 	if spawned_hair.has(h):
 		spawned_hair.erase(h)
 		h.queue_free()
 
+var current_hair : hair;
+var hit_position : Vector3;
+
 func _process(delta):
 	if (is_celebrity):
 		return;
 
+	_select_at_screen(get_viewport().get_mouse_position())
+
 	if Input.is_action_just_pressed("mouse_click"):
-		_select_at_screen(get_viewport().get_mouse_position())
+		if current_hair:
+			GlobalSignals.emit_signal("on_hair_click", current_hair, hit_position);
 	if Input.is_action_just_pressed("reroll_hair_style"):
 		_spawn_hair_style()
 	if Input.is_action_just_pressed("swap_tool"):
@@ -122,6 +136,7 @@ func _spawn_hair_style():
 
 		var new_hair:hair = hair_to_spawn.instantiate() as hair
 		new_hair.set_mesh_color(GameGlobal.dye_color.pick_random());
+		new_hair.spawn_nodex_index = i;
 
 		add_child(new_hair)
 		new_hair.global_position = current_pos
@@ -140,7 +155,7 @@ func _spawn_hair_style():
 			var celebrity_rot = celebrity.spawned_hair[i].rotation;
 			new_hair.rotation = celebrity_rot
 
-		i += 1;
+		i = i + 1;
 		spawned_hair.append(new_hair)
 
 	if (self.is_celebrity):
@@ -160,11 +175,17 @@ func _select_at_screen(mouse_pos: Vector2) -> void:
 	var world = get_world_3d().direct_space_state
 	var result = world.intersect_ray(query)
 
+	if (current_hair != null):
+		current_hair.select_hair_mesh(false);
+
 	if result.size() > 0:
 		var obj = result["collider"] as CollisionObject3D
 		var hair_node = _find_hair_owner(obj)
-		if hair_node:
-			GlobalSignals.emit_signal("on_hair_click", hair_node, result["position"]);
+		if (hair_node):
+			hair_node.select_hair_mesh(true);
+			current_hair = hair_node;
+			hit_position = result["position"];
+
 
 
 
