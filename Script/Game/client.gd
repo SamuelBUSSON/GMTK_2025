@@ -115,8 +115,8 @@ func _spawn_hair_style():
 
 	var i = 0;
 	for spawn_point in spawn_positions:
-		var current_pos: Vector3 = spawn_point.global_position
-		var current_rot: Vector3 = spawn_point.global_transform.basis.get_euler()
+		var current_pos = spawn_point.global_position
+		var current_rot = spawn_point.rotation
 		var hair_hash_to_spawn = GameGlobal.get_random_hair_hash()
 		var hair_to_spawn = hairLookUp[hair_hash_to_spawn];
 
@@ -132,9 +132,9 @@ func _spawn_hair_style():
 			var delta_angle_z = deg_to_rad(rng.randf_range(-angle_variation_degrees.z, angle_variation_degrees.z))
 
 			new_hair.rotation = current_rot
-			new_hair.rotation.x =  delta_angle_x
-			new_hair.rotation.y =  delta_angle_y
-			new_hair.rotation.z =  delta_angle_z
+			new_hair.rotation.x +=  delta_angle_x
+			new_hair.rotation.y +=  delta_angle_y
+			new_hair.rotation.z +=  delta_angle_z
 		else:
 			var celebrity = GameGlobal.current_celebrity;
 			var celebrity_rot = celebrity.spawned_hair[i].rotation;

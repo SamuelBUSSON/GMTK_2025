@@ -13,22 +13,22 @@
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00351608, 0.505171, 0.00166607)
 script = ExtResource("1_scgdo")
 spawn_positions = [NodePath("Spawn_Pos_0"), NodePath("Spawn_Pos_1"), NodePath("Spawn_Pos_2"), NodePath("Spawn_Pos_3"), NodePath("Spawn_Pos_4")]
-angle_variation_degrees = Vector3(15, 15, 15)
+angle_variation_degrees = Vector3(5, 5, 5)
 hair_styles = Array[PackedScene]([ExtResource("2_cdf56"), ExtResource("3_rw0qo"), ExtResource("4_4x0kx"), ExtResource("5_8bwxi"), ExtResource("6_0a3ld"), ExtResource("7_ecsbc")])
 
 [node name="chara" parent="." instance=ExtResource("8_rw0qo")]
 
 [node name="Spawn_Pos_0" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.306032, 0)
+transform = Transform3D(-0.182151, 0.0704343, -0.980745, 0.428438, 0.903452, -0.0146894, 0.885021, -0.422864, -0.194741, 0, 0.281631, 0)
 
 [node name="Spawn_Pos_1" type="Node3D" parent="."]
-transform = Transform3D(0.831305, 0.555817, 0, -0.555817, 0.831305, 0, 0, 0, 1, 0.158813, 0.255535, 0)
+transform = Transform3D(-0.560959, 0.820035, 0.113439, 0.818065, 0.570103, -0.0758462, -0.126868, 0.0502538, -0.990646, 0.153986, 0.231671, 0.00127444)
 
 [node name="Spawn_Pos_2" type="Node3D" parent="."]
-transform = Transform3D(0.724425, -0.689354, 0, 0.689354, 0.724425, 0, 0, 0, 1, -0.185968, 0.217148, 0)
+transform = Transform3D(0.16995, -0.970706, 0.169842, 0.979916, 0.184711, 0.0751476, -0.104318, 0.15366, 0.982602, -0.171103, 0.199632, -0.00122979)
 
 [node name="Spawn_Pos_3" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.690643, -0.723196, 0, 0.723196, 0.690643, 0, 0.26235, 0.151434)
+transform = Transform3D(0.0944527, 0.0321277, 0.995011, 0.893152, 0.438735, -0.0989498, -0.439725, 0.898042, 0.0127448, 0.00332001, 0.236365, 0.134577)
 
 [node name="Spawn_Pos_4" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.772512, 0.635, 0, -0.635, 0.772512, 0, 0.252106, -0.163648)
+transform = Transform3D(0.00845922, -0.00611314, -0.999946, 0.967125, 0.254217, 0.00662741, 0.254163, -0.967128, 0.00806263, -8.31186e-05, 0.220902, -0.148298)
