@@ -3,7 +3,6 @@ extends Node3D
 @export var spawn_positions: Array[Node3D]
 @export var angle_variation_degrees: Vector3
 @export var hair_styles: Array[PackedScene];
-@export var hair_color: Array[Color];
 
 var spawned_hair: Array[hair] = []
 var rng := RandomNumberGenerator.new()
@@ -27,17 +26,32 @@ func _ready():
 
 
 func on_hair_click(hair_click : hair):
-	# todo (interact depending on player tool)
-
-	var size = hair_click.size;
-	if (size > 0):
+	if (GameGlobal.is_using_cisors()):
+		var size = hair_click.size;
 		hair_click.size =  hair_click.size - 1;
-		var new_hash = _hair_hash(hair_click);
-		var new_hair_mesh = hairMeshLookUp[new_hash];
-		hair_click.set_mesh(new_hair_mesh);
+		if (hair_click.size < 0):
+			hair_click.size = 2;
+
+		replace_air_mesh(hair_click);
+		return
+
+	if (GameGlobal.is_using_dye()):
+		var dye_color = GameGlobal.get_current_dye_color();
+		hair_click.set_mesh_color(dye_color);
+
+	if (GameGlobal.is_using_iron()):
+		hair_click.style = hair_click.style - 1;
+		if (hair_click.style < 0):
+			hair_click.style = 1;
+		replace_air_mesh(hair_click);
 
 
 	pass;
+
+func replace_air_mesh(hair_click : hair):
+	var new_hash = _hair_hash(hair_click);
+	var new_hair_mesh = hairMeshLookUp[new_hash];
+	hair_click.set_mesh(new_hair_mesh);
 
 func remove_hair(h: hair) -> void:
 	if spawned_hair.has(h):
@@ -52,8 +66,10 @@ func _hash(hair_style : int, hair_size : int) -> int:
 	return (hair_style << 8) | hair_size
 
 func _process(delta):
-	if Input.is_action_pressed("reroll_hair_style"):
+	if Input.is_action_just_pressed("reroll_hair_style"):
 		_spawn_hair_style()
+	if Input.is_action_just_pressed("swap_tool"):
+		GameGlobal.swap_tool()
 
 
 func get_random_hair_style() -> int:
@@ -78,7 +94,7 @@ func _spawn_hair_style():
 		var hair_to_spawn = hairLookUp[hair_hash_to_spawn];
 
 		var new_hair:hair = hair_to_spawn.instantiate() as hair
-		new_hair.set_mesh_color(hair_color.pick_random());
+		new_hair.set_mesh_color(GameGlobal.dye_color.pick_random());
 
 		add_child(new_hair)
 		new_hair.global_position = current_pos
@@ -114,10 +130,8 @@ func _select_at_screen(mouse_pos: Vector2) -> void:
 
 	if result.size() > 0:
 		var obj = result["collider"] as CollisionObject3D
-		print(obj)
 		var hair_node = _find_hair_owner(obj)
 		if hair_node:
-			print("Hair found :", hair_node, "style =", hair_node.style, "size =", hair_node.size)
 			GlobalSignals.emit_signal("on_hair_click", hair_node);
 
 

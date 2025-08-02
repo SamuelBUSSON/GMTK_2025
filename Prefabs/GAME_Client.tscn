@@ -27,7 +27,6 @@ script = ExtResource("1_scgdo")
 spawn_positions = [NodePath("Head/SpawnPos"), NodePath("Head/SpawnPos3"), NodePath("Head/SpawnPos4"), NodePath("Head/SpawnPos5")]
 angle_variation_degrees = Vector3(15, 15, 15)
 hair_styles = Array[PackedScene]([ExtResource("2_cdf56"), ExtResource("3_rw0qo"), ExtResource("4_4x0kx"), ExtResource("5_8bwxi"), ExtResource("6_0a3ld"), ExtResource("7_ecsbc")])
-hair_color = Array[Color]([Color(0.679717, 0.416355, 0.734936, 1), Color(8.66354e-07, 0.360028, 0.537104, 1), Color(2.02149e-06, 0.574567, 0.411422, 1)])
 
 [node name="Body" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.200665, 0, 0, 0, 1, 0, 0, 0, 0.203522, 0, 0, 0)
