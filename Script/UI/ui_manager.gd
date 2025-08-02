@@ -1,31 +1,56 @@
 extends Control
 
+var rng := RandomNumberGenerator.new()
+
 @onready var dialogue_block = $Dialogue
-@onready var dialogue_name = $Dialogue/DialogueName
 @onready var dialogue_text = $Dialogue/DialogueText
 @onready var dialogue_timer = $Dialogue/DialogueTimer
 
 @onready var photo_block = $Photo
 @onready var photo_front_texture = $Photo/PhotoFrontTexture
 @onready var photo_back_texture = $Photo/PhotoBackTexture
+@onready var photo_star_name = $Photo/PhotoStarName 
 @onready var photo_timer = $Photo/PhotoTimer
 
 @onready var pause_menu = $PauseMenu
 @onready var pause_button = $PauseButton
 
 @onready var tool_buttons = [$Toolbar/ScissorsButton,$Toolbar/IronButton,$Toolbar/DyeSprayButton1,$Toolbar/DyeSprayButton2,$Toolbar/DyeSprayButton3]
-var button_selected_int = -1
+var button_selected_int = 0
+
+var cursors = {"scissors_1" : load("res://Art/UI/Cursor/sci1.png"),
+"scissors_2" : load("res://Art/UI/Cursor/sci2.png"),
+"iron_1" : load("res://Art/UI/Cursor/fer1.png"),
+"iron_2" : load("res://Art/UI/Cursor/fer2.png"),
+"spray_1" : load("res://Art/UI/Cursor/spray1.png"),
+"spray_2" : load("res://Art/UI/Cursor/spray2.png")}
+
+var dialogue_pool = ["blabla","blabla"]
+var celebrity_names = ["Jean","Claude"]
 
 func _ready() -> void:
+	Input.set_custom_mouse_cursor(cursors.get("scissors_1"))
 	for i in tool_buttons:
 		i.modulate.a = 0.7
 
-func talk(talker_name : String, talker_text : String, time_talking : float):
+func _process(delta: float) -> void:
+	change_cursor_on_click()
+
+func talk(talker_text : String, time_talking : float):
 	if !dialogue_block.visible:
 		dialogue_block.visible = true
-		dialogue_name.text = talker_name
 		dialogue_text.text = talker_text
 		dialogue_timer.start(time_talking)
+	else:
+		print("hého, je parle déjà là")
+
+func rdm_talk():
+	var tamp = rng.randi_range(0,dialogue_pool.size()-1)
+	if !dialogue_block.visible:
+		dialogue_block.visible = true
+		dialogue_text.text = dialogue_pool[tamp]
+		photo_star_name.text = celebrity_names[tamp]
+		dialogue_timer.start(2.0)
 	else:
 		print("hého, je parle déjà là")
 
@@ -37,6 +62,7 @@ func show_photos(photo_front : TextureRect, photo_back : TextureRect, star_name 
 		photo_block.visible = true
 		photo_front_texture.texture = photo_front
 		photo_back_texture.texture = photo_back
+		photo_star_name.text = star_name
 	else:
 		print("je montre déjà une photo")
 
@@ -54,6 +80,22 @@ func _on_pause_menu_visibility_changed() -> void:
 	if !pause_menu.visible:
 		pause_button.visible = true
 
+func change_cursor_on_click():
+	if Input.is_action_just_pressed("mouse_click"):
+		if button_selected_int == 0:
+			Input.set_custom_mouse_cursor(cursors.get("scissors_2"))
+		elif button_selected_int == 1:
+			Input.set_custom_mouse_cursor(cursors.get("iron_2"))
+		elif button_selected_int >= 2:
+			Input.set_custom_mouse_cursor(cursors.get("spray_2"))
+	elif Input.is_action_just_released("mouse_click"):
+		if button_selected_int == 0:
+			Input.set_custom_mouse_cursor(cursors.get("scissors_1"))
+		elif button_selected_int == 1:
+			Input.set_custom_mouse_cursor(cursors.get("iron_1"))
+		elif button_selected_int >= 2:
+			Input.set_custom_mouse_cursor(cursors.get("spray_1"))
+
 func button_hovered(id_button : int):
 	if button_selected_int != id_button:
 		tool_buttons[id_button].modulate.a = 1
@@ -68,6 +110,13 @@ func button_selected(id_button : int):
 		i.pivot_offset = i.size/2
 		i.modulate.a = 0.7
 		
+	if id_button == 0:
+		Input.set_custom_mouse_cursor(cursors.get("scissors_1"))
+	elif id_button == 1:
+		Input.set_custom_mouse_cursor(cursors.get("iron_1"))
+	elif id_button >= 2:
+		Input.set_custom_mouse_cursor(cursors.get("spray_1"))
+	
 	button_selected_int = id_button
 	tool_buttons[id_button].modulate.a = 1
 	
