@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bgn1vvtf4skii"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oni22"]
+bg_color = Color(0.728559, 0.571937, 0.308569, 1)
+
+[resource]
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_oni22")
