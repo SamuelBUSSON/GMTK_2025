@@ -50,7 +50,7 @@ func get_from_pool_or_spawn(fx_id: String) -> Node2D:
 	return instantiate_pool_fx.spawned_fx;
 
 # Called when the node enters the scene tree for the first time.
-func request_fx(fx_id: String, spawn_position: Vector2, spawn_angle_rotation: float) -> Node:
+func request_fx(fx_id: String, spawn_position: Vector3, spawn_angle_rotation: float) -> Node:
 	var fx_to_spawn = get_from_pool_or_spawn(fx_id);
 	if (fx_to_spawn == null):
 		return

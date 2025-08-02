@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://x8x5vcd0dhan"]
+
+[ext_resource type="Script" uid="uid://bl1ssca2pjq4n" path="res://Script/GameGlobal.gd" id="1_or04w"]
+
+[node name="GameGameGlobal" type="Node3D"]
+script = ExtResource("1_or04w")
+dye_color = Array[Color]([Color(1, 0, 0, 1), Color(0, 1, 0, 1), Color(0, 0, 1, 1)])

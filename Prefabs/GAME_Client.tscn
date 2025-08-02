@@ -1,0 +1,59 @@
+[gd_scene load_steps=13 format=3 uid="uid://xf5n1prpkpxt"]
+
+[ext_resource type="Script" uid="uid://bwotumntdsqjm" path="res://Script/Game/client.gd" id="1_scgdo"]
+[ext_resource type="PackedScene" uid="uid://6hjuniq7iw3v" path="res://Prefabs/Hairs/GAME_Hair_Curly_Long.tscn" id="2_cdf56"]
+[ext_resource type="PackedScene" uid="uid://detsde15j2dyy" path="res://Prefabs/Hairs/GAME_Hair_Curly_Medium.tscn" id="3_rw0qo"]
+[ext_resource type="PackedScene" uid="uid://clj63qgtsrlwq" path="res://Prefabs/Hairs/GAME_Hair_Curly_Short.tscn" id="4_4x0kx"]
+[ext_resource type="PackedScene" uid="uid://bg2f1kr0nynw3" path="res://Prefabs/Hairs/GAME_Hair_Straight_Long.tscn" id="5_8bwxi"]
+[ext_resource type="PackedScene" uid="uid://bc57nldv4brj0" path="res://Prefabs/Hairs/GAME_Hair_Straight_Medium.tscn" id="6_0a3ld"]
+[ext_resource type="PackedScene" uid="uid://xtxmotqc4s3u" path="res://Prefabs/Hairs/GAME_Hair_Straight_Short.tscn" id="7_ecsbc"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_u6xht"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u6xht"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_u6xht"]
+material = SubResource("StandardMaterial3D_u6xht")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ebe2p"]
+albedo_color = Color(0, 0.333333, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_020ye"]
+material = SubResource("StandardMaterial3D_ebe2p")
+
+[node name="Client" type="Node3D" node_paths=PackedStringArray("spawn_positions")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00351608, 0.505171, 0.00166607)
+script = ExtResource("1_scgdo")
+spawn_positions = [NodePath("Head/SpawnPos"), NodePath("Head/SpawnPos3"), NodePath("Head/SpawnPos4"), NodePath("Head/SpawnPos5")]
+angle_variation_degrees = Vector3(15, 15, 15)
+hair_styles = Array[PackedScene]([ExtResource("2_cdf56"), ExtResource("3_rw0qo"), ExtResource("4_4x0kx"), ExtResource("5_8bwxi"), ExtResource("6_0a3ld"), ExtResource("7_ecsbc")])
+
+[node name="Body" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.200665, 0, 0, 0, 1, 0, 0, 0, 0.203522, 0, 0, 0)
+mesh = SubResource("BoxMesh_u6xht")
+
+[node name="Head" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.505226, 0, 0, 0, 0.502513, 0, 0, 0, 0.49678, 0, 0.629697, 0)
+mesh = SubResource("SphereMesh_u6xht")
+
+[node name="Eye" type="MeshInstance3D" parent="Head"]
+transform = Transform3D(0.158, 0, 0, 0, 0.158, 0, 0, 0, 0.158, 0.412343, 0.191172, 0.180492)
+mesh = SubResource("SphereMesh_020ye")
+skeleton = NodePath("../..")
+
+[node name="Eye2" type="MeshInstance3D" parent="Head"]
+transform = Transform3D(0.158, 0, 0, 0, 0.158, 0, 0, 0, 0.158, 0.412343, 0.191172, -0.148509)
+mesh = SubResource("SphereMesh_020ye")
+skeleton = NodePath("../..")
+
+[node name="SpawnPos" type="Node3D" parent="Head"]
+transform = Transform3D(0.788859, -0.614574, 0, 0.614574, 0.788859, 0, 0, 0, 1, -0.400228, 0.297788, 0)
+
+[node name="SpawnPos3" type="Node3D" parent="Head"]
+transform = Transform3D(0.880251, -0.410756, -0.237565, 0.265512, 0.841311, -0.470849, 0.39327, 0.351389, 0.849626, -0.120847, 0.287792, 0.387288)
+
+[node name="SpawnPos4" type="Node3D" parent="Head"]
+transform = Transform3D(0.883687, 9.77395e-05, -0.468079, -0.030388, 0.997903, -0.0571611, 0.467092, 0.0647365, 0.881836, -0.0287657, 0.483307, 0.101301)
+
+[node name="SpawnPos5" type="Node3D" parent="Head"]
+transform = Transform3D(0.883687, 0.190108, -0.427734, -0.030388, 0.935181, 0.352865, 0.467092, -0.298824, 0.832184, 0.0602684, 0.478658, -0.166247)

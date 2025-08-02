@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://6hjuniq7iw3v"]
+
+[ext_resource type="Script" uid="uid://b88kw7pf52jqa" path="res://Script/Game/hair.gd" id="1_4iif7"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_hbkb4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4iif7"]
+
+[node name="Hair" type="Node3D"]
+script = ExtResource("1_4iif7")
+size = 2
+style = 1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.072, 0, 0, 0, 0.3, 0, 0, 0, 0.078, 0, 0.15, 0)
+mesh = SubResource("BoxMesh_hbkb4")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="MeshInstance3D"]
+sleeping = true
+lock_rotation = true
+freeze = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/RigidBody3D"]
+shape = SubResource("BoxShape3D_4iif7")
