@@ -1,11 +1,15 @@
-[gd_scene load_steps=12 format=3 uid="uid://2r2xorepwlip"]
+[gd_scene load_steps=16 format=3 uid="uid://2r2xorepwlip"]
 
 [ext_resource type="PackedScene" uid="uid://cdk6hwb4hi2wc" path="res://Player/player.tscn" id="1_ndiqr"]
 [ext_resource type="PackedScene" uid="uid://xf5n1prpkpxt" path="res://Prefabs/GAME_Client.tscn" id="2_ecytd"]
 [ext_resource type="PackedScene" uid="uid://b76n4885ldf8m" path="res://Prefabs/GAME_Chair.tscn" id="3_q2e3v"]
 [ext_resource type="PackedScene" uid="uid://b2n231sfdc2dh" path="res://Levels/AudioScene.tscn" id="4_nwgsj"]
-[ext_resource type="Script" path="res://Script/SelectToolUI.gd" id="5_kld8x"]
+[ext_resource type="Script" uid="uid://7luc516gncmd" path="res://Script/SelectToolUI.gd" id="5_kld8x"]
 [ext_resource type="Script" uid="uid://cyd5sr7auhq8t" path="res://Script/UI/game_score.gd" id="6_kng65"]
+[ext_resource type="Material" uid="uid://nr0j7j660s45" path="res://Art/Materials/mat_wall.tres" id="7_m5lms"]
+[ext_resource type="Material" uid="uid://bok1camfpa3l3" path="res://Art/Texture/prototype_dark.material" id="8_25dgi"]
+[ext_resource type="Material" uid="uid://d1gkpjjlnk4tf" path="res://Art/Materials/mat_floor.tres" id="8_wlehf"]
+[ext_resource type="Material" uid="uid://c1o6altg54q33" path="res://Art/Materials/mat_lightsr.tres" id="9_5hxgg"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_yxtyg"]
 
@@ -13,8 +17,12 @@
 sky_material = SubResource("ProceduralSkyMaterial_yxtyg")
 
 [sub_resource type="Environment" id="Environment_k5onh"]
-background_mode = 2
+background_mode = 1
 sky = SubResource("Sky_edr0k")
+ambient_light_source = 3
+ambient_light_color = Color(0.825719, 0.829118, 0.578352, 1)
+ambient_light_sky_contribution = 0.4
+ambient_light_energy = 0.69
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_kld8x"]
 viewport_path = NodePath("FrontViewPort")
@@ -28,11 +36,13 @@ viewport_path = NodePath("BackViewPort")
 environment = SubResource("Environment_k5onh")
 
 [node name="DirectionalLight3d" type="DirectionalLight3D" parent="WorldEnvironment"]
-transform = Transform3D(-0.678961, 0.262875, -0.685499, -0.027831, 0.923814, 0.38183, 0.733646, 0.278326, -0.619918, 0, 6.83834, 0)
-shadow_enabled = true
+transform = Transform3D(0.691036, -0.672467, 0.265062, -0.28523, 0.0832558, 0.954836, -0.664164, -0.73543, -0.134275, 0.128791, 7.77952, -2.59427)
+light_color = Color(0.9505, 1, 0.73, 1)
+light_energy = 0.511
+sky_mode = 1
 
 [node name="Player" parent="." instance=ExtResource("1_ndiqr")]
-transform = Transform3D(-4.37114e-08, -0.21644, 0.976296, 0, 0.976296, 0.21644, -1, 9.46088e-09, -4.26752e-08, 0.6, 1.888, -1)
+transform = Transform3D(-4.37114e-08, -0.34202, 0.939693, 0, 0.939693, 0.34202, -1, 1.49502e-08, -4.10753e-08, 0.860232, 1.83242, -1)
 
 [node name="AudioScene" parent="." instance=ExtResource("4_nwgsj")]
 
@@ -156,11 +166,13 @@ texture = SubResource("ViewportTexture_kng65")
 expand_mode = 1
 
 [node name="FrontViewPort" type="SubViewport" parent="."]
+transparent_bg = true
 
 [node name="Camera3D" type="Camera3D" parent="FrontViewPort"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.8, 1.8, -10)
 
 [node name="BackViewPort" type="SubViewport" parent="."]
+transparent_bg = true
 
 [node name="Camera3D" type="Camera3D" parent="BackViewPort"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.8, 1.8, -10)
@@ -168,8 +180,9 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.8, 
 [node name="GreyBox" type="Node" parent="."]
 
 [node name="wall1" type="CSGBox3D" parent="GreyBox"]
-transform = Transform3D(0.890308, -0.455358, -1.35707e-08, 0, 2.98023e-08, -1, 0.455358, 0.890308, 2.65333e-08, -0.031269, 1.17056, 1.34503)
+transform = Transform3D(0.890308, -0.455358, -1.35707e-08, 0, 2.98023e-08, -1, 0.455358, 0.890308, 2.65333e-08, 0.920209, 0.746018, 0.78668)
 size = Vector3(6.6, 0.8, 3.9)
+material = ExtResource("7_m5lms")
 
 [node name="subwall1*" type="CSGBox3D" parent="GreyBox/wall1"]
 transform = Transform3D(1, 2.98023e-08, 7.11579e-09, -2.98023e-08, 1, 1.49012e-08, -2.2017e-08, -7.78537e-09, 1, -1.3, -0.49197, -0.7)
@@ -177,24 +190,59 @@ operation = 2
 size = Vector3(2.1, 0.455859, 1.3)
 
 [node name="Wall2" type="CSGBox3D" parent="GreyBox"]
-transform = Transform3D(0.455358, 0.890308, -1.40209e-08, -2.98023e-08, 0, -1, -0.890308, 0.455358, 4.30401e-08, -1.59932, 1.16183, -2.82972)
+transform = Transform3D(0.455358, 0.890308, -1.40209e-08, -2.98023e-08, 0, -1, -0.890308, 0.455358, 4.30401e-08, -0.627273, 0.737288, -3.42829)
 size = Vector3(6.6, 0.8, 3.9)
+material = ExtResource("7_m5lms")
 
 [node name="coiff" type="CSGBox3D" parent="GreyBox"]
-transform = Transform3D(0.167484, 0.912404, -1.40209e-08, -1.09615e-08, 1.08507e-22, -1, -0.327461, 0.46666, 4.30401e-08, -1.69224, 1.87056, -1.69475)
-size = Vector3(2, 0.143982, 1.5)
+transform = Transform3D(0.310903, -0.5, 2.13312e-08, 0, -4.37114e-08, -0.976, 0.1795, 0.866025, -3.69466e-08, -1.022, 0.940856, -2.07662)
+size = Vector3(1, 0.9, 1.5)
+material = ExtResource("8_25dgi")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="GreyBox/coiff"]
+transform = Transform3D(-9.7407e-08, 0.835655, 0, 5.24537e-08, 0, 0.8, 0.819672, 1.34359e-08, -5.37435e-08, 0.0555964, -4.76837e-07, -0.751397)
+radius = 0.5625
+height = 1.05
+sides = 12
+material = ExtResource("8_25dgi")
 
 [node name="table" type="CSGBox3D" parent="GreyBox"]
-transform = Transform3D(0.455358, 0.890308, -1.40209e-08, -2.98023e-08, 0, -1, -0.890308, 0.455358, 4.30401e-08, -1.45812, 0.870556, -1.575)
+transform = Transform3D(0.455358, 0.890308, -3.89166e-08, 0, -4.37114e-08, -1, -0.890308, 0.455358, -1.99043e-08, -0.628197, 0.446014, -1.89569)
 use_collision = true
-size = Vector3(2.1, 0.8, 1.3)
+size = Vector3(1.56611, 0.8, 1.3)
 
 [node name="sol" type="CSGBox3D" parent="GreyBox"]
-transform = Transform3D(0.890308, 0, -0.455358, 0, 1, 0, 0.455358, 0, 0.890308, 1.27477, 0.499834, -1.42811)
+transform = Transform3D(0.890632, 0.000315791, -0.454723, -0.000238209, 1, 0.000227901, 0.454723, -9.46488e-05, 0.890632, 2.22625, 0.0752919, -1.98646)
+use_collision = true
+size = Vector3(6.6, 0.2, 5.7)
+material = ExtResource("8_wlehf")
+
+[node name="sol2" type="CSGBox3D" parent="GreyBox"]
+transform = Transform3D(0.890308, 0, -0.455358, 0, 1, 0, 0.455358, 0, 0.890308, -1.79647, 3.65, 6.28656)
 use_collision = true
 size = Vector3(6.6, 0.2, 5.7)
 
-[node name="sol2" type="CSGBox3D" parent="GreyBox"]
-transform = Transform3D(0.890308, 0, -0.455358, 0, 1, 0, 0.455358, 0, 0.890308, 1.27477, 3.06698, -1.42811)
-use_collision = true
-size = Vector3(6.6, 0.2, 5.7)
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+transform = Transform3D(0.870218, 0, -0.492667, 0, 1, 0, 0.492667, 0, 0.870218, -0.87173, 2.01149, -1.9872)
+radius = 0.0610386
+material = ExtResource("9_5hxgg")
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="."]
+transform = Transform3D(0.870218, 0, -0.492667, 0, 1, 0, 0.492667, 0, 0.870218, -1.02945, 1.79365, -1.68677)
+radius = 0.0610386
+material = ExtResource("9_5hxgg")
+
+[node name="CSGSphere3D3" type="CSGSphere3D" parent="."]
+transform = Transform3D(0.870218, 0, -0.492667, 0, 1, 0, 0.492667, 0, 0.870218, -0.694581, 1.79365, -2.27825)
+radius = 0.0610386
+material = ExtResource("9_5hxgg")
+
+[node name="CSGSphere3D4" type="CSGSphere3D" parent="."]
+transform = Transform3D(0.870218, 0, -0.492667, 0, 1, 0, 0.492667, 0, 0.870218, -1.02945, 1.45167, -1.68677)
+radius = 0.0610386
+material = ExtResource("9_5hxgg")
+
+[node name="CSGSphere3D5" type="CSGSphere3D" parent="."]
+transform = Transform3D(0.870218, 0, -0.492667, 0, 1, 0, 0.492667, 0, 0.870218, -0.694581, 1.45167, -2.27825)
+radius = 0.0610386
+material = ExtResource("9_5hxgg")
