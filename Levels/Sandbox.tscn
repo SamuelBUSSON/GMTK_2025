@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://2r2xorepwlip"]
+[gd_scene load_steps=11 format=3 uid="uid://2r2xorepwlip"]
 
 [ext_resource type="PackedScene" uid="uid://cdk6hwb4hi2wc" path="res://Player/player.tscn" id="1_ndiqr"]
 [ext_resource type="PackedScene" uid="uid://xf5n1prpkpxt" path="res://Prefabs/GAME_Client.tscn" id="2_ecytd"]
@@ -14,6 +14,12 @@ sky_material = SubResource("ProceduralSkyMaterial_yxtyg")
 [sub_resource type="Environment" id="Environment_k5onh"]
 background_mode = 2
 sky = SubResource("Sky_edr0k")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_kld8x"]
+viewport_path = NodePath("FrontViewPort")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_kng65"]
+viewport_path = NodePath("BackViewPort")
 
 [node name="World" type="Node3D"]
 
@@ -108,3 +114,39 @@ text = "CISORS"
 script = ExtResource("5_kld8x")
 tool_to_use = 4
 label = NodePath(".")
+
+[node name="FrontViewPort" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -142.0
+offset_top = 13.0
+offset_right = -14.0
+offset_bottom = 141.0
+grow_horizontal = 0
+texture = SubResource("ViewportTexture_kld8x")
+expand_mode = 1
+
+[node name="BackViewPort" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -292.0
+offset_top = 13.0
+offset_right = -164.0
+offset_bottom = 141.0
+grow_horizontal = 0
+texture = SubResource("ViewportTexture_kng65")
+expand_mode = 1
+
+[node name="FrontViewPort" type="SubViewport" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="FrontViewPort"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0257738, 0.47343, 0.0345855)
+
+[node name="BackViewPort" type="SubViewport" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="BackViewPort"]
+transform = Transform3D(-0.999754, 0, 0.0221639, 0, 1, 0, -0.0221639, 0, -0.999754, 0.0257738, 0.47343, -1.96764)
