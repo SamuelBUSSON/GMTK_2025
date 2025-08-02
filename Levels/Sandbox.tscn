@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://2r2xorepwlip"]
+[gd_scene load_steps=11 format=3 uid="uid://2r2xorepwlip"]
 
 [ext_resource type="PackedScene" uid="uid://cdk6hwb4hi2wc" path="res://Player/player.tscn" id="1_ndiqr"]
 [ext_resource type="PackedScene" uid="uid://xf5n1prpkpxt" path="res://Prefabs/GAME_Client.tscn" id="2_ecytd"]
 [ext_resource type="PackedScene" uid="uid://b76n4885ldf8m" path="res://Prefabs/GAME_Chair.tscn" id="3_q2e3v"]
-[ext_resource type="PackedScene" uid="uid://cr5ehjyflux7i" path="res://Levels/AudioScene.tscn" id="4_nwgsj"]
+[ext_resource type="PackedScene" uid="uid://b2n231sfdc2dh" path="res://Levels/AudioScene.tscn" id="4_nwgsj"]
+[ext_resource type="Script" uid="uid://7luc516gncmd" path="res://Script/SelectToolUI.gd" id="5_kld8x"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_yxtyg"]
 
@@ -13,6 +14,12 @@ sky_material = SubResource("ProceduralSkyMaterial_yxtyg")
 [sub_resource type="Environment" id="Environment_k5onh"]
 background_mode = 2
 sky = SubResource("Sky_edr0k")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_kld8x"]
+viewport_path = NodePath("FrontViewPort")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_kng65"]
+viewport_path = NodePath("BackViewPort")
 
 [node name="World" type="Node3D"]
 
@@ -28,8 +35,122 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.38419e-07, 1.51541, -0.1479
 
 [node name="AudioScene" parent="." instance=ExtResource("4_nwgsj")]
 
+[node name="Celebrity" parent="." instance=ExtResource("2_ecytd")]
+transform = Transform3D(1.00115, 0, 0, 0, 1.00115, 0, 0, 0, 1.00115, 0, 1, -10)
+is_celebrity = true
+
 [node name="Chair" parent="." instance=ExtResource("3_q2e3v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.308844, -0.814256)
 
 [node name="Client" parent="Chair" instance=ExtResource("2_ecytd")]
 transform = Transform3D(1.00115, 0, 0, 0, 1.00115, 0, 0, 0, 1.00115, 0.00351608, 0.505171, 0.00166607)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Control" node_paths=PackedStringArray("label")]
+layout_mode = 0
+offset_left = 157.0
+offset_top = 602.0
+offset_right = 213.0
+offset_bottom = 625.0
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+text = "CISORS"
+script = ExtResource("5_kld8x")
+tool_to_use = 0
+label = NodePath(".")
+
+[node name="Label2" type="Label" parent="Control" node_paths=PackedStringArray("label")]
+layout_mode = 0
+offset_left = 248.0
+offset_top = 603.0
+offset_right = 304.0
+offset_bottom = 626.0
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+text = "CISORS"
+script = ExtResource("5_kld8x")
+tool_to_use = 1
+label = NodePath(".")
+
+[node name="Label3" type="Label" parent="Control" node_paths=PackedStringArray("label")]
+layout_mode = 0
+offset_left = 342.0
+offset_top = 603.0
+offset_right = 398.0
+offset_bottom = 626.0
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+text = "CISORS"
+script = ExtResource("5_kld8x")
+tool_to_use = 2
+label = NodePath(".")
+
+[node name="Label4" type="Label" parent="Control" node_paths=PackedStringArray("label")]
+layout_mode = 0
+offset_left = 428.0
+offset_top = 598.0
+offset_right = 484.0
+offset_bottom = 621.0
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+text = "CISORS"
+script = ExtResource("5_kld8x")
+tool_to_use = 3
+label = NodePath(".")
+
+[node name="Label5" type="Label" parent="Control" node_paths=PackedStringArray("label")]
+layout_mode = 0
+offset_left = 525.0
+offset_top = 606.0
+offset_right = 581.0
+offset_bottom = 629.0
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+text = "CISORS"
+script = ExtResource("5_kld8x")
+tool_to_use = 4
+label = NodePath(".")
+
+[node name="FrontViewPort" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -269.0
+offset_top = 13.0
+offset_right = -13.0
+offset_bottom = 269.0
+grow_horizontal = 0
+texture = SubResource("ViewportTexture_kld8x")
+expand_mode = 1
+
+[node name="BackViewPort" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -568.0
+offset_top = 13.0
+offset_right = -312.0
+offset_bottom = 269.0
+grow_horizontal = 0
+texture = SubResource("ViewportTexture_kng65")
+expand_mode = 1
+
+[node name="FrontViewPort" type="SubViewport" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="FrontViewPort"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.8, 1.8, -10)
+
+[node name="BackViewPort" type="SubViewport" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="BackViewPort"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.8, 1.8, -10)

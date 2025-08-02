@@ -1,8 +1,12 @@
 extends Node3D
 
+class_name hair_character
+
 @export var spawn_positions: Array[Node3D]
 @export var angle_variation_degrees: Vector3
 @export var hair_styles: Array[PackedScene];
+
+@export var is_celebrity : bool
 
 var spawned_hair: Array[hair] = []
 var rng := RandomNumberGenerator.new()
@@ -16,13 +20,16 @@ func _ready():
 
 	for scene in hair_styles:
 		var new_hair: hair = scene.instantiate() as hair
-		var hair_hash = _hash(new_hair.style, new_hair.size);
+		var hair_hash = GameGlobal._hash(new_hair.style, new_hair.size);
 		hairLookUp[hair_hash] = scene;
 		hairMeshLookUp[hair_hash] = new_hair.get_mesh()
 
 	_spawn_hair_style()
 
-	GlobalSignals.connect("on_hair_click", on_hair_click)
+	if (!is_celebrity):
+		GlobalSignals.connect("on_hair_click", on_hair_click)
+	else:
+		GameGlobal.current_celebrity = self;
 
 
 func on_hair_click(hair_click : hair):
@@ -45,11 +52,16 @@ func on_hair_click(hair_click : hair):
 			hair_click.style = 1;
 		replace_air_mesh(hair_click);
 
+	# increment score + switch character
+	if (GameGlobal.is_character_matching(self)):
+		print("Bravo !");
+		_spawn_hair_style();
+		pass;
 
 	pass;
 
 func replace_air_mesh(hair_click : hair):
-	var new_hash = _hair_hash(hair_click);
+	var new_hash = GameGlobal._hair_hash(hair_click);
 	var new_hair_mesh = hairMeshLookUp[new_hash];
 	hair_click.set_mesh(new_hair_mesh);
 
@@ -58,28 +70,19 @@ func remove_hair(h: hair) -> void:
 		spawned_hair.erase(h)
 		h.queue_free()
 
-
-func _hair_hash(hair_scene : hair) -> int:
-	return _hash(hair_scene.style, hair_scene.size);
-
-func _hash(hair_style : int, hair_size : int) -> int:
-	return (hair_style << 8) | hair_size
-
 func _process(delta):
+	if (is_celebrity):
+		return;
+
+	if Input.is_action_just_pressed("mouse_click"):
+		_select_at_screen(get_viewport().get_mouse_position())
 	if Input.is_action_just_pressed("reroll_hair_style"):
 		_spawn_hair_style()
 	if Input.is_action_just_pressed("swap_tool"):
 		GameGlobal.swap_tool()
 
 
-func get_random_hair_style() -> int:
-	return rng.randi_range(0, 1);
 
-func get_random_hair_size() -> int:
-	return rng.randi_range(0, 2);
-
-func get_random_hair_hash() -> int:
-	return _hash(get_random_hair_style(), get_random_hair_size());
 
 
 func _spawn_hair_style():
@@ -90,7 +93,7 @@ func _spawn_hair_style():
 	for spawn_point in spawn_positions:
 		var current_pos: Vector3 = spawn_point.global_position
 		var current_rot: Vector3 = spawn_point.global_transform.basis.get_euler()
-		var hair_hash_to_spawn = get_random_hair_hash()
+		var hair_hash_to_spawn = GameGlobal.get_random_hair_hash()
 		var hair_to_spawn = hairLookUp[hair_hash_to_spawn];
 
 		var new_hair:hair = hair_to_spawn.instantiate() as hair
@@ -108,11 +111,6 @@ func _spawn_hair_style():
 		new_hair.rotation.z =  delta_angle_z
 
 		spawned_hair.append(new_hair)
-
-
-func _physics_process(delta):
-	if Input.is_action_just_pressed("mouse_click"):
-		_select_at_screen(get_viewport().get_mouse_position())
 
 func _select_at_screen(mouse_pos: Vector2) -> void:
 	var cam = get_viewport().get_camera_3d()
