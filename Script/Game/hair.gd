@@ -34,3 +34,25 @@ func set_mesh_color(color : Color):
 
 	mat.albedo_color = color
 	hair_color = color;
+
+func on_hair_match_event():
+	var mesh_inst = $MeshInstance3D
+	var mat = mesh_inst.get_active_material(0)
+	if mat == null:
+		mat = StandardMaterial3D.new()
+		mesh_inst.set_surface_override_material(0, mat)
+	else:
+		mat = mat.duplicate()
+		mesh_inst.set_surface_override_material(0, mat)
+
+	var original_color = mat.albedo_color
+	var original_scale = mesh_inst.scale
+
+	var tween = create_tween()
+
+	tween.tween_property(mat,      "albedo_color", Color.WHITE, 0.3)
+	tween.tween_property(mesh_inst, "scale",       original_scale * 1.2, 0.3)
+
+	tween.tween_property(mat,      "albedo_color", original_color, 0.3).set_delay(0.3)
+	tween.tween_property(mesh_inst, "scale",       original_scale, 0.3).set_delay(0.3)
+	pass;
