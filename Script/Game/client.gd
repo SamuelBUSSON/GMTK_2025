@@ -13,10 +13,12 @@ var rng := RandomNumberGenerator.new()
 
 var hairLookUp : Dictionary;
 var hairMeshLookUp : Dictionary;
+var base_position : Vector3
 
 
 func _ready():
 	rng.randomize()
+	base_position = global_position;
 
 	for scene in hair_styles:
 		var new_hair: hair = scene.instantiate() as hair
@@ -65,12 +67,24 @@ func on_hair_click(hair_click : hair):
 
 	# increment score + switch character
 	if (GameGlobal.is_character_matching(self)):
-		_spawn_hair_style();
-		GameGlobal.player_score += 1;
-		GameGlobal.current_celebrity._spawn_hair_style();
+		on_sucess();
 		pass;
 
 	pass;
+
+func on_sucess():
+	GameGlobal.player_score += 1;
+
+	var tween = create_tween()
+	tween.tween_interval(0.5);
+	tween.tween_property(self, "global_position", global_position + Vector3.FORWARD * 2, 0.5).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN);
+	tween.tween_callback(spawn_new_celebrity);
+	tween.tween_property(self, "global_position", base_position - Vector3.FORWARD * 2, 0)
+	tween.tween_property(self, "global_position", base_position, 0.5).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT);
+
+func spawn_new_celebrity():
+	GameGlobal.current_celebrity._spawn_hair_style()
+
 
 func replace_air_mesh(hair_click : hair):
 	var new_hash = GameGlobal._hair_hash(hair_click);
@@ -91,7 +105,7 @@ func _process(delta):
 	if Input.is_action_just_pressed("reroll_hair_style"):
 		_spawn_hair_style()
 	if Input.is_action_just_pressed("swap_tool"):
-		GameGlobal.swap_tool()
+		on_sucess()
 
 func _spawn_hair_style():
 	for h in spawned_hair:
