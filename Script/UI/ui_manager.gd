@@ -9,11 +9,12 @@ var rng := RandomNumberGenerator.new()
 @onready var photo_block = $Photo
 @onready var photo_front_texture = $Photo/PhotoFrontTexture
 @onready var photo_back_texture = $Photo/PhotoBackTexture
-@onready var photo_star_name = $Photo/PhotoStarName 
+@onready var photo_star_name = $Photo/PhotoStarName
 @onready var photo_timer = $Photo/PhotoTimer
 
 @onready var pause_menu = $PauseMenu
 @onready var pause_button = $PauseButton
+
 
 @onready var tool_buttons = [$Toolbar/ScissorsButton,$Toolbar/IronButton,$Toolbar/DyeSprayButton1,$Toolbar/DyeSprayButton2,$Toolbar/DyeSprayButton3]
 var button_selected_int = 0
@@ -35,6 +36,9 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	change_cursor_on_click()
+	photo_front_texture.texture = GameGlobal.viewport_front.get_texture();
+	photo_back_texture.texture = GameGlobal.viewport_back.get_texture();
+	pass;
 
 func talk(talker_text : String, time_talking : float):
 	if !dialogue_block.visible:
@@ -60,8 +64,8 @@ func _on_dialogue_timer_timeout() -> void:
 func show_photos(photo_front : TextureRect, photo_back : TextureRect, star_name : float):
 	if !photo_block.visible:
 		photo_block.visible = true
-		photo_front_texture.texture = photo_front
-		photo_back_texture.texture = photo_back
+		# photo_front_texture.texture = photo_front
+		# photo_back_texture.texture = photo_back
 		photo_star_name.text = star_name
 	else:
 		print("je montre déjà une photo")
@@ -109,17 +113,17 @@ func button_selected(id_button : int):
 		i.scale = Vector2(1.0,1.0)
 		i.pivot_offset = i.size/2
 		i.modulate.a = 0.7
-		
+
 	if id_button == 0:
 		Input.set_custom_mouse_cursor(cursors.get("scissors_1"))
 	elif id_button == 1:
 		Input.set_custom_mouse_cursor(cursors.get("iron_1"))
 	elif id_button >= 2:
 		Input.set_custom_mouse_cursor(cursors.get("spray_1"))
-	
+
 	button_selected_int = id_button
 	tool_buttons[id_button].modulate.a = 1
-	
+
 	var tween = create_tween()
 	tween.tween_property(tool_buttons[id_button], "scale", Vector2(1.4,1.4), 0.3).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
 

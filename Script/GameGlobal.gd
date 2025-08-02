@@ -10,6 +10,9 @@ var current_celebrity : hair_character
 var rng := RandomNumberGenerator.new()
 var player_score : int;
 
+var viewport_back : SubViewport;
+var viewport_front : SubViewport;
+
 func is_current_tool(tool_id : int):
     return current_tool == tool_id;
 

@@ -1,5 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://2r2xorepwlip"]
+[gd_scene load_steps=14 format=3 uid="uid://2r2xorepwlip"]
 
+[ext_resource type="Script" uid="uid://dsr476vjg31mu" path="res://Script/GameWorld.gd" id="1_25dgi"]
 [ext_resource type="PackedScene" uid="uid://cdk6hwb4hi2wc" path="res://Player/player.tscn" id="1_ndiqr"]
 [ext_resource type="PackedScene" uid="uid://xf5n1prpkpxt" path="res://Prefabs/GAME_Client.tscn" id="2_ecytd"]
 [ext_resource type="PackedScene" uid="uid://b76n4885ldf8m" path="res://Prefabs/GAME_Chair.tscn" id="3_q2e3v"]
@@ -23,13 +24,10 @@ ambient_light_color = Color(0.825719, 0.829118, 0.578352, 1)
 ambient_light_sky_contribution = 0.4
 ambient_light_energy = 0.69
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_kld8x"]
-viewport_path = NodePath("FrontViewPort")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_kng65"]
-viewport_path = NodePath("BackViewPort")
-
-[node name="World" type="Node3D"]
+[node name="World" type="Node3D" node_paths=PackedStringArray("viewport_front", "viewport_back")]
+script = ExtResource("1_25dgi")
+viewport_front = NodePath("FrontViewPort")
+viewport_back = NodePath("BackViewPort")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_k5onh")
@@ -72,32 +70,6 @@ theme_override_font_sizes/font_size = 50
 text = "asasd"
 script = ExtResource("6_kng65")
 label = NodePath(".")
-
-[node name="FrontViewPort" type="TextureRect" parent="Control"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -269.0
-offset_top = 13.0
-offset_right = -13.0
-offset_bottom = 269.0
-grow_horizontal = 0
-texture = SubResource("ViewportTexture_kld8x")
-expand_mode = 1
-
-[node name="BackViewPort" type="TextureRect" parent="Control"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -568.0
-offset_top = 13.0
-offset_right = -312.0
-offset_bottom = 269.0
-grow_horizontal = 0
-texture = SubResource("ViewportTexture_kng65")
-expand_mode = 1
 
 [node name="FrontViewPort" type="SubViewport" parent="."]
 transparent_bg = true
