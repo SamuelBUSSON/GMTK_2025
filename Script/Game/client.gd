@@ -42,13 +42,14 @@ func on_celebrity_select():
 	_spawn_hair_style();
 
 
-func on_hair_click(hair_click : hair):
+func on_hair_click(hair_click : hair, hit_position : Vector3 ):
 	if (GameGlobal.is_using_cisors()):
 		var size = hair_click.size;
 		hair_click.size =  hair_click.size - 1;
 		if (hair_click.size < 0):
 			hair_click.size = 2;
 
+		FxManager.request_fx("fx_cut_hair", hit_position);
 		replace_air_mesh(hair_click);
 
 	if (GameGlobal.is_using_dye()):
@@ -163,7 +164,7 @@ func _select_at_screen(mouse_pos: Vector2) -> void:
 		var obj = result["collider"] as CollisionObject3D
 		var hair_node = _find_hair_owner(obj)
 		if hair_node:
-			GlobalSignals.emit_signal("on_hair_click", hair_node);
+			GlobalSignals.emit_signal("on_hair_click", hair_node, result["position"]);
 
 
 

@@ -1,41 +1,61 @@
-[gd_scene load_steps=5 format=3 uid="uid://dyukkhpgvohh6"]
+[gd_scene load_steps=11 format=3 uid="uid://dyukkhpgvohh6"]
 
-[ext_resource type="Texture2D" uid="uid://cnllraia1xqs4" path="res://icon.svg" id="1_ug114"]
+[ext_resource type="Texture2D" uid="uid://cutimwj6dsnfp" path="res://Art/Texture/FX/trace_01.png" id="1_ug114"]
 
-[sub_resource type="Curve" id="Curve_ddsdd"]
-_limits = [0.0, 100.0, 0.0, 1.0]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 100), 0.0, 0.0, 0, 0]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xld7s"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_ug114")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+grow_amount = 0.395
+
+[sub_resource type="Curve" id="Curve_xld7s"]
+_data = [Vector2(0, 1), 0.0, -1.71196, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="Curve" id="Curve_5gq2m"]
-_data = [Vector2(0.00867052, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+[sub_resource type="CurveTexture" id="CurveTexture_ottuo"]
+curve = SubResource("Curve_xld7s")
+
+[sub_resource type="Gradient" id="Gradient_ug114"]
+colors = PackedColorArray(1, 0.960784, 0, 1, 0.941171, 0.770485, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_xld7s"]
+gradient = SubResource("Gradient_ug114")
+
+[sub_resource type="Curve" id="Curve_ug114"]
+_limits = [0.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 1.98663), 0.0, -6.54041, 0, 0, Vector2(0.44302, 1.00411), 0.097751, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="Gradient" id="Gradient_yb2x2"]
-interpolation_mode = 2
-interpolation_color_space = 2
-colors = PackedColorArray(1, 0.305882, 0, 1, 1, 1, 0, 1)
+[sub_resource type="CurveTexture" id="CurveTexture_xld7s"]
+curve = SubResource("Curve_ug114")
 
-[node name="FxHit" type="Node2D"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_x3cac"]
+angle_min = -694.7
+angle_max = 720.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.1
+scale_max = 0.2
+scale_curve = SubResource("CurveTexture_xld7s")
+color_ramp = SubResource("GradientTexture1D_xld7s")
+alpha_curve = SubResource("CurveTexture_ottuo")
 
-[node name="particle" type="CPUParticles2D" parent="."]
+[sub_resource type="QuadMesh" id="QuadMesh_x3cac"]
+
+[node name="FxHit" type="Node3D"]
+
+[node name="particle" type="GPUParticles3D" parent="."]
 unique_name_in_owner = true
+material_override = SubResource("StandardMaterial3D_xld7s")
+cast_shadow = 0
 emitting = false
-amount = 30
-texture = ExtResource("1_ug114")
+amount = 1
 lifetime = 0.2
-explosiveness = 1.0
-spread = 180.0
-gravity = Vector2(0, 0)
-initial_velocity_min = 100.0
-initial_velocity_max = 300.0
-linear_accel_max = 76.5
-damping_min = 100.0
-damping_max = 100.0
-damping_curve = SubResource("Curve_ddsdd")
-angle_min = -312.5
-angle_max = 540.5
-scale_amount_min = 2.0
-scale_amount_max = 15.0
-scale_amount_curve = SubResource("Curve_5gq2m")
-color_ramp = SubResource("Gradient_yb2x2")
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_x3cac")
+draw_pass_1 = SubResource("QuadMesh_x3cac")
