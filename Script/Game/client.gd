@@ -3,6 +3,7 @@ extends Node3D
 class_name hair_character
 
 @export var spawn_positions: Array[Node3D]
+@export var eyes: Array[Node3D]
 @export var angle_variation_degrees: Vector3
 @export var hair_styles: Array[PackedScene];
 
@@ -126,6 +127,11 @@ func _spawn_hair_style():
 	for h in spawned_hair:
 		h.queue_free()
 	spawned_hair.clear()
+
+	for eye in eyes:
+		eye.visible = false;
+
+	eyes.pick_random().visible = true;
 
 	var i = 0;
 	for spawn_point in spawn_positions:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://xf5n1prpkpxt"]
+[gd_scene load_steps=12 format=3 uid="uid://xf5n1prpkpxt"]
 
 [ext_resource type="Script" uid="uid://bwotumntdsqjm" path="res://Script/Game/client.gd" id="1_scgdo"]
 [ext_resource type="PackedScene" uid="uid://6hjuniq7iw3v" path="res://Prefabs/Hairs/GAME_Hair_Curly_Long.tscn" id="2_cdf56"]
@@ -8,15 +8,25 @@
 [ext_resource type="PackedScene" uid="uid://c36lm5en1o0gk" path="res://Prefabs/Hairs/GAME_Hair_Straight_Medium.tscn" id="6_0a3ld"]
 [ext_resource type="PackedScene" uid="uid://xtxmotqc4s3u" path="res://Prefabs/Hairs/GAME_Hair_Straight_Short.tscn" id="7_ecsbc"]
 [ext_resource type="PackedScene" uid="uid://dm2kuxif382xq" path="res://Art/Mesh/chara.fbx" id="8_rw0qo"]
+[ext_resource type="PackedScene" uid="uid://b0180g5qx3qf3" path="res://Art/Mesh/eye 1.fbx" id="9_0a3ld"]
+[ext_resource type="PackedScene" uid="uid://bw6yom15a7gib" path="res://Art/Mesh/eyes 2.fbx" id="10_ecsbc"]
+[ext_resource type="PackedScene" uid="uid://b8buj2mb8m3fc" path="res://Art/Mesh/eyes 3.fbx" id="11_4727f"]
 
-[node name="Client" type="Node3D" node_paths=PackedStringArray("spawn_positions")]
+[node name="Client" type="Node3D" node_paths=PackedStringArray("spawn_positions", "eyes")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00351608, 0.505171, 0.00166607)
 script = ExtResource("1_scgdo")
 spawn_positions = [NodePath("Spawn_Pos_0"), NodePath("Spawn_Pos_1"), NodePath("Spawn_Pos_2"), NodePath("Spawn_Pos_3"), NodePath("Spawn_Pos_4")]
+eyes = [NodePath("eye 1"), NodePath("eyes 2"), NodePath("eyes 3")]
 angle_variation_degrees = Vector3(5, 5, 5)
 hair_styles = Array[PackedScene]([ExtResource("2_cdf56"), ExtResource("3_rw0qo"), ExtResource("4_4x0kx"), ExtResource("5_8bwxi"), ExtResource("6_0a3ld"), ExtResource("7_ecsbc")])
 
 [node name="chara" parent="." instance=ExtResource("8_rw0qo")]
+
+[node name="eye 1" parent="." instance=ExtResource("9_0a3ld")]
+
+[node name="eyes 2" parent="." instance=ExtResource("10_ecsbc")]
+
+[node name="eyes 3" parent="." instance=ExtResource("11_4727f")]
 
 [node name="Spawn_Pos_0" type="Node3D" parent="."]
 transform = Transform3D(-0.182151, 0.0704343, -0.980745, 0.428438, 0.903452, -0.0146894, 0.885021, -0.422864, -0.194741, 0, 0.281631, 0)
