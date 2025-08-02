@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://2r2xorepwlip"]
+[gd_scene load_steps=12 format=3 uid="uid://2r2xorepwlip"]
 
 [ext_resource type="PackedScene" uid="uid://cdk6hwb4hi2wc" path="res://Player/player.tscn" id="1_ndiqr"]
 [ext_resource type="PackedScene" uid="uid://xf5n1prpkpxt" path="res://Prefabs/GAME_Client.tscn" id="2_ecytd"]
 [ext_resource type="PackedScene" uid="uid://b76n4885ldf8m" path="res://Prefabs/GAME_Chair.tscn" id="3_q2e3v"]
 [ext_resource type="PackedScene" uid="uid://b2n231sfdc2dh" path="res://Levels/AudioScene.tscn" id="4_nwgsj"]
 [ext_resource type="Script" uid="uid://7luc516gncmd" path="res://Script/SelectToolUI.gd" id="5_kld8x"]
+[ext_resource type="Script" uid="uid://cyd5sr7auhq8t" path="res://Script/UI/game_score.gd" id="6_kng65"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_yxtyg"]
 
@@ -31,7 +32,7 @@ transform = Transform3D(-0.678961, 0.262875, -0.685499, -0.027831, 0.923814, 0.3
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_ndiqr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.38419e-07, 1.51541, -0.147957)
+transform = Transform3D(-4.37114e-08, -0.21644, 0.976296, 0, 0.976296, 0.21644, -1, 9.46088e-09, -4.26752e-08, 0.6, 1.888, -1)
 
 [node name="AudioScene" parent="." instance=ExtResource("4_nwgsj")]
 
@@ -40,7 +41,7 @@ transform = Transform3D(1.00115, 0, 0, 0, 1.00115, 0, 0, 0, 1.00115, 0, 1, -10)
 is_celebrity = true
 
 [node name="Chair" parent="." instance=ExtResource("3_q2e3v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.308844, -0.814256)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, -1)
 
 [node name="Client" parent="Chair" instance=ExtResource("2_ecytd")]
 transform = Transform3D(1.00115, 0, 0, 0, 1.00115, 0, 0, 0, 1.00115, 0.00351608, 0.505171, 0.00166607)
@@ -117,6 +118,15 @@ mouse_default_cursor_shape = 2
 text = "CISORS"
 script = ExtResource("5_kld8x")
 tool_to_use = 4
+label = NodePath(".")
+
+[node name="Score Label" type="Label" parent="Control" node_paths=PackedStringArray("label")]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 50
+text = "asasd"
+script = ExtResource("6_kng65")
 label = NodePath(".")
 
 [node name="FrontViewPort" type="TextureRect" parent="Control"]

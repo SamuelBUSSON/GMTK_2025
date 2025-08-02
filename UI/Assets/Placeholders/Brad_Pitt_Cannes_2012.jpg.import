@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5ns2j4yhbytw"
-path="res://.godot/imported/BUTTON2.png-353e419a5c19dd2f8944aef036614b80.ctex"
+uid="uid://k3wb0w0xtvef"
+path="res://.godot/imported/Brad_Pitt_Cannes_2012.jpg-50745ffe60358202f3cff5f6e7c85d7a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/UI/BUTTON2.png"
-dest_files=["res://.godot/imported/BUTTON2.png-353e419a5c19dd2f8944aef036614b80.ctex"]
+source_file="res://UI/Assets/Placeholders/Brad_Pitt_Cannes_2012.jpg"
+dest_files=["res://.godot/imported/Brad_Pitt_Cannes_2012.jpg-50745ffe60358202f3cff5f6e7c85d7a.ctex"]
 
 [params]
 
