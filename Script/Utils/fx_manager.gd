@@ -3,7 +3,7 @@ extends Node
 class_name fx_manager;
 
 class pool_fx:
-	var spawned_fx: Node;
+	var spawned_fx: Node3D;
 
 @export var fx_descriptor: Array[fx_description]
 
@@ -18,7 +18,7 @@ func _ready() -> void:
 		pass
 
 
-func get_from_pool_or_spawn(fx_id: String) -> Node2D:
+func get_from_pool_or_spawn(fx_id: String) -> Node3D:
 	var asset_to_spawn = fx_descriptor_dico.get(fx_id);
 	if (!spawned_fx.has(fx_id)):
 		if (asset_to_spawn == null):
@@ -37,7 +37,7 @@ func get_from_pool_or_spawn(fx_id: String) -> Node2D:
 
 	for i in range(0, fx_pool.size()):
 		var pool_fx_object = fx_pool[i];
-		var fx: CPUParticles2D = pool_fx_object.spawned_fx.get_node("particle");
+		var fx = pool_fx_object.spawned_fx.get_node("particle");
 		if (!fx.emitting):
 			return pool_fx_object.spawned_fx;
 		pass
@@ -50,16 +50,33 @@ func get_from_pool_or_spawn(fx_id: String) -> Node2D:
 	return instantiate_pool_fx.spawned_fx;
 
 # Called when the node enters the scene tree for the first time.
-func request_fx(fx_id: String, spawn_position: Vector3, spawn_angle_rotation: float) -> Node:
+func request_fx(fx_id: String, spawn_position: Vector3) -> Node:
 	var fx_to_spawn = get_from_pool_or_spawn(fx_id);
 	if (fx_to_spawn == null):
 		return
 
 	fx_to_spawn.position = spawn_position;
-	fx_to_spawn.rotation = spawn_angle_rotation;
-	fx_to_spawn.scale = Vector2(1, 1)
-	fx_to_spawn.modulate = Color.WHITE;
-	var particle: CPUParticles2D = fx_to_spawn.get_node("particle");
+	fx_to_spawn.scale = Vector3.ONE
+	var particle = fx_to_spawn.get_node("particle");
 	particle.restart()
 	particle.emitting = true;
 	return fx_to_spawn;
+
+func request_attach_fx(fx_id: String, spawn_position: Vector3, parent : Node3D) -> Node:
+	var fx_to_spawn = get_from_pool_or_spawn(fx_id);
+	if (fx_to_spawn == null):
+		return
+
+	fx_to_spawn.position = spawn_position;
+	fx_to_spawn.scale = Vector3.ONE
+	var particle = fx_to_spawn.get_node("particle");
+	particle.restart()
+	particle.emitting = true;
+	reparent_node(fx_to_spawn, parent)
+	return fx_to_spawn;
+
+func reparent_node(child: Node3D, new_parent: Node3D):
+	var old_transform = child.global_transform
+	child.get_parent().remove_child(child)
+	new_parent.add_child(child)
+	child.global_transform = old_transform
