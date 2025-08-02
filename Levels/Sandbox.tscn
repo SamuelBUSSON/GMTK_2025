@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://xf5n1prpkpxt" path="res://Prefabs/GAME_Client.tscn" id="2_ecytd"]
 [ext_resource type="PackedScene" uid="uid://b76n4885ldf8m" path="res://Prefabs/GAME_Chair.tscn" id="3_q2e3v"]
 [ext_resource type="PackedScene" uid="uid://b2n231sfdc2dh" path="res://Levels/AudioScene.tscn" id="4_nwgsj"]
-[ext_resource type="Script" uid="uid://7luc516gncmd" path="res://Script/SelectToolUI.gd" id="5_kld8x"]
+[ext_resource type="Script" path="res://Script/SelectToolUI.gd" id="5_kld8x"]
 [ext_resource type="Script" uid="uid://cyd5sr7auhq8t" path="res://Script/UI/game_score.gd" id="6_kng65"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_yxtyg"]
@@ -164,3 +164,37 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.8, 1
 
 [node name="Camera3D" type="Camera3D" parent="BackViewPort"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.8, 1.8, -10)
+
+[node name="GreyBox" type="Node" parent="."]
+
+[node name="wall1" type="CSGBox3D" parent="GreyBox"]
+transform = Transform3D(0.890308, -0.455358, -1.35707e-08, 0, 2.98023e-08, -1, 0.455358, 0.890308, 2.65333e-08, -0.031269, 1.17056, 1.34503)
+size = Vector3(6.6, 0.8, 3.9)
+
+[node name="subwall1*" type="CSGBox3D" parent="GreyBox/wall1"]
+transform = Transform3D(1, 2.98023e-08, 7.11579e-09, -2.98023e-08, 1, 1.49012e-08, -2.2017e-08, -7.78537e-09, 1, -1.3, -0.49197, -0.7)
+operation = 2
+size = Vector3(2.1, 0.455859, 1.3)
+
+[node name="Wall2" type="CSGBox3D" parent="GreyBox"]
+transform = Transform3D(0.455358, 0.890308, -1.40209e-08, -2.98023e-08, 0, -1, -0.890308, 0.455358, 4.30401e-08, -1.59932, 1.16183, -2.82972)
+size = Vector3(6.6, 0.8, 3.9)
+
+[node name="coiff" type="CSGBox3D" parent="GreyBox"]
+transform = Transform3D(0.167484, 0.912404, -1.40209e-08, -1.09615e-08, 1.08507e-22, -1, -0.327461, 0.46666, 4.30401e-08, -1.69224, 1.87056, -1.69475)
+size = Vector3(2, 0.143982, 1.5)
+
+[node name="table" type="CSGBox3D" parent="GreyBox"]
+transform = Transform3D(0.455358, 0.890308, -1.40209e-08, -2.98023e-08, 0, -1, -0.890308, 0.455358, 4.30401e-08, -1.45812, 0.870556, -1.575)
+use_collision = true
+size = Vector3(2.1, 0.8, 1.3)
+
+[node name="sol" type="CSGBox3D" parent="GreyBox"]
+transform = Transform3D(0.890308, 0, -0.455358, 0, 1, 0, 0.455358, 0, 0.890308, 1.27477, 0.499834, -1.42811)
+use_collision = true
+size = Vector3(6.6, 0.2, 5.7)
+
+[node name="sol2" type="CSGBox3D" parent="GreyBox"]
+transform = Transform3D(0.890308, 0, -0.455358, 0, 1, 0, 0.455358, 0, 0.890308, 1.27477, 3.06698, -1.42811)
+use_collision = true
+size = Vector3(6.6, 0.2, 5.7)
