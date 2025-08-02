@@ -1,15 +1,27 @@
-[gd_scene load_steps=11 format=3 uid="uid://b6naxhkl5slnh"]
+[gd_scene load_steps=13 format=3 uid="uid://b6naxhkl5slnh"]
 
 [ext_resource type="Theme" uid="uid://c8x5dndyxu50h" path="res://UI/Themes/Title.tres" id="1_7m1sl"]
 [ext_resource type="Script" uid="uid://bvxlao2xvfpjx" path="res://Script/UI/ui_manager.gd" id="1_fqe6j"]
 [ext_resource type="Texture2D" uid="uid://csr3020j4844q" path="res://UI/Assets/dialogue_box.png" id="2_um27t"]
 [ext_resource type="Theme" uid="uid://cc5rcbqq2yosy" path="res://UI/Themes/dialogue.tres" id="3_1of8b"]
-[ext_resource type="Texture2D" uid="uid://k3wb0w0xtvef" path="res://UI/Assets/Placeholders/Brad_Pitt_Cannes_2012.jpg" id="4_06wgh"]
+[ext_resource type="Texture2D" uid="uid://cv70jdy1ux2hi" path="res://Art/Texture/plage.jpg" id="4_1of8b"]
+[ext_resource type="Texture2D" uid="uid://cukhldsl1yf67" path="res://Art/Texture/RT_Size_TEST.png" id="5_1of8b"]
 [ext_resource type="Texture2D" uid="uid://diu7ocgkcn55l" path="res://UI/Assets/Placeholders/cog-wheel-silhouette.png" id="5_jbdiv"]
 [ext_resource type="PackedScene" uid="uid://dqj7gfkx3u2s4" path="res://Managers/UIManager/pause_menu.tscn" id="6_lt6e0"]
 [ext_resource type="Texture2D" uid="uid://bl0fvlksktqrc" path="res://Art/UI/2.png" id="7_lgbyi"]
 [ext_resource type="Texture2D" uid="uid://y0bxv5j63lwy" path="res://Art/UI/3.png" id="8_um27t"]
 [ext_resource type="Texture2D" uid="uid://bmoljrulfye8p" path="res://Art/UI/1.png" id="9_1of8b"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_um27t"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_right = 10
+corner_radius_bottom_left = 10
+anti_aliasing_size = 0.01
 
 [node name="UIManager" type="Control"]
 z_index = 3
@@ -68,30 +80,56 @@ offset_top = -40.0
 offset_right = 40.0
 grow_vertical = 0
 
-[node name="PhotoFrontTexture" type="TextureRect" parent="Photo"]
+[node name="BackgroundFront" type="PanelContainer" parent="Photo"]
+clip_contents = true
 layout_mode = 0
-offset_left = 64.0
-offset_top = -336.0
-offset_right = 256.0
-offset_bottom = -80.0
-texture = ExtResource("4_06wgh")
-expand_mode = 1
+offset_left = 17.0
+offset_top = -358.0
+offset_right = 217.0
+offset_bottom = -58.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_um27t")
 
-[node name="PhotoBackTexture" type="TextureRect" parent="Photo"]
-layout_mode = 0
-offset_left = 280.0
-offset_top = -336.0
-offset_right = 472.0
-offset_bottom = -80.0
-texture = ExtResource("4_06wgh")
+[node name="Background2" type="TextureRect" parent="Photo/BackgroundFront"]
+clip_contents = true
+layout_mode = 2
+texture = ExtResource("4_1of8b")
 expand_mode = 1
+stretch_mode = 2
+
+[node name="PhotoFrontTexture" type="TextureRect" parent="Photo/BackgroundFront"]
+clip_contents = true
+layout_mode = 2
+texture = ExtResource("5_1of8b")
+expand_mode = 3
+
+[node name="BackgroundBack" type="PanelContainer" parent="Photo"]
+clip_contents = true
+layout_mode = 0
+offset_left = 363.0
+offset_top = -358.0
+offset_right = 573.831
+offset_bottom = -58.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_um27t")
+
+[node name="Background" type="TextureRect" parent="Photo/BackgroundBack"]
+clip_contents = true
+layout_mode = 2
+texture = ExtResource("4_1of8b")
+expand_mode = 1
+stretch_mode = 2
+
+[node name="PhotoBackTexture" type="TextureRect" parent="Photo/BackgroundBack"]
+clip_contents = true
+layout_mode = 2
+texture = ExtResource("5_1of8b")
+expand_mode = 3
 
 [node name="PhotoStarName" type="Label" parent="Photo"]
 layout_mode = 0
-offset_left = 64.0
-offset_top = -64.0
-offset_right = 472.0
-offset_bottom = -16.0
+offset_left = 134.0
+offset_top = -59.0
+offset_right = 542.0
+offset_bottom = -11.0
 theme = ExtResource("1_7m1sl")
 text = "Brad Pitt"
 horizontal_alignment = 1

@@ -7,8 +7,8 @@ var rng := RandomNumberGenerator.new()
 @onready var dialogue_timer = $Dialogue/DialogueTimer
 
 @onready var photo_block = $Photo
-@onready var photo_front_texture = $Photo/PhotoFrontTexture
-@onready var photo_back_texture = $Photo/PhotoBackTexture
+@onready var photo_front_texture = $Photo/BackgroundFront/PhotoFrontTexture
+@onready var photo_back_texture = $Photo/BackgroundBack/PhotoBackTexture
 @onready var photo_star_name = $Photo/PhotoStarName
 @onready var photo_timer = $Photo/PhotoTimer
 
