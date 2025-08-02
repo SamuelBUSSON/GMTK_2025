@@ -14,6 +14,11 @@ extends Control
 @onready var pause_button = $PauseButton
 
 @onready var tool_buttons = [$Toolbar/ScissorsButton,$Toolbar/IronButton,$Toolbar/DyeSprayButton1,$Toolbar/DyeSprayButton2,$Toolbar/DyeSprayButton3]
+var button_selected_int = -1
+
+func _ready() -> void:
+	for i in tool_buttons:
+		i.modulate.a = 0.7
 
 func talk(talker_name : String, talker_text : String, time_talking : float):
 	if !dialogue_block.visible:
@@ -48,3 +53,76 @@ func _on_pause_button_pressed() -> void:
 func _on_pause_menu_visibility_changed() -> void:
 	if !pause_menu.visible:
 		pause_button.visible = true
+
+func button_hovered(id_button : int):
+	if button_selected_int != id_button:
+		tool_buttons[id_button].modulate.a = 1
+
+func button_neutral(id_button : int):
+	if button_selected_int != id_button:
+		tool_buttons[id_button].modulate.a = 0.7
+
+func button_selected(id_button : int):
+	for i in tool_buttons:
+		i.scale = Vector2(1.0,1.0)
+		i.pivot_offset = i.size/2
+		i.modulate.a = 0.7
+		
+	button_selected_int = id_button
+	tool_buttons[id_button].modulate.a = 1
+	tool_buttons[id_button].scale = Vector2(1.4,1.4)
+
+func _on_scissors_button_mouse_entered() -> void:
+	button_hovered(0)
+
+func _on_scissors_button_mouse_exited() -> void:
+	button_neutral(0)
+
+func _on_scissors_button_pressed() -> void:
+	#tool mode
+	#change cursor
+	button_selected(0)
+
+func _on_iron_button_mouse_entered() -> void:
+	button_hovered(1)
+
+func _on_iron_button_mouse_exited() -> void:
+	button_neutral(1)
+
+func _on_iron_button_pressed() -> void:
+	#tool mode
+	#change cursor
+	button_selected(1)
+
+func _on_dye_spray_button_1_mouse_entered() -> void:
+	button_hovered(2)
+
+func _on_dye_spray_button_1_mouse_exited() -> void:
+	button_neutral(2)
+
+func _on_dye_spray_button_1_pressed() -> void:
+	#tool mode
+	#change cursor
+	button_selected(2)
+
+func _on_dye_spray_button_2_mouse_entered() -> void:
+	button_hovered(3)
+
+func _on_dye_spray_button_2_mouse_exited() -> void:
+	button_neutral(3)
+
+func _on_dye_spray_button_2_pressed() -> void:
+	#tool mode
+	#change cursor
+	button_selected(3)
+
+func _on_dye_spray_button_3_mouse_entered() -> void:
+	button_hovered(4)
+
+func _on_dye_spray_button_3_mouse_exited() -> void:
+	button_neutral(4)
+
+func _on_dye_spray_button_3_pressed() -> void:
+	#tool mode
+	#change cursor
+	button_selected(4)

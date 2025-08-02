@@ -25,16 +25,16 @@ func _on_quit_menu_button_pressed() -> void:
 
 func _on_global_slider_value_changed(value: float) -> void:
 	#besoin d'update la valeur du canal
-	global_value.text = str(value) + "%"
+	global_value.text = str(value).pad_decimals(0) + "%"
 
 func _on_music_slider_value_changed(value: float) -> void:
 	#besoin d'update la valeur du canal
-	music_value.text = str(value) + "%"
+	music_value.text = str(value).pad_decimals(0) + "%"
 
 func _on_sfx_slider_value_changed(value: float) -> void:
 	#besoin d'update la valeur du canal
 	#ptit bruit de test pour se rendre compte du volume ?
-	sfx_value.text = str(value) + "%"
+	sfx_value.text = str(value).pad_decimals(0) + "%"
 
 func _on_quit_game_button_pressed() -> void:
 	get_tree().quit()
