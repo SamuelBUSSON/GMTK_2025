@@ -12,6 +12,15 @@ enum HairSize  { SHORT, MEDIUM, LONG }
 
 var hair_color : Color;
 
+func get_mesh() -> MeshInstance3D:
+	var mesh = $MeshInstance3D
+	return mesh;
+
+func set_mesh(mesh : MeshInstance3D):
+	var mesh_instance = $MeshInstance3D
+	mesh_instance.scale = mesh.scale;
+	mesh_instance.position = mesh.position;
+
 
 func set_mesh_color(color : Color):
 	var mesh = $MeshInstance3D

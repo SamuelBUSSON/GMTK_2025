@@ -9,6 +9,7 @@ var spawned_hair: Array[hair] = []
 var rng := RandomNumberGenerator.new()
 
 var hairLookUp : Dictionary;
+var hairMeshLookUp : Dictionary;
 
 
 func _ready():
@@ -16,8 +17,9 @@ func _ready():
 
 	for scene in hair_styles:
 		var new_hair: hair = scene.instantiate() as hair
-		var hash = _hash(new_hair.style, new_hair.size);
-		hairLookUp[hash] = scene;
+		var hair_hash = _hash(new_hair.style, new_hair.size);
+		hairLookUp[hair_hash] = scene;
+		hairMeshLookUp[hair_hash] = new_hair.get_mesh()
 
 	_spawn_hair_style()
 
@@ -28,18 +30,11 @@ func on_hair_click(hair_click : hair):
 	# todo (interact depending on player tool)
 
 	var size = hair_click.size;
-	#todo (replace mesh instead of respawn hair)
 	if (size > 0):
 		hair_click.size =  hair_click.size - 1;
-		var new_hash = _hash(hair_click.style, hair_click.size);
-		var new_hair_to_spawn = hairLookUp[new_hash];
-		var new_hair:hair = new_hair_to_spawn.instantiate() as hair
-		new_hair.set_mesh_color(hair_click.hair_color);
-		add_child(new_hair)
-		new_hair.global_position = hair_click.global_position;
-		new_hair.global_rotation = hair_click.global_rotation;
-		remove_hair(hair_click)
-		spawned_hair.append(new_hair)
+		var new_hash = _hair_hash(hair_click);
+		var new_hair_mesh = hairMeshLookUp[new_hash];
+		hair_click.set_mesh(new_hair_mesh);
 
 
 	pass;
@@ -48,6 +43,10 @@ func remove_hair(h: hair) -> void:
 	if spawned_hair.has(h):
 		spawned_hair.erase(h)
 		h.queue_free()
+
+
+func _hair_hash(hair_scene : hair) -> int:
+	return _hash(hair_scene.style, hair_scene.size);
 
 func _hash(hair_style : int, hair_size : int) -> int:
 	return (hair_style << 8) | hair_size
