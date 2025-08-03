@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://bf5lmodp5a6f3"]
+
+[ext_resource type="PackedScene" uid="uid://52j11f8uufaw" path="res://Art/Mesh/Enviro/miror2.fbx" id="1_r0f4m"]
+[ext_resource type="Material" uid="uid://b2kypd82h2k4q" path="res://Art/Materials/mat_carpet.tres" id="2_ckxmk"]
+[ext_resource type="Material" uid="uid://pnvp63uetyuv" path="res://Art/Materials/mat_dryer.tres" id="3_rlcb5"]
+
+[node name="miror2" instance=ExtResource("1_r0f4m")]
+
+[node name="vitre" parent="miror" index="0"]
+surface_material_override/0 = ExtResource("2_ckxmk")
+
+[node name="cadre" parent="miror" index="1"]
+surface_material_override/0 = ExtResource("3_rlcb5")

@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://bfq6c6kbt1qpa"]
+
+[ext_resource type="PackedScene" uid="uid://br584fpqb2jxv" path="res://Art/Mesh/Enviro/brush2.fbx" id="1_qm06p"]
+[ext_resource type="Material" uid="uid://b2kypd82h2k4q" path="res://Art/Materials/mat_carpet.tres" id="2_034gw"]
+[ext_resource type="Material" uid="uid://pnvp63uetyuv" path="res://Art/Materials/mat_dryer.tres" id="2_55t2k"]
+[ext_resource type="Material" uid="uid://co88sdw3oh23h" path="res://Art/Materials/mat_pink2.tres" id="3_55t2k"]
+
+[node name="brush2" instance=ExtResource("1_qm06p")]
+
+[node name="polySubrosserface4" parent="group1" index="0"]
+surface_material_override/0 = ExtResource("2_55t2k")
+
+[node name="Peigne" parent="group1" index="1"]
+surface_material_override/0 = ExtResource("2_034gw")
+
+[node name="POT" parent="group1" index="2"]
+surface_material_override/0 = ExtResource("3_55t2k")

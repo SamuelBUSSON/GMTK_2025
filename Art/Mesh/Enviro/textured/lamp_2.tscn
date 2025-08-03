@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://cmj1vvgax27hd"]
+
+[ext_resource type="PackedScene" uid="uid://dggxaerxgoo76" path="res://Art/Mesh/Enviro/lamp2.fbx" id="1_4x7vb"]
+[ext_resource type="Material" uid="uid://c1o6altg54q33" path="res://Art/Materials/mat_lightsr.tres" id="2_3mppc"]
+[ext_resource type="Material" uid="uid://b2kypd82h2k4q" path="res://Art/Materials/mat_carpet.tres" id="3_4x7vb"]
+[ext_resource type="Material" uid="uid://73asatnsvev6" path="res://Art/Materials/mat_pink.tres" id="4_27fhl"]
+
+[node name="lamp2" instance=ExtResource("1_4x7vb")]
+
+[node name="ampoule" parent="group1" index="1"]
+surface_material_override/0 = ExtResource("2_3mppc")
+
+[node name="lampe" parent="group1" index="2"]
+surface_material_override/0 = ExtResource("3_4x7vb")
+
+[node name="pied" parent="group1" index="3"]
+surface_material_override/0 = ExtResource("4_27fhl")

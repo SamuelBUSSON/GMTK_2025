@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1oh6q7qc7rvr"]
+
+[ext_resource type="PackedScene" uid="uid://cwt45mv4fol8" path="res://Art/Mesh/Enviro/trophy2.fbx" id="1_h8u77"]
+[ext_resource type="Material" uid="uid://ddpg4xbdjtrrw" path="res://Art/Materials/mat_flooring.tres" id="2_dtbjp"]
+[ext_resource type="Material" uid="uid://bjrbenlqr5ogd" path="res://Art/Materials/mat_violet.tres" id="2_sfpb7"]
+[ext_resource type="Material" uid="uid://c1o6altg54q33" path="res://Art/Materials/mat_lightsr.tres" id="4_odr8s"]
+
+[node name="trophy2" instance=ExtResource("1_h8u77")]
+
+[node name="pied" parent="trophy" index="0"]
+surface_material_override/0 = ExtResource("2_dtbjp")
+
+[node name="cheveux" parent="trophy" index="1"]
+surface_material_override/0 = ExtResource("2_sfpb7")
+
+[node name="trophy1" parent="trophy" index="4"]
+surface_material_override/0 = ExtResource("4_odr8s")
