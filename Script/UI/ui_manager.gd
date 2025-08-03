@@ -7,8 +7,8 @@ var rng := RandomNumberGenerator.new()
 @onready var dialogue_timer = $Dialogue/DialogueTimer
 
 @onready var photo_block = $Photo
-@onready var photo_front_texture = $Photo/BackgroundFront/PhotoFrontTexture
-@onready var photo_back_texture = $Photo/BackgroundBack/PhotoBackTexture
+@onready var photo_front_texture = $Photo/PhotoFrontTexture
+@onready var photo_back_texture = $Photo/PhotoBackTexture
 @onready var photo_star_name = $Photo/PhotoStarName
 @onready var photo_timer = $Photo/PhotoTimer
 @onready var photo_background_back = $Photo/BackgroundBack/Background
@@ -43,18 +43,25 @@ var photo_backgrounds_images = [load("res://Art/UI/picture/photo1.png")
 load("res://Art/UI/picture/photo3.png")]
 
 func _ready() -> void:
+	modulate.a = 0.0
+	GlobalSignals.connect("on_game_start", show_ui)
 	GlobalSignals.connect("on_new_celebrity", rdm_talk)
 	GlobalSignals.connect("on_success_signal", hide_photos)
 	GlobalSignals.connect("on_game_end", on_game_end)
 	Input.set_custom_mouse_cursor(cursors.get("scissors_1"))
 	for i in tool_buttons:
 		i.modulate.a = 0.7
+	button_selected(0)
 
 func _process(delta: float) -> void:
 	change_cursor_on_click()
 	photo_front_texture.texture = GameGlobal.viewport_front.get_texture();
 	photo_back_texture.texture = GameGlobal.viewport_back.get_texture();
 	score_text.text = str("SCORE : ", GameGlobal.player_score)
+
+func show_ui():
+	var tween = get_tree().create_tween()
+	tween.tween_property($".","modulate",Color(1,1,1,1),0.8)
 
 func on_game_end():
 	end_game_panel.visible = true;
@@ -69,11 +76,14 @@ func talk(talker_text : String, time_talking : float):
 
 func rdm_talk():
 	var tamp = rng.randi_range(0,dialogue_pool.size()-1)
-	var dialogueDuration = 3.5;
+	var dialogueDuration = 4.5;
 	if !dialogue_block.visible:
 		show_object_with_tween(dialogue_block)
 		dialogue_text.text = dialogue_pool[tamp]
 		photo_star_name.text = celebrity_names[tamp]
+		var other_tween = get_tree().create_tween()
+		dialogue_text.set_visible_ratio(0)
+		other_tween.tween_property(dialogue_text,"visible_ratio",1,2.0)
 		dialogue_timer.start(dialogueDuration)
 		var tween = get_tree().create_tween()
 		tween.tween_interval(dialogueDuration * 0.6)
