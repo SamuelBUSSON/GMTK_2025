@@ -1,10 +1,10 @@
-[gd_scene load_steps=78 format=3 uid="uid://b2n231sfdc2dh"]
+[gd_scene load_steps=83 format=3 uid="uid://b2n231sfdc2dh"]
 
 [ext_resource type="AudioStream" uid="uid://871i4ee040hj" path="res://Audio/AudioAssets/Ambiences/GMTK_Amb_Hairdresser_01.wav" id="1_3xbsj"]
 [ext_resource type="AudioStream" uid="uid://60uhr4ptxvo1" path="res://Audio/AudioAssets/Ambiences/GMTK_Amb_TV_Background_01.wav" id="2_ngrou"]
 [ext_resource type="Script" uid="uid://pc16x5omxab2" path="res://Script/Audio/AudioManager.gd" id="3_ngrou"]
 [ext_resource type="AudioStream" uid="uid://ds51ey1u3urod" path="res://Audio/AudioAssets/Music/GMTK_Music_B_Normal.mp3" id="3_o3ykj"]
-[ext_resource type="Script" path="res://Script/Audio/audio_random_delay.gd" id="3_uudny"]
+[ext_resource type="Script" uid="uid://x2lknlpa4y25" path="res://Script/Audio/audio_random_delay.gd" id="3_uudny"]
 [ext_resource type="AudioStream" uid="uid://bfhsglhah1hpe" path="res://Audio/AudioAssets/Ambiences/GMTK_Amb_TV_Voices_01.wav" id="4_613ve"]
 [ext_resource type="AudioStream" uid="uid://bae12dxrd3xy8" path="res://Audio/AudioAssets/Tools/GMTK_Tool_Cisors_Select_01.wav" id="4_txlgv"]
 [ext_resource type="AudioStream" uid="uid://dojpuemwqs052" path="res://Audio/AudioAssets/Music/GMTK_Music_C_Normal.mp3" id="4_uudny"]
@@ -60,10 +60,16 @@
 [ext_resource type="AudioStream" uid="uid://cwwyaj28ta7jm" path="res://Audio/AudioAssets/Tools/GMTK_Tool_Cisors_Cut_Twice_04.wav" id="31_613ve"]
 [ext_resource type="Script" uid="uid://cwvejsk0cifop" path="res://Script/Audio/AudioVoiceLine.gd" id="31_wex36"]
 [ext_resource type="AudioStream" uid="uid://bdywpiwab0j78" path="res://Audio/AudioAssets/Tools/GMTK_Tool_Cisors_Cut_Twice_05.wav" id="32_fum7r"]
+[ext_resource type="Resource" uid="uid://bbmxy01hyujp" path="res://Audio/AudioAssets/Char/Char_Chiara.tres" id="32_vp8r4"]
+[ext_resource type="Resource" uid="uid://dyiin5x5el0pj" path="res://Audio/AudioAssets/Char/CharElisa.tres" id="33_32cr5"]
 [ext_resource type="AudioStream" uid="uid://dy1lwf46qmyuc" path="res://Audio/AudioAssets/Tools/GMTK_Tool_Cisors_Cut_Twice_06.wav" id="33_wex36"]
+[ext_resource type="Resource" uid="uid://dh8cf8b1co0gp" path="res://Audio/AudioAssets/Char/Char_Fab.tres" id="34_48xhh"]
 [ext_resource type="AudioStream" uid="uid://dg4xll1qgl4pb" path="res://Audio/AudioAssets/Tools/GMTK_Tool_Cisors_Cut_Twice_07.wav" id="34_psaib"]
 [ext_resource type="AudioStream" uid="uid://b43a242k7iokx" path="res://Audio/AudioAssets/Tools/GMTK_Tool_Cisors_Cut_Twice_08.wav" id="35_84ql4"]
+[ext_resource type="Resource" uid="uid://blvmmmkwdmipb" path="res://Audio/AudioAssets/Char/Char_Smu.tres" id="35_shmac"]
+[ext_resource type="Resource" uid="uid://bc2rbyhny3ixr" path="res://Audio/AudioAssets/Char/Char_Fany.tres" id="36_qgvqb"]
 [ext_resource type="AudioStream" uid="uid://c0103cvkw5s4j" path="res://Audio/AudioAssets/Tools/GMTK_Tool_Cisors_Cut_Twice_09.wav" id="36_rf78n"]
+[ext_resource type="Resource" uid="uid://df42tfdjpiyip" path="res://Audio/AudioAssets/Char/Char_Val.tres" id="37_1t8f8"]
 [ext_resource type="AudioStream" uid="uid://botrclrqm8gav" path="res://Audio/AudioAssets/Tools/GMTK_Tool_Cisors_Cut_Twice_10.wav" id="37_albsv"]
 [ext_resource type="AudioStream" uid="uid://8hgwcnccmcwu" path="res://Audio/AudioAssets/Tools/GMTK_Tool_Cisors_Cut_Twice_11.wav" id="38_70jfp"]
 [ext_resource type="AudioStream" uid="uid://fb4tyep5tuu" path="res://Audio/AudioAssets/Tools/GMTK_Tool_Cisors_Cut_Twice_12.wav" id="39_vp8r4"]
@@ -84,13 +90,6 @@ stream_0 = ExtResource("1_3xbsj")
 fade_time = 1.0
 stream_count = 1
 stream_0 = ExtResource("2_ngrou")
-
-[sub_resource type="Resource" id="Resource_psaib"]
-script = ExtResource("31_wex36")
-hello_voice_line = Array[AudioStream]([ExtResource("43_qgvqb")])
-happy_voice_line = Array[AudioStream]([ExtResource("40_32cr5")])
-angry_voice_line = Array[AudioStream]([ExtResource("36_rf78n")])
-metadata/_custom_type_script = "uid://cwvejsk0cifop"
 
 [node name="AudioScene" type="Node3D"]
 
@@ -133,7 +132,7 @@ max_delay = 15.0
 [node name="Audio" type="Node3D" parent="." node_paths=PackedStringArray("audioPlayer", "rotationPlayer")]
 script = ExtResource("3_ngrou")
 audioPlayer = NodePath("audioPlayer")
-voice_lines = Array[ExtResource("31_wex36")]([SubResource("Resource_psaib")])
+voice_lines = Array[ExtResource("31_wex36")]([ExtResource("32_vp8r4"), ExtResource("33_32cr5"), ExtResource("34_48xhh"), ExtResource("35_shmac"), ExtResource("36_qgvqb"), ExtResource("37_1t8f8")])
 cisors_select_sounds = Array[AudioStream]([ExtResource("4_txlgv"), ExtResource("5_adtrs"), ExtResource("6_o3ykj"), ExtResource("7_uudny")])
 dye_select_sounds = Array[AudioStream]([ExtResource("8_7b1af"), ExtResource("9_fo7s3"), ExtResource("10_tt87t"), ExtResource("11_a0fm8")])
 iron_select_sounds = Array[AudioStream]([ExtResource("12_0118t"), ExtResource("13_qoo2f"), ExtResource("14_4jap7"), ExtResource("15_5qwvo")])
