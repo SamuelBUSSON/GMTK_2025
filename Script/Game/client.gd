@@ -49,6 +49,9 @@ func on_game_start():
 
 
 func on_hair_click(hair_click : hair, hit_position : Vector3 ):
+	if (hair_click.lock):
+		return
+
 	if (GameGlobal.is_using_cisors()):
 		var size = hair_click.size;
 		hair_click.size =  hair_click.size - 1;
@@ -58,7 +61,7 @@ func on_hair_click(hair_click : hair, hit_position : Vector3 ):
 
 		FxManager.request_fx("fx_cut_hair", hit_position);
 		FxManager.request_fx("fx_hair_dropping_cut", hit_position);
-		replace_air_mesh(hair_click);
+		hair_click = replace_air_mesh(hair_click);
 
 	if (GameGlobal.is_using_dye()):
 		var dye_color = GameGlobal.get_current_dye_color();
@@ -72,14 +75,16 @@ func on_hair_click(hair_click : hair, hit_position : Vector3 ):
 		hair_click.style = hair_click.style - 1;
 		if (hair_click.style < 0):
 			hair_click.style = 1;
-		replace_air_mesh(hair_click);
+		hair_click = replace_air_mesh(hair_click);
 		GlobalSignals.emit_signal("is_using_cisors")
 
-	hair_click.set_outline_base_color(Color.BLACK)
+
 	if (GameGlobal.is_hair_matching(hair_click)):
 		hair_click.on_hair_match_event();
 		hair_click.set_outline_base_color(Color.GREEN)
 		pass;
+	else:
+		hair_click.set_outline_base_color(Color.BLACK)
 
 	# increment score + switch character
 	if (GameGlobal.is_character_matching(self)):
@@ -113,7 +118,7 @@ func on_client_coming():
 	GlobalSignals.emit_signal("on_new_celebrity");
 	GameGlobal.is_game_start = true;
 
-func replace_air_mesh(hair_click : hair):
+func replace_air_mesh(hair_click : hair) -> hair:
 	var new_hash = GameGlobal._hair_hash(hair_click);
 	var new_hair_to_spawn = hairLookUp[new_hash];
 	var new_hair:hair = new_hair_to_spawn.instantiate() as hair
@@ -123,8 +128,10 @@ func replace_air_mesh(hair_click : hair):
 	new_hair.global_position = spawn_point.global_position;
 	new_hair.rotation = spawn_point.rotation;
 	new_hair.spawn_nodex_index = hair_click.spawn_nodex_index;
+	new_hair.outline_base_color = hair_click.outline_base_color;
 	remove_hair(hair_click)
 	spawned_hair.append(new_hair)
+	return new_hair;
 
 func remove_hair(h: hair) -> void:
 	if spawned_hair.has(h):
