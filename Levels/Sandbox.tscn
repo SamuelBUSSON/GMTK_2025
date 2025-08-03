@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cdk6hwb4hi2wc" path="res://Player/player.tscn" id="1_ndiqr"]
 [ext_resource type="PackedScene" uid="uid://xf5n1prpkpxt" path="res://Prefabs/GAME_Client.tscn" id="2_ecytd"]
 [ext_resource type="PackedScene" uid="uid://b76n4885ldf8m" path="res://Prefabs/GAME_Chair.tscn" id="3_q2e3v"]
-[ext_resource type="PackedScene" uid="uid://b2n231sfdc2dh" path="res://Levels/AudioScene.tscn" id="4_nwgsj"]
+[ext_resource type="PackedScene" path="res://Levels/AudioScene.tscn" id="4_nwgsj"]
 [ext_resource type="Script" uid="uid://cyd5sr7auhq8t" path="res://Script/UI/game_score.gd" id="6_kng65"]
 [ext_resource type="Material" uid="uid://nr0j7j660s45" path="res://Art/Materials/mat_wall.tres" id="7_m5lms"]
 [ext_resource type="Material" uid="uid://d1gkpjjlnk4tf" path="res://Art/Materials/mat_floor.tres" id="8_wlehf"]
@@ -113,7 +113,7 @@ light_energy = 2.116
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_ndiqr")]
-transform = Transform3D(-4.37114e-08, -0.573577, 0.819152, 0, 0.819152, 0.573577, -1, 2.50718e-08, -3.58063e-08, 0.749644, 1.52123, -1.00064)
+transform = Transform3D(-4.37114e-08, -0.573577, 0.819152, 0, 0.819152, 0.573577, -1, 2.50718e-08, -3.58063e-08, 0.812068, 1.52123, -0.941804)
 
 [node name="AudioScene" parent="." instance=ExtResource("4_nwgsj")]
 
