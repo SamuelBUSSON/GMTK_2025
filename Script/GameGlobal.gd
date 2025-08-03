@@ -3,10 +3,11 @@ extends Node
 enum CurrentTool  { CISORS, IRON, DYE_0, DYE_1, DYE_2 }
 
 @export var dye_color : Array[Color];
+@export var game_duration := 120.0;
 @export_enum( "CISORS", "IRON", "DYE_0", "DYE_1", "DYE_2" ) var currentTool : int;
 
 
-
+var duration;
 var current_tool : int;
 var current_celebrity : hair_character
 var rng := RandomNumberGenerator.new()
@@ -27,12 +28,25 @@ func get_DYE_1_id() -> int:
 func get_DYE_2_id() -> int:
 	return CurrentTool.DYE_2;
 
+func _ready():
+	duration = game_duration;
+	pass
+
+func _process(dt):
+	if (is_game_start):
+		duration -= dt;
+		if (duration <= 0.0):
+			duration = 0.0;
+			is_game_start = false;
+			GlobalSignals.emit_signal("on_game_end")
+	pass
+
 func is_current_tool(tool_id : int):
 	return current_tool == tool_id;
 
 func is_using_cisors() -> bool:
 	return current_tool == CurrentTool.CISORS;
-	
+
 func is_using_iron() -> bool:
 	return current_tool == CurrentTool.IRON;
 

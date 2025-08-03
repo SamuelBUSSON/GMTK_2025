@@ -16,6 +16,7 @@ var rng := RandomNumberGenerator.new()
 
 @onready var pause_menu = $PauseMenu
 @onready var pause_button = $PauseButton
+@export var end_game_panel : Control;
 
 
 @onready var tool_buttons = [$Toolbar/ScissorsButton,$Toolbar/IronButton,$Toolbar/DyeSprayButton1,$Toolbar/DyeSprayButton2,$Toolbar/DyeSprayButton3]
@@ -38,6 +39,7 @@ load("res://Art/UI/picture/photo3.png")]
 func _ready() -> void:
 	GlobalSignals.connect("on_new_celebrity", rdm_talk)
 	GlobalSignals.connect("on_success_signal", hide_photos)
+	GlobalSignals.connect("on_game_end", on_game_end)
 	Input.set_custom_mouse_cursor(cursors.get("scissors_1"))
 	for i in tool_buttons:
 		i.modulate.a = 0.7
@@ -47,6 +49,9 @@ func _process(delta: float) -> void:
 	photo_front_texture.texture = GameGlobal.viewport_front.get_texture();
 	photo_back_texture.texture = GameGlobal.viewport_back.get_texture();
 	pass;
+
+func on_game_end():
+	end_game_panel.visible = true;
 
 func talk(talker_text : String, time_talking : float):
 	if !dialogue_block.visible:
@@ -79,7 +84,7 @@ func show_photos():
 		var bg = photo_backgrounds_images.pick_random()
 		photo_background_back.texture = bg
 		photo_background_front.texture = bg
-		
+
 	else:
 		print("je montre déjà une photo")
 
