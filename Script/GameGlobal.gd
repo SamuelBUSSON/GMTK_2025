@@ -3,7 +3,7 @@ extends Node
 enum CurrentTool  { CISORS, IRON, DYE_0, DYE_1, DYE_2 }
 
 @export var dye_color : Array[Color];
-@export var game_duration := 120.0;
+@export var game_duration := 5.0;
 @export_enum( "CISORS", "IRON", "DYE_0", "DYE_1", "DYE_2" ) var currentTool : int;
 
 
@@ -28,6 +28,13 @@ func get_DYE_1_id() -> int:
 func get_DYE_2_id() -> int:
 	return CurrentTool.DYE_2;
 
+func reset():
+	duration = game_duration;
+	current_tool = 0;
+	player_score = 0;
+	is_game_start = false;
+
+
 func _ready():
 	duration = game_duration;
 	pass
@@ -36,8 +43,7 @@ func _process(dt):
 	if (is_game_start):
 		duration -= dt;
 		if (duration <= 0.0):
-			duration = 0.0;
-			is_game_start = false;
+			reset()
 			GlobalSignals.emit_signal("on_game_end")
 	pass
 

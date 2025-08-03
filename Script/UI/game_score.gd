@@ -3,5 +3,5 @@ extends Label
 @export var label : Label;
 
 func _process(delta):
-	label.text = str("SCORE : ", GameGlobal.player_score)
+	label.text = str("Score : ", GameGlobal.player_score)
 	pass
