@@ -56,6 +56,9 @@ func on_hair_click(hair_click : hair, hit_position : Vector3 ):
 	if (GameGlobal.is_using_dye()):
 		var dye_color = GameGlobal.get_current_dye_color();
 		hair_click.set_mesh_color(dye_color);
+		var particle = FxManager.request_fx("fx_dye", hit_position);
+		var mat = particle.process_material as ParticleProcessMaterial
+		mat.color = dye_color
 
 	if (GameGlobal.is_using_iron()):
 		hair_click.style = hair_click.style - 1;

@@ -42,7 +42,6 @@ func swap_tool():
 func set_current_tool(tool_id: int):
 	current_tool = tool_id;
 
-
 func _hair_hash(hair_scene : hair) -> int:
 	return _hash(hair_scene.style, hair_scene.size);
 

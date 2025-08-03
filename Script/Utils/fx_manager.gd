@@ -60,7 +60,7 @@ func request_fx(fx_id: String, spawn_position: Vector3) -> Node:
 	var particle = fx_to_spawn.get_node("particle");
 	particle.restart()
 	particle.emitting = true;
-	return fx_to_spawn;
+	return particle;
 
 func request_attach_fx(fx_id: String, spawn_position: Vector3, parent : Node3D) -> Node:
 	var fx_to_spawn = get_from_pool_or_spawn(fx_id);

@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://oh5nhm8s71m2"]
+[gd_scene load_steps=7 format=3 uid="uid://oh5nhm8s71m2"]
 
 [ext_resource type="Script" uid="uid://88tq2dcbrkgp" path="res://Script/Utils/fx_manager.gd" id="1_5yyck"]
 [ext_resource type="Script" uid="uid://b2p24k6qgymd4" path="res://Script/Utils/fx_resource.gd" id="2_2164i"]
 [ext_resource type="PackedScene" uid="uid://dyukkhpgvohh6" path="res://FX/fx_cut.tscn" id="3_dewna"]
+[ext_resource type="PackedScene" uid="uid://bd6x0j1hhwlha" path="res://FX/fx_buble_color_dye_0.tscn" id="4_dewna"]
 
 [sub_resource type="Resource" id="Resource_7een2"]
 script = ExtResource("2_2164i")
@@ -10,6 +11,12 @@ fx_id = "fx_cut_hair"
 fx_scene = ExtResource("3_dewna")
 metadata/_custom_type_script = "uid://b2p24k6qgymd4"
 
+[sub_resource type="Resource" id="Resource_31k2b"]
+script = ExtResource("2_2164i")
+fx_id = "fx_dye"
+fx_scene = ExtResource("4_dewna")
+metadata/_custom_type_script = "uid://b2p24k6qgymd4"
+
 [node name="FxManager" type="Node"]
 script = ExtResource("1_5yyck")
-fx_descriptor = Array[ExtResource("2_2164i")]([SubResource("Resource_7een2")])
+fx_descriptor = Array[ExtResource("2_2164i")]([SubResource("Resource_7een2"), SubResource("Resource_31k2b")])
