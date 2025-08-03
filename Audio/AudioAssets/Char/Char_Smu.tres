@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="voice_line" load_steps=11 format=3 uid="uid://blvmmmkwdmipb"]
+
+[ext_resource type="Script" uid="uid://cwvejsk0cifop" path="res://Script/Audio/AudioVoiceLine.gd" id="1_78u5c"]
+[ext_resource type="AudioStream" uid="uid://cow5h3kt574fb" path="res://Audio/AudioAssets/Char/GMTK_Characters_Smu_Angry_01.wav" id="1_j37b1"]
+[ext_resource type="AudioStream" uid="uid://h15c3y1ihl13" path="res://Audio/AudioAssets/Char/GMTK_Characters_Smu_Angry_02.wav" id="2_smkw8"]
+[ext_resource type="AudioStream" uid="uid://bko4kkca7ls67" path="res://Audio/AudioAssets/Char/GMTK_Characters_Smu_Angry_03.wav" id="3_4cgqk"]
+[ext_resource type="AudioStream" uid="uid://dj1bpihr3mx1i" path="res://Audio/AudioAssets/Char/GMTK_Characters_Smu_Happy_01.wav" id="4_7tf7e"]
+[ext_resource type="AudioStream" uid="uid://gfdrvsyl4bwb" path="res://Audio/AudioAssets/Char/GMTK_Characters_Smu_Happy_02.wav" id="5_25qcy"]
+[ext_resource type="AudioStream" uid="uid://ppu5324c7g0j" path="res://Audio/AudioAssets/Char/GMTK_Characters_Smu_Happy_03.wav" id="6_p8nsn"]
+[ext_resource type="AudioStream" uid="uid://ctnpi1kaxipk0" path="res://Audio/AudioAssets/Char/GMTK_Characters_Smu_Ask_01.wav" id="7_m8v7l"]
+[ext_resource type="AudioStream" uid="uid://cs6nkigjfshy0" path="res://Audio/AudioAssets/Char/GMTK_Characters_Smu_Ask_02.wav" id="8_o6scw"]
+[ext_resource type="AudioStream" uid="uid://bnhthngkiwgdg" path="res://Audio/AudioAssets/Char/GMTK_Characters_Smu_Ask_03.wav" id="9_oilj7"]
+
+[resource]
+script = ExtResource("1_78u5c")
+hello_voice_line = Array[AudioStream]([ExtResource("7_m8v7l"), ExtResource("8_o6scw"), ExtResource("9_oilj7")])
+happy_voice_line = Array[AudioStream]([ExtResource("4_7tf7e"), ExtResource("5_25qcy"), ExtResource("6_p8nsn")])
+angry_voice_line = Array[AudioStream]([ExtResource("1_j37b1"), ExtResource("2_smkw8"), ExtResource("3_4cgqk")])
+metadata/_custom_type_script = "uid://cwvejsk0cifop"
