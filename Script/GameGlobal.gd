@@ -46,7 +46,6 @@ func _process(dt):
 	if (is_game_start && !is_game_pause):
 		duration -= dt;
 		if (duration <= 0.0):
-			reset()
 			GlobalSignals.emit_signal("on_game_end")
 	pass
 
