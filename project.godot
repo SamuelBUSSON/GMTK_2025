@@ -15,6 +15,10 @@ run/main_scene="uid://2r2xorepwlip"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://ckt1wuimg4b25"
+
 [autoload]
 
 FxManager="*res://Managers/FxManager.tscn"

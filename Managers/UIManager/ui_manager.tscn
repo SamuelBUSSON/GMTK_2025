@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b6naxhkl5slnh"]
+[gd_scene load_steps=17 format=3 uid="uid://b6naxhkl5slnh"]
 
 [ext_resource type="Theme" uid="uid://c8x5dndyxu50h" path="res://UI/Themes/Title.tres" id="1_7m1sl"]
 [ext_resource type="Script" uid="uid://bvxlao2xvfpjx" path="res://Script/UI/ui_manager.gd" id="1_fqe6j"]
@@ -12,10 +12,12 @@
 [ext_resource type="Texture2D" uid="uid://j803jjh7iwy4" path="res://UI/Assets/menu_button.png" id="8_jqsye"]
 [ext_resource type="Texture2D" uid="uid://y0bxv5j63lwy" path="res://Art/UI/3.png" id="8_um27t"]
 [ext_resource type="Texture2D" uid="uid://d1ftr5bopmwjt" path="res://Art/UI/1_r.png" id="12_jqsye"]
+[ext_resource type="PackedScene" uid="uid://x1snkxly0ew2" path="res://Managers/UIManager/end_game_panel.tscn" id="12_jx2nd"]
 [ext_resource type="Texture2D" uid="uid://dxjh65nj2lu1" path="res://Art/UI/1_g.png" id="13_d7npq"]
+[ext_resource type="Script" path="res://Script/UI/timer_label.gd" id="13_eoi6x"]
 [ext_resource type="Texture2D" uid="uid://28fvi8do7y50" path="res://Art/UI/1_b.png" id="14_uosyp"]
 
-[node name="UIManager" type="Control"]
+[node name="UIManager" type="Control" node_paths=PackedStringArray("end_game_panel")]
 z_index = 3
 layout_mode = 3
 anchors_preset = 15
@@ -24,6 +26,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fqe6j")
+end_game_panel = NodePath("End_Game_Panel")
 
 [node name="Dialogue" type="Control" parent="."]
 visible = false
@@ -281,6 +284,41 @@ theme_override_font_sizes/font_size = 48
 text = "Score : 0"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Timer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 0
+offset_top = 91.0
+offset_right = 40.0
+offset_bottom = 131.0
+
+[node name="Background" type="TextureRect" parent="Timer"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 368.0
+offset_bottom = 112.0
+texture = ExtResource("6_jx2nd")
+expand_mode = 1
+flip_h = true
+flip_v = true
+
+[node name="ScoreText" type="Label" parent="Timer"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 24.0
+offset_right = 352.0
+offset_bottom = 96.0
+theme = ExtResource("1_7m1sl")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "Time left : 120s"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("13_eoi6x")
+
+[node name="End_Game_Panel" parent="." instance=ExtResource("12_jx2nd")]
+layout_mode = 1
 
 [connection signal="timeout" from="Dialogue/DialogueTimer" to="." method="_on_dialogue_timer_timeout"]
 [connection signal="timeout" from="Photo/PhotoTimer" to="." method="_on_photo_timer_timeout"]

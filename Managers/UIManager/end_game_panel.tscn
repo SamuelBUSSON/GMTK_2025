@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://x1snkxly0ew2"]
+[gd_scene load_steps=6 format=3 uid="uid://x1snkxly0ew2"]
 
 [ext_resource type="Script" uid="uid://pito3aff11ax" path="res://Script/UI/end_game_panel.gd" id="1_ayfe0"]
+[ext_resource type="Texture2D" uid="uid://c02bioh8bi5wu" path="res://UI/Assets/bg_ui_2.png" id="2_l0u2i"]
 [ext_resource type="Theme" uid="uid://bun827w3kwxd2" path="res://UI/Themes/button.tres" id="2_sqroq"]
+[ext_resource type="Theme" uid="uid://c8x5dndyxu50h" path="res://UI/Themes/Title.tres" id="3_v2jlc"]
+[ext_resource type="Script" uid="uid://cyd5sr7auhq8t" path="res://Script/UI/game_score.gd" id="4_16uhc"]
 
 [node name="End_Game_Panel" type="Control"]
 z_index = 1055
@@ -14,23 +17,85 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_ayfe0")
 
-[node name="Label" type="Label" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.784314)
+
+[node name="GameEnd" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -199.0
+offset_top = 76.0
+offset_right = 200.0
+offset_bottom = 155.0
+grow_horizontal = 2
+theme = ExtResource("3_v2jlc")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 133
+text = "GAME END"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -30.0
-offset_top = -11.5
-offset_right = 30.0
-offset_bottom = 11.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 50
-text = "SCORE : "
+
+[node name="Background" type="TextureRect" parent="Score"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -75.0
+offset_right = 200.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_l0u2i")
+expand_mode = 1
+flip_h = true
+flip_v = true
+
+[node name="ScoreText" type="Label" parent="Score" node_paths=PackedStringArray("label")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -36.0
+offset_right = 160.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_v2jlc")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 78
+text = "Score : 0"
 horizontal_alignment = 1
 vertical_alignment = 1
+script = ExtResource("4_16uhc")
+label = NodePath(".")
 
 [node name="NewGame" type="Button" parent="."]
 layout_mode = 1

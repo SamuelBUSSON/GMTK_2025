@@ -13,6 +13,8 @@ extends Control
 
 @onready var menu_block = $MenuBlock
 
+var bus_index = [0,0,0]
+
 func open_menu():
 	visible = true
 	var tween = get_tree().create_tween()
@@ -22,9 +24,9 @@ func open_menu():
 	tween.tween_property(menu_block, "scale", Vector2(1.0,1.0),0.2).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	#besoin de récupérer les valeurs des deux canaux pour les mettre dans les sliders
 	
-	global_value.text = str(global_slider.value).pad_decimals(0) + "%"
-	music_value.text = str(music_slider.value).pad_decimals(0) + "%"
-	sfx_value.text = str(sfx_slider.value).pad_decimals(0) + "%"
+	bus_index[0] = AudioServer.get_bus_index("Master")
+	bus_index[1] = AudioServer.get_bus_index("Music")
+	bus_index[2] = AudioServer.get_bus_index("SFX")
 
 func _on_quit_menu_button_pressed() -> void:
 	var tween = get_tree().create_tween()
@@ -34,15 +36,15 @@ func _on_quit_menu_button_pressed() -> void:
 	tween.tween_property($".", "visible", false, 0)
 
 func _on_global_slider_value_changed(value: float) -> void:
-	#besoin d'update la valeur du canal
+	AudioServer.set_bus_volume_db(bus_index[0], linear_to_db(value/100.0))
 	global_value.text = str(value).pad_decimals(0) + "%"
 
 func _on_music_slider_value_changed(value: float) -> void:
-	#besoin d'update la valeur du canal
+	AudioServer.set_bus_volume_db(bus_index[1], linear_to_db(value/100.0))
 	music_value.text = str(value).pad_decimals(0) + "%"
 
 func _on_sfx_slider_value_changed(value: float) -> void:
-	#besoin d'update la valeur du canal
+	AudioServer.set_bus_volume_db(bus_index[2], linear_to_db(value/100.0))
 	#ptit bruit de test pour se rendre compte du volume ?
 	sfx_value.text = str(value).pad_decimals(0) + "%"
 

@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0m7hev4higkx"]
+
+[ext_resource type="PackedScene" uid="uid://dhgxh43vb3d1x" path="res://Art/Mesh/Enviro/frog.fbx" id="1_whe2r"]
+
+[node name="frog" instance=ExtResource("1_whe2r")]
+
+[node name="Light" parent="." index="0"]
+visible = false
+light_color = Color(0.228, 0.2472, 0.3, 1)
+light_energy = 1.805
+
+[node name="Camera" parent="." index="1"]
+visible = false

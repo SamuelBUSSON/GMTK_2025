@@ -69,17 +69,20 @@ func talk(talker_text : String, time_talking : float):
 
 func rdm_talk():
 	var tamp = rng.randi_range(0,dialogue_pool.size()-1)
+	var dialogueDuration = 3.5;
 	if !dialogue_block.visible:
 		show_object_with_tween(dialogue_block)
 		dialogue_text.text = dialogue_pool[tamp]
 		photo_star_name.text = celebrity_names[tamp]
-		dialogue_timer.start(3.5)
+		dialogue_timer.start(dialogueDuration)
+		var tween = get_tree().create_tween()
+		tween.tween_interval(dialogueDuration * 0.6)
+		tween.tween_callback(show_photos)
 	else:
 		print("hého, je parle déjà là")
 
 func _on_dialogue_timer_timeout() -> void:
 	hide_object_with_tween(dialogue_block)
-	show_photos()
 
 func show_photos():
 	if !photo_block.visible:
@@ -104,7 +107,7 @@ func _on_pause_button_pressed() -> void:
 	Input.set_custom_mouse_cursor(cursors.get("scissors_1"))
 	pause_menu.open_menu()
 	pause_button.visible = false
-	
+
 
 func _on_pause_menu_visibility_changed() -> void:
 	if !pause_menu.visible:
@@ -141,14 +144,12 @@ func show_object_with_tween(obj : Object):
 	obj.visible = true
 	obj.pivot_offset = obj.size/2
 	obj.scale = Vector2(0.2,0.2)
-	tween.tween_property(obj, "scale", Vector2(1.3,1.3),0.4).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
-	tween.tween_property(obj, "scale", Vector2(1.0,1.0),0.2).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	tween.tween_property(obj, "scale", Vector2(1.0,1.0),0.35).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 
 func hide_object_with_tween(obj : Object):
 	var tween = get_tree().create_tween()
 	obj.pivot_offset = obj.size/2
-	tween.tween_property(obj, "scale", Vector2(1.3,1.3),0.1).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
-	tween.tween_property(obj, "scale", Vector2(0.1,0.1),0.2).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	tween.tween_property(obj, "scale", Vector2(0.1,0.1),0.35).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	tween.tween_property(obj, "visible", false, 0)
 
 func button_hovered(id_button : int):
@@ -163,7 +164,7 @@ func button_selected(id_button : int):
 	var other_tween = create_tween()
 	other_tween.tween_property(tool_buttons[button_selected_int], "scale", Vector2(1.6,1.6), 0.1).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
 	other_tween.tween_property(tool_buttons[button_selected_int], "scale", Vector2(1.0,1.0), 0.2).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-	
+
 	for i in tool_buttons:
 		i.pivot_offset = i.size/2
 		i.modulate.a = 0.7

@@ -5,6 +5,7 @@ func _ready():
 	pass
 
 func _on_new_game_pressed() -> void:
-	get_tree().reload_current_scene()
-	GameGlobal.is_game_start = false;
+	GameGlobal.reset();
+	self.visible = false;
+	GlobalSignals.emit_signal("on_game_start");
 	pass

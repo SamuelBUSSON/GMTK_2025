@@ -1,16 +1,19 @@
-[gd_scene load_steps=16 format=3 uid="uid://2r2xorepwlip"]
+[gd_scene load_steps=22 format=3 uid="uid://2r2xorepwlip"]
 
-[ext_resource type="Script" uid="uid://dsr476vjg31mu" path="res://Script/GameWorld.gd" id="1_25dgi"]
+[ext_resource type="Script" path="res://Script/GameWorld.gd" id="1_25dgi"]
 [ext_resource type="PackedScene" uid="uid://cdk6hwb4hi2wc" path="res://Player/player.tscn" id="1_ndiqr"]
 [ext_resource type="PackedScene" uid="uid://xf5n1prpkpxt" path="res://Prefabs/GAME_Client.tscn" id="2_ecytd"]
 [ext_resource type="PackedScene" uid="uid://b76n4885ldf8m" path="res://Prefabs/GAME_Chair.tscn" id="3_q2e3v"]
 [ext_resource type="PackedScene" uid="uid://b2n231sfdc2dh" path="res://Levels/AudioScene.tscn" id="4_nwgsj"]
 [ext_resource type="Script" uid="uid://cyd5sr7auhq8t" path="res://Script/UI/game_score.gd" id="6_kng65"]
 [ext_resource type="Material" uid="uid://nr0j7j660s45" path="res://Art/Materials/mat_wall.tres" id="7_m5lms"]
-[ext_resource type="Material" uid="uid://bok1camfpa3l3" path="res://Art/Texture/prototype_dark.material" id="8_25dgi"]
 [ext_resource type="Material" uid="uid://d1gkpjjlnk4tf" path="res://Art/Materials/mat_floor.tres" id="8_wlehf"]
 [ext_resource type="Material" uid="uid://c1o6altg54q33" path="res://Art/Materials/mat_lightsr.tres" id="9_5hxgg"]
+[ext_resource type="Texture2D" uid="uid://bl3ht16gvsdb3" path="res://Art/Texture/doop.png" id="10_chuaw"]
+[ext_resource type="Texture2D" uid="uid://bycsc2apfab67" path="res://Art/Texture/lareal.png" id="11_v4o67"]
+[ext_resource type="Texture2D" uid="uid://bqtvsaxrdg6ql" path="res://Art/Texture/prices.png" id="12_8n2e8"]
 [ext_resource type="PackedScene" uid="uid://b2cdn38ht2vc6" path="res://Art/Mesh/Enviro/flacon1.fbx" id="12_chuaw"]
+[ext_resource type="PackedScene" uid="uid://br2m2yvd8mwyp" path="res://Art/Mesh/Enviro/hair dryer.fbx" id="13_fopw0"]
 [ext_resource type="PackedScene" uid="uid://df417v8fxj05x" path="res://Art/Mesh/Enviro/VANITY.fbx" id="13_v4o67"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_yxtyg"]
@@ -28,6 +31,15 @@ ambient_light_energy = 0.69
 ssao_enabled = true
 ssil_enabled = true
 glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v4o67"]
+albedo_texture = ExtResource("10_chuaw")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8n2e8"]
+albedo_texture = ExtResource("11_v4o67")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w2yne"]
+albedo_texture = ExtResource("12_8n2e8")
 
 [node name="World" type="Node3D" node_paths=PackedStringArray("viewport_front", "viewport_back")]
 script = ExtResource("1_25dgi")
@@ -103,14 +115,22 @@ transform = Transform3D(-4.37114e-08, -0.573577, 0.819152, 0, 0.819152, 0.573577
 [node name="AudioScene" parent="." instance=ExtResource("4_nwgsj")]
 
 [node name="GMTK_Amb_Hairdresser" parent="AudioScene/AudioRoom/Game/Ambiences" index="0"]
-autoplay = true
+bus = &"SFX"
 
 [node name="GMTK_Amb_TV_Background" parent="AudioScene/AudioRoom/Game/Ambiences" index="1"]
-autoplay = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.20389, 0)
 
-[node name="AudioStreamPlayer3D" parent="AudioScene/Audio" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.180184, 1.28876, -1.00206)
-max_polyphony = 4
+[node name="GMTK_Amb_TV_Voices" parent="AudioScene/AudioRoom/Game/Ambiences" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.20389, 0)
+
+[node name="GMTK_Music_Radio" parent="AudioScene/AudioRoom/Game/Ambiences" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.178283, 1.30727, -2.21458)
+
+[node name="audioPlayer" parent="AudioScene/Audio" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.153514, 1.24356, -0.991139)
+
+[node name="rotatingChair" parent="AudioScene/Audio" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.180229, 0.559342, -0.99945)
 
 [node name="Celebrity" parent="." instance=ExtResource("2_ecytd")]
 transform = Transform3D(-4.37617e-08, 0, 1.00115, 0, 1.00115, 0, -1.00115, 0, -4.37617e-08, 0, 1, -10)
@@ -159,37 +179,32 @@ transform = Transform3D(0.890308, -0.455358, -1.35707e-08, 0, 2.98023e-08, -1, 0
 size = Vector3(6.6, 0.8, 3.9)
 material = ExtResource("7_m5lms")
 
-[node name="subwall1*" type="CSGBox3D" parent="GreyBox/wall1"]
-transform = Transform3D(1, -5.96046e-08, 7.11579e-09, 5.96046e-08, 1, 1.49012e-08, -2.2017e-08, -7.78537e-09, 1, -1.34159, -0.49197, -1.46035)
-operation = 2
-size = Vector3(2.01682, 0.455859, 0.275781)
-
-[node name="subwall1*2" type="CSGBox3D" parent="GreyBox/wall1"]
-transform = Transform3D(1, -5.96046e-08, 7.11579e-09, 5.96046e-08, 1, 1.49012e-08, -2.2017e-08, -7.78537e-09, 1, -1.34159, -0.49197, -0.993985)
-operation = 2
-size = Vector3(2.01682, 0.455859, 0.275781)
-
 [node name="subwall1*3" type="CSGBox3D" parent="GreyBox/wall1"]
-transform = Transform3D(1, -5.96046e-08, 7.11579e-09, 5.96046e-08, 1, 1.49012e-08, -2.2017e-08, -7.78537e-09, 1, -1.34159, -0.49197, -0.465608)
+transform = Transform3D(1, -5.96046e-08, 7.11579e-09, 5.96046e-08, 1, 1.49012e-08, -2.2017e-08, -7.78537e-09, 1, -1.96513, -0.229975, -0.167355)
 operation = 2
-size = Vector3(2.01682, 0.455859, 0.275781)
+size = Vector3(0.822584, 0.734277, 0.712988)
+
+[node name="subwall1*4" type="CSGBox3D" parent="GreyBox/wall1"]
+transform = Transform3D(1, -5.96046e-08, 7.11579e-09, 5.96046e-08, 1, 1.49012e-08, -2.2017e-08, -7.78537e-09, 1, -1.96513, -0.229974, -1.07372)
+operation = 2
+size = Vector3(0.822584, 0.734277, 0.712988)
 
 [node name="Wall2" type="CSGBox3D" parent="GreyBox"]
-transform = Transform3D(0.426663, 0.90441, -1.26378e-08, -2.98023e-08, 0, -1, -0.90441, 0.426663, 4.34663e-08, -0.627273, 0.737288, -3.42829)
+transform = Transform3D(0.426663, 0.90441, -1.26378e-08, -2.98023e-08, 0, -1, -0.90441, 0.426663, 4.34663e-08, -0.622761, 0.726592, -3.42721)
 size = Vector3(6.6, 0.8, 3.9)
 material = ExtResource("7_m5lms")
 
 [node name="miroir" type="CSGBox3D" parent="GreyBox"]
 transform = Transform3D(0.325075, -0.424342, 1.81034e-08, -5.69007e-16, -4.37114e-08, -0.976, 0.152339, 0.905502, -3.86308e-08, -0.869168, 0.945349, -2.27459)
 size = Vector3(1, 0.9, 1.5)
-material = ExtResource("8_25dgi")
+material = ExtResource("8_wlehf")
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="GreyBox/miroir"]
 transform = Transform3D(-9.7407e-08, 0.835655, 0, 5.24537e-08, -7.45058e-09, 0.8, 0.819672, 1.34359e-08, -5.37435e-08, 0.0545368, 6.07967e-06, -0.753059)
 radius = 0.5625
 height = 1.05
-sides = 12
-material = ExtResource("8_25dgi")
+sides = 25
+material = ExtResource("8_wlehf")
 
 [node name="sol" type="CSGBox3D" parent="GreyBox"]
 transform = Transform3D(0.890632, 0.000315791, -0.454723, -0.000238209, 1, 0.000227901, 0.454723, -9.46488e-05, 0.890632, 2.22498, 0.0784966, -1.98711)
@@ -197,43 +212,68 @@ use_collision = true
 size = Vector3(6.6, 0.2, 5.7)
 material = ExtResource("8_wlehf")
 
-[node name="sol2" type="CSGBox3D" parent="GreyBox"]
-transform = Transform3D(0.890308, 0, -0.455358, 0, 1, 0, 0.455358, 0, 0.890308, -1.79647, 3.65, 6.28656)
+[node name="posterdoop" type="CSGBox3D" parent="GreyBox"]
+transform = Transform3D(4.98215e-09, 0.16024, -0.313298, 0.351898, 3.20333e-08, 2.36635e-08, 3.17385e-08, -0.313298, -0.16024, 0.0743322, 1.53084, -0.103857)
+material_override = SubResource("StandardMaterial3D_v4o67")
 use_collision = true
-size = Vector3(6.6, 0.2, 5.7)
+size = Vector3(1.3, 0.001, 0.970581)
 
-[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+[node name="posterlareal" type="CSGBox3D" parent="GreyBox"]
+transform = Transform3D(1.012e-08, 0.636386, 0.325487, 0.714792, -2.60875e-08, 6.24891e-08, 6.44688e-08, 0.325487, -0.636386, -1.15269, 1.81016, -1.33936)
+material_override = SubResource("StandardMaterial3D_8n2e8")
+use_collision = true
+size = Vector3(1.3, 0.00220947, 0.970581)
+
+[node name="posterlareal3" type="CSGBox3D" parent="GreyBox"]
+transform = Transform3D(0.650973, 6.53414e-08, -1.40005, 1.55685e-07, -1.56718, -5.6036e-09, -1.27277, -2.61365e-07, -0.71607, 0.340118, 0.150116, -1.55108)
+material_override = SubResource("StandardMaterial3D_8n2e8")
+use_collision = true
+size = Vector3(1.3, 0.0723297, 0.975037)
+
+[node name="posterlareal2" type="CSGBox3D" parent="GreyBox"]
+transform = Transform3D(4.048e-09, 0.254554, 0.130195, 0.285917, -1.0435e-08, 2.49957e-08, 2.57875e-08, 0.130195, -0.254554, -0.429907, 1.40988, -2.81626)
+material_override = SubResource("StandardMaterial3D_w2yne")
+use_collision = true
+size = Vector3(1.3, 0.001, 0.970581)
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="GreyBox"]
 transform = Transform3D(0.909054, 0, -0.416678, 0, 1, 0, 0.416678, 0, 0.909054, -0.71048, 2.01311, -2.19958)
 radius = 0.0610386
 material = ExtResource("9_5hxgg")
 
-[node name="CSGSphere3D2" type="CSGSphere3D" parent="."]
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="GreyBox"]
 transform = Transform3D(0.909054, 0, -0.416678, 0, 1, 0, 0.416678, 0, 0.909054, -0.842011, 1.79527, -1.88679)
 radius = 0.0610386
 material = ExtResource("9_5hxgg")
 
-[node name="CSGSphere3D3" type="CSGSphere3D" parent="."]
+[node name="CSGSphere3D3" type="CSGSphere3D" parent="GreyBox"]
 transform = Transform3D(0.909054, 0, -0.416678, 0, 1, 0, 0.416678, 0, 0.909054, -0.558791, 1.79527, -2.50467)
 radius = 0.0610386
 material = ExtResource("9_5hxgg")
 
-[node name="CSGSphere3D4" type="CSGSphere3D" parent="."]
+[node name="CSGSphere3D4" type="CSGSphere3D" parent="GreyBox"]
 transform = Transform3D(0.909054, 0, -0.416678, 0, 1, 0, 0.416678, 0, 0.909054, -0.842011, 1.45329, -1.88679)
 radius = 0.0610386
 material = ExtResource("9_5hxgg")
 
-[node name="CSGSphere3D5" type="CSGSphere3D" parent="."]
+[node name="CSGSphere3D5" type="CSGSphere3D" parent="GreyBox"]
 transform = Transform3D(0.909054, 0, -0.416678, 0, 1, 0, 0.416678, 0, 0.909054, -0.558791, 1.45329, -2.50467)
 radius = 0.0610386
 material = ExtResource("9_5hxgg")
 
+[node name="VANITY" parent="GreyBox" instance=ExtResource("13_v4o67")]
+transform = Transform3D(-11.6482, 0.00944706, -25.4621, -0.13352, 27.9996, 0.0714704, 25.4618, 0.15115, -11.648, -0.521445, 0.111444, -2.11505)
+
 [node name="flacon1" parent="." instance=ExtResource("12_chuaw")]
-transform = Transform3D(5.06285, 0, 0, 0, 5.06285, 0, 0, 0, 5.06285, -0.888364, 1.07547, -1.62518)
+transform = Transform3D(0.983119, 0, 4.96648, 0, 5.06285, 0, -4.96648, 0, 0.983119, -0.880857, 1.46356, -0.141569)
 
 [node name="flacon2" parent="." instance=ExtResource("12_chuaw")]
-transform = Transform3D(6.74856, 0, 0, 0, 6.74856, 0, 0, 0, 6.74856, -0.708078, 1.07547, -1.80049)
+transform = Transform3D(1.31046, 0, 6.6201, 0, 6.74856, 0, -6.6201, 0, 1.31046, -1.01782, 1.46356, -0.352466)
 
-[node name="VANITY" parent="." instance=ExtResource("13_v4o67")]
-transform = Transform3D(-11.6482, 0.00944706, -25.4621, -0.13352, 27.9996, 0.0714704, 25.4618, 0.15115, -11.648, -0.521445, 0.111444, -2.11505)
+[node name="flacon3" parent="." instance=ExtResource("12_chuaw")]
+transform = Transform3D(-1.31042, -0.0505292, -6.61992, 0.00981186, -6.74837, 0.0495675, -6.6201, 4.47562e-08, 1.31046, -1.10629, 1.7192, -0.16317)
+
+[node name="hair dryer" parent="." instance=ExtResource("13_fopw0")]
+transform = Transform3D(8.999, 0, -5.0624, 0, 10.3252, 0, 5.0624, 0, 8.999, -0.510385, 1.08348, -1.72746)
 
 [editable path="AudioScene"]

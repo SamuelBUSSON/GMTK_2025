@@ -12,6 +12,9 @@ class_name audio_manager;
 @export var dye_use_sounds: Array[AudioStream] = []
 @export var iron_use_sounds: Array[AudioStream] = []
 
+@export var rotationPlayer: AudioStreamPlayer3D;
+@export var rotation_sound: AudioStream;
+
 enum CurrentTool  { CISORS, IRON, DYE }
 
 var current_tool: CurrentTool = CurrentTool.CISORS
@@ -77,3 +80,14 @@ func play_hair_matching():
 		var random_sound = sound_array[randi() % sound_array.size()]
 		audioPlayer.stream = random_sound
 		audioPlayer.play()
+
+func play_rotatingchair():
+	if GameGlobal.is_game_start and rotation_sound != null and rotationPlayer != null:
+		rotationPlayer.stream = rotation_sound
+		rotationPlayer.loop = true
+		rotationPlayer.play()
+
+func stop_rotatingchair():
+	if rotationPlayer != null:
+		rotationPlayer.stop()
+		rotationPlayer.loop = false
