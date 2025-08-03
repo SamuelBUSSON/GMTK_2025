@@ -1,14 +1,15 @@
-[gd_scene load_steps=26 format=3 uid="uid://2r2xorepwlip"]
+[gd_scene load_steps=29 format=3 uid="uid://2r2xorepwlip"]
 
 [ext_resource type="Script" uid="uid://dsr476vjg31mu" path="res://Script/GameWorld.gd" id="1_25dgi"]
 [ext_resource type="PackedScene" uid="uid://cdk6hwb4hi2wc" path="res://Player/player.tscn" id="1_ndiqr"]
 [ext_resource type="PackedScene" uid="uid://xf5n1prpkpxt" path="res://Prefabs/GAME_Client.tscn" id="2_ecytd"]
 [ext_resource type="PackedScene" uid="uid://b76n4885ldf8m" path="res://Prefabs/GAME_Chair.tscn" id="3_q2e3v"]
-[ext_resource type="PackedScene" path="res://Levels/AudioScene.tscn" id="4_nwgsj"]
+[ext_resource type="PackedScene" uid="uid://b2n231sfdc2dh" path="res://Levels/AudioScene.tscn" id="4_nwgsj"]
 [ext_resource type="Script" uid="uid://cyd5sr7auhq8t" path="res://Script/UI/game_score.gd" id="6_kng65"]
 [ext_resource type="Material" uid="uid://nr0j7j660s45" path="res://Art/Materials/mat_wall.tres" id="7_m5lms"]
 [ext_resource type="Material" uid="uid://d1gkpjjlnk4tf" path="res://Art/Materials/mat_floor.tres" id="8_wlehf"]
 [ext_resource type="Material" uid="uid://c1o6altg54q33" path="res://Art/Materials/mat_lightsr.tres" id="9_5hxgg"]
+[ext_resource type="Material" uid="uid://ddpg4xbdjtrrw" path="res://Art/Materials/mat_flooring.tres" id="9_noaln"]
 [ext_resource type="Texture2D" uid="uid://bl3ht16gvsdb3" path="res://Art/Texture/doop.png" id="10_chuaw"]
 [ext_resource type="Texture2D" uid="uid://bycsc2apfab67" path="res://Art/Texture/lareal.png" id="11_v4o67"]
 [ext_resource type="Texture2D" uid="uid://bqtvsaxrdg6ql" path="res://Art/Texture/prices.png" id="12_8n2e8"]
@@ -17,6 +18,8 @@
 [ext_resource type="PackedScene" uid="uid://cydbvyq2mwab3" path="res://Art/Mesh/Enviro/textured/trophy.tscn" id="18_ibl7g"]
 [ext_resource type="PackedScene" uid="uid://drtr1768wblda" path="res://Art/Mesh/Enviro/textured/brush.tscn" id="19_fktxf"]
 [ext_resource type="PackedScene" uid="uid://c821855hmfdpv" path="res://Art/Mesh/Enviro/textured/flacon_1.tscn" id="19_xqf6g"]
+[ext_resource type="PackedScene" uid="uid://b2cdn38ht2vc6" path="res://Art/Mesh/Enviro/flacon1.fbx" id="20_4a8cn"]
+[ext_resource type="PackedScene" uid="uid://deftsp1xr2lin" path="res://Art/Mesh/Enviro/textured/lamp.tscn" id="20_noaln"]
 [ext_resource type="PackedScene" uid="uid://cg5pt4ly5ysxo" path="res://Art/Mesh/Enviro/textured/miror.tscn" id="20_tu7wk"]
 [ext_resource type="PackedScene" uid="uid://b7magkmehip1s" path="res://Art/Mesh/Enviro/textured/hair_dryer.tscn" id="20_xqf6g"]
 
@@ -147,7 +150,7 @@ transform = Transform3D(-4.37617e-08, 0, 1.00115, 0, 1.00115, 0, -1.00115, 0, -4
 is_celebrity = true
 
 [node name="Chair" parent="." instance=ExtResource("3_q2e3v")]
-transform = Transform3D(1.00286, 0, 0, 0, 1.00286, 0, 0, 0, 1.00286, 0.168753, 0.3, -1)
+transform = Transform3D(1.00286, 0, 0, 0, 1.00286, 0, 0, 0, 1.00286, 0.169177, 0.298766, -0.997188)
 
 [node name="Client" parent="Chair" instance=ExtResource("2_ecytd")]
 transform = Transform3D(1.00115, 0, 0, 0, 1.00115, 0, 0, 0, 1.00115, 0.0019098, 0.790281, 0.00511092)
@@ -210,22 +213,22 @@ material = ExtResource("7_m5lms")
 transform = Transform3D(0.890632, 0.000315791, -0.454723, -0.000238209, 1, 0.000227901, 0.454723, -9.46488e-05, 0.890632, 2.22498, 0.0784966, -1.98711)
 use_collision = true
 size = Vector3(6.6, 0.2, 5.7)
-material = ExtResource("8_wlehf")
+material = ExtResource("9_noaln")
 
 [node name="posterdoop" type="CSGBox3D" parent="GreyBox"]
-transform = Transform3D(4.98215e-09, 0.16024, -0.313298, 0.351898, 3.20333e-08, 2.36635e-08, 3.17385e-08, -0.313298, -0.16024, 0.0743322, 1.53084, -0.103857)
+transform = Transform3D(5.39916e-08, -0.25165, 0.491767, -0.552416, -2.41469e-08, 4.82937e-08, 5.04115e-10, 0.491767, 0.25165, 0.0743322, 1.32246, -0.103857)
 material_override = SubResource("StandardMaterial3D_v4o67")
 use_collision = true
 size = Vector3(1.3, 0.001, 0.970581)
 
 [node name="posterlareal" type="CSGBox3D" parent="GreyBox"]
-transform = Transform3D(1.012e-08, 0.636386, 0.325487, 0.714792, -2.60875e-08, 6.24891e-08, 6.44688e-08, 0.325487, -0.636386, -1.15269, 1.81016, -1.33936)
+transform = Transform3D(-0.0180099, -0.63657, -0.325083, -0.713905, 3.1665e-08, 0.0395509, 0.0352125, -0.325581, 0.635596, -1.15269, 1.81016, -1.33936)
 material_override = SubResource("StandardMaterial3D_8n2e8")
 use_collision = true
 size = Vector3(1.3, 0.00220947, 0.970581)
 
 [node name="posterlareal2" type="CSGBox3D" parent="GreyBox"]
-transform = Transform3D(4.048e-09, 0.254554, 0.130195, 0.285917, -1.0435e-08, 2.49957e-08, 2.57875e-08, 0.130195, -0.254554, -0.429907, 1.40988, -2.81626)
+transform = Transform3D(2.25189e-08, -0.254601, -0.130286, -0.286, -1.25015e-08, -2.50029e-08, -1.65629e-08, -0.130286, 0.254601, -0.429907, 1.40988, -2.81626)
 material_override = SubResource("StandardMaterial3D_w2yne")
 use_collision = true
 size = Vector3(1.3, 0.001, 0.970581)
@@ -256,7 +259,7 @@ radius = 0.0610386
 material = ExtResource("9_5hxgg")
 
 [node name="VANITY2" parent="GreyBox" instance=ExtResource("14_tu7wk")]
-transform = Transform3D(-11.6482, 0.00944711, -25.4621, -0.13352, 27.9996, 0.07147, 25.4618, 0.15115, -11.648, -0.521445, 0.111444, -2.11505)
+transform = Transform3D(-12.2651, 0.00944711, -25.1708, -0.131739, 27.9996, 0.0747016, 25.1705, 0.15115, -12.2649, -0.521445, 0.111444, -2.11505)
 
 [node name="carpet" parent="." instance=ExtResource("14_fktxf")]
 transform = Transform3D(27.7716, 0, 0, 0, 27.7716, 0, 0, 0, 27.7716, 0.440853, 0.185877, -1.37557)
@@ -264,16 +267,22 @@ transform = Transform3D(27.7716, 0, 0, 0, 27.7716, 0, 0, 0, 27.7716, 0.440853, 0
 [node name="trophy2" parent="." instance=ExtResource("18_ibl7g")]
 transform = Transform3D(-2.00347, 0, 12.1931, 0, 12.3566, 0, -12.1931, 0, -2.00347, -0.859623, 0.545958, -0.380219)
 
-[node name="flacon4" parent="." instance=ExtResource("19_xqf6g")]
-transform = Transform3D(4.29568, 0, 0, 0, 4.29568, 0, 0, 0, 4.29568, -0.878574, 1.46895, -0.132089)
-
 [node name="miror" parent="." instance=ExtResource("20_tu7wk")]
 transform = Transform3D(2.70889, -0.028706, 6.03169, -0.00154199, 6.61205, 0.0321606, -6.03176, -0.0145822, 2.70885, -0.754732, 1.17241, -2.18566)
 
 [node name="hair dryer" parent="." instance=ExtResource("20_xqf6g")]
-transform = Transform3D(6.85025, -0.308667, -6.36631, 0.0570768, 9.3485, -0.391841, 6.37354, 0.248036, 6.846, -0.61398, 1.06168, -1.59091)
+transform = Transform3D(7.96975, 0, 0, 0, 7.96975, 0, 0, 0, 7.96975, 0.266152, 0.240409, -2.19744)
 
 [node name="brush" parent="." instance=ExtResource("19_fktxf")]
 transform = Transform3D(-2.33682, 0, -7.4609, 0, 7.8183, 0, 7.4609, 0, -2.33682, -0.929703, 1.45314, -0.467543)
+
+[node name="LAMP" parent="." instance=ExtResource("20_noaln")]
+transform = Transform3D(5.20666, 0, -7.32838, 0, 8.98969, 0, 7.32838, 0, 5.20666, -0.790517, 1.05751, -1.63393)
+
+[node name="flacon1" parent="." instance=ExtResource("20_4a8cn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1404, 0, 2.77282)
+
+[node name="flacon2" parent="." instance=ExtResource("19_xqf6g")]
+transform = Transform3D(8.16808, 0, 0, 0, 8.16808, 0, 0, 0, 8.16808, -0.619778, 1.46996, -0.0898273)
 
 [editable path="AudioScene"]

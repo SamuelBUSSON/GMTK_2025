@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://deftsp1xr2lin"]
+
+[ext_resource type="PackedScene" uid="uid://b7v7lyahlil5m" path="res://Art/Mesh/Enviro/LAMP.fbx" id="1_ds4tn"]
+[ext_resource type="Material" uid="uid://co88sdw3oh23h" path="res://Art/Materials/mat_pink2.tres" id="2_6j731"]
+[ext_resource type="Material" uid="uid://bjrbenlqr5ogd" path="res://Art/Materials/mat_violet.tres" id="3_6j731"]
+
+[node name="LAMP" instance=ExtResource("1_ds4tn")]
+
+[node name="LAMP" parent="group1" index="0"]
+surface_material_override/0 = ExtResource("2_6j731")
+
+[node name="BOUTON" parent="group1" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00540561, 0.0114748, 0.000467941)
+surface_material_override/0 = ExtResource("3_6j731")

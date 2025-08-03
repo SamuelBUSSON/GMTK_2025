@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvd5qwvss1st6"]
+
+[ext_resource type="PackedScene" uid="uid://dnag37ygguxtc" path="res://Art/Mesh/Enviro/Chair v2.fbx" id="1_bsupn"]
+[ext_resource type="Material" uid="uid://b2kypd82h2k4q" path="res://Art/Materials/mat_carpet.tres" id="2_qtb2h"]
+[ext_resource type="Material" uid="uid://73asatnsvev6" path="res://Art/Materials/mat_pink.tres" id="3_bo6tg"]
+
+[node name="Chair v2" instance=ExtResource("1_bsupn")]
+
+[node name="CHAIR_v2" parent="." index="0"]
+transform = Transform3D(5.52, 0, 0, 0, 5.52, 0, 0, 0, 5.52, 0, 0.187275, -0.00737988)
+surface_material_override/0 = ExtResource("2_qtb2h")
+surface_material_override/1 = ExtResource("3_bo6tg")
