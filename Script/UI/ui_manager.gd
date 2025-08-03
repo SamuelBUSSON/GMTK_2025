@@ -20,6 +20,8 @@ var rng := RandomNumberGenerator.new()
 
 @onready var score_text = $Score/ScoreText
 
+@export_group("Audio")
+@export var ui_pause_sound: AudioStreamPlayer
 
 @onready var tool_buttons = [$Toolbar/ScissorsButton,$Toolbar/IronButton,$Toolbar/DyeSprayButton1,$Toolbar/DyeSprayButton2,$Toolbar/DyeSprayButton3]
 var button_selected_int = 0
@@ -114,10 +116,12 @@ func _on_photo_timer_timeout() -> void:
 	photo_block.visible = false
 
 func _on_pause_button_pressed() -> void:
+	
+	ui_pause_sound.play()
+	
 	Input.set_custom_mouse_cursor(cursors.get("scissors_1"))
 	pause_menu.open_menu()
 	pause_button.visible = false
-
 
 func _on_pause_menu_visibility_changed() -> void:
 	if !pause_menu.visible:
