@@ -3,6 +3,7 @@ extends Node
 class_name audio_manager;
 
 @export var audioPlayer: AudioStreamPlayer3D;
+@export var voiceAudioPlayer: AudioStreamPlayer3D;
 
 @export var voice_lines: Array[voice_line] = []
 
@@ -98,5 +99,5 @@ func stop_rotatingchair():
 func play_random_sound(stream_input : Array[AudioStream]):
 	if stream_input.size() > 0:
 		var random_sound = stream_input[randi() % stream_input.size()]
-		audioPlayer.stream = random_sound
-		audioPlayer.play()
+		voiceAudioPlayer.stream = random_sound
+		voiceAudioPlayer.play()
