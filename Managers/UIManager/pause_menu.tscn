@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dqj7gfkx3u2s4"]
+[gd_scene load_steps=7 format=3 uid="uid://dqj7gfkx3u2s4"]
 
 [ext_resource type="Theme" uid="uid://c8x5dndyxu50h" path="res://UI/Themes/Title.tres" id="1_445gp"]
 [ext_resource type="Script" uid="uid://vvk32mpsywvc" path="res://Script/UI/pause_menu.gd" id="1_r7042"]
+[ext_resource type="Texture2D" uid="uid://c06pmsnu8afct" path="res://UI/Assets/bg_ui.png" id="2_mv8lk"]
 [ext_resource type="Theme" uid="uid://cger3kmfn1hhk" path="res://UI/Themes/text.tres" id="2_r7042"]
 [ext_resource type="Theme" uid="uid://bgn1vvtf4skii" path="res://UI/Themes/slider.tres" id="3_mv8lk"]
 [ext_resource type="Theme" uid="uid://bun827w3kwxd2" path="res://UI/Themes/button.tres" id="4_3uemc"]
@@ -23,24 +24,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.568627)
+color = Color(0, 0, 0, 0.517647)
 
-[node name="Background2" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -280.0
-offset_top = -156.0
-offset_right = 280.0
-offset_bottom = 276.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.461513, 0.461513, 0.461513, 0.505882)
-
-[node name="SoundBlock" type="Control" parent="."]
+[node name="MenuBlock" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -54,124 +40,164 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SoundTitle" type="Label" parent="SoundBlock"]
+[node name="Background2" type="TextureRect" parent="MenuBlock"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = -268.0
+offset_right = 280.0
+offset_bottom = 244.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_mv8lk")
+expand_mode = 1
+
+[node name="SoundBlock" type="Control" parent="MenuBlock"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -92.0
+offset_right = 20.0
+offset_bottom = -52.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SoundTitle" type="Label" parent="MenuBlock/SoundBlock"]
 layout_mode = 0
 offset_left = -220.0
 offset_top = -104.0
 offset_right = 260.0
 offset_bottom = -56.0
 theme = ExtResource("1_445gp")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Sound parameters"
 vertical_alignment = 1
 
-[node name="GlobalBlock" type="Control" parent="SoundBlock"]
+[node name="GlobalBlock" type="Control" parent="MenuBlock/SoundBlock"]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="GlobalName" type="Label" parent="SoundBlock/GlobalBlock"]
+[node name="GlobalName" type="Label" parent="MenuBlock/SoundBlock/GlobalBlock"]
 layout_mode = 0
 offset_left = -220.0
 offset_top = -16.0
 offset_right = -132.0
 offset_bottom = 24.0
 theme = ExtResource("2_r7042")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Global"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="GlobalSlider" type="HSlider" parent="SoundBlock/GlobalBlock"]
+[node name="GlobalSlider" type="HSlider" parent="MenuBlock/SoundBlock/GlobalBlock"]
 layout_mode = 0
 offset_left = -116.0
 offset_top = -16.0
 offset_right = 164.0
 offset_bottom = 24.0
 theme = ExtResource("3_mv8lk")
+value = 100.0
 
-[node name="GlobalValue" type="Label" parent="SoundBlock/GlobalBlock"]
+[node name="GlobalValue" type="Label" parent="MenuBlock/SoundBlock/GlobalBlock"]
 layout_mode = 0
 offset_left = 180.0
 offset_top = -16.0
 offset_right = 260.0
 offset_bottom = 24.0
 theme = ExtResource("2_r7042")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "100%"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MusicBlock" type="Control" parent="SoundBlock"]
+[node name="MusicBlock" type="Control" parent="MenuBlock/SoundBlock"]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="MusicName" type="Label" parent="SoundBlock/MusicBlock"]
+[node name="MusicName" type="Label" parent="MenuBlock/SoundBlock/MusicBlock"]
 layout_mode = 0
 offset_left = -220.0
 offset_top = 40.0
 offset_right = -132.0
 offset_bottom = 80.0
 theme = ExtResource("2_r7042")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Music"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MusicSlider" type="HSlider" parent="SoundBlock/MusicBlock"]
+[node name="MusicSlider" type="HSlider" parent="MenuBlock/SoundBlock/MusicBlock"]
 layout_mode = 0
 offset_left = -116.0
 offset_top = 40.0
 offset_right = 164.0
 offset_bottom = 80.0
 theme = ExtResource("3_mv8lk")
+value = 100.0
 
-[node name="MusicValue" type="Label" parent="SoundBlock/MusicBlock"]
+[node name="MusicValue" type="Label" parent="MenuBlock/SoundBlock/MusicBlock"]
 layout_mode = 0
 offset_left = 180.0
 offset_top = 40.0
 offset_right = 260.0
 offset_bottom = 80.0
 theme = ExtResource("2_r7042")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "100%"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SFXBlock" type="Control" parent="SoundBlock"]
+[node name="SFXBlock" type="Control" parent="MenuBlock/SoundBlock"]
 anchors_preset = 0
 offset_left = 432.0
 offset_top = 384.0
 offset_right = 576.0
 offset_bottom = 424.0
 
-[node name="SFXName" type="Label" parent="SoundBlock/SFXBlock"]
+[node name="SFXName" type="Label" parent="MenuBlock/SoundBlock/SFXBlock"]
 layout_mode = 0
 offset_left = -652.0
 offset_top = -288.0
 offset_right = -564.0
 offset_bottom = -248.0
 theme = ExtResource("2_r7042")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "SFX"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SFXSlider" type="HSlider" parent="SoundBlock/SFXBlock"]
+[node name="SFXSlider" type="HSlider" parent="MenuBlock/SoundBlock/SFXBlock"]
 layout_mode = 0
 offset_left = -548.0
 offset_top = -288.0
 offset_right = -268.0
 offset_bottom = -248.0
 theme = ExtResource("3_mv8lk")
+value = 100.0
 
-[node name="SFXValue" type="Label" parent="SoundBlock/SFXBlock"]
+[node name="SFXValue" type="Label" parent="MenuBlock/SoundBlock/SFXBlock"]
 layout_mode = 0
 offset_left = -252.0
 offset_top = -288.0
 offset_right = -172.0
 offset_bottom = -248.0
 theme = ExtResource("2_r7042")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "100%"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="QuitMenuButton" type="Button" parent="."]
+[node name="QuitMenuButton" type="Button" parent="MenuBlock"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -179,15 +205,15 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -200.0
-offset_top = 180.0
+offset_top = 108.0
 offset_right = -24.0
-offset_bottom = 244.0
+offset_bottom = 172.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("4_3uemc")
 text = "Resume"
 
-[node name="QuitGameButton" type="Button" parent="."]
+[node name="QuitGameButton" type="Button" parent="MenuBlock"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -195,16 +221,16 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 24.0
-offset_top = 180.0
+offset_top = 108.0
 offset_right = 200.0
-offset_bottom = 244.0
+offset_bottom = 172.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("4_3uemc")
 text = "Quit Game"
 
-[connection signal="value_changed" from="SoundBlock/GlobalBlock/GlobalSlider" to="." method="_on_global_slider_value_changed"]
-[connection signal="value_changed" from="SoundBlock/MusicBlock/MusicSlider" to="." method="_on_music_slider_value_changed"]
-[connection signal="value_changed" from="SoundBlock/SFXBlock/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
-[connection signal="pressed" from="QuitMenuButton" to="." method="_on_quit_menu_button_pressed"]
-[connection signal="pressed" from="QuitGameButton" to="." method="_on_quit_game_button_pressed"]
+[connection signal="value_changed" from="MenuBlock/SoundBlock/GlobalBlock/GlobalSlider" to="." method="_on_global_slider_value_changed"]
+[connection signal="value_changed" from="MenuBlock/SoundBlock/MusicBlock/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="MenuBlock/SoundBlock/SFXBlock/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="pressed" from="MenuBlock/QuitMenuButton" to="." method="_on_quit_menu_button_pressed"]
+[connection signal="pressed" from="MenuBlock/QuitGameButton" to="." method="_on_quit_game_button_pressed"]

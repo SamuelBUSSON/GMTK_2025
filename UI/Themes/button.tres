@@ -1,4 +1,25 @@
-[gd_resource type="Theme" format=3 uid="uid://bun827w3kwxd2"]
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://bun827w3kwxd2"]
+
+[ext_resource type="FontFile" uid="uid://cwakrwgnuny77" path="res://UI/Fonts/Choco Shake.ttf" id="1_6huyg"]
+[ext_resource type="Texture2D" uid="uid://c1shbvvyyulmm" path="res://UI/Assets/button_hovered.png" id="2_apn18"]
+[ext_resource type="Texture2D" uid="uid://cv0l3drpn2e8y" path="res://UI/Assets/button_neutral.png" id="3_brsa4"]
+[ext_resource type="Texture2D" uid="uid://dvyfnlw0eeeil" path="res://UI/Assets/button_clicked.png" id="4_brsa4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_brsa4"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2kijh"]
+texture = ExtResource("2_apn18")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_55r0q"]
+texture = ExtResource("3_brsa4")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ymg44"]
+texture = ExtResource("4_brsa4")
 
 [resource]
 Button/font_sizes/font_size = 24
+Button/fonts/font = ExtResource("1_6huyg")
+Button/styles/focus = SubResource("StyleBoxEmpty_brsa4")
+Button/styles/hover = SubResource("StyleBoxTexture_2kijh")
+Button/styles/normal = SubResource("StyleBoxTexture_55r0q")
+Button/styles/pressed = SubResource("StyleBoxTexture_ymg44")

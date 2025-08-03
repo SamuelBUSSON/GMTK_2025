@@ -126,6 +126,7 @@ offset_bottom = 244.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_bqrc7")
+toggle_mode = true
 text = "Welcome the first customers"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

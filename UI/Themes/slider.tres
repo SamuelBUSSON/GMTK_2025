@@ -1,7 +1,11 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bgn1vvtf4skii"]
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://bgn1vvtf4skii"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oni22"]
-bg_color = Color(0.728559, 0.571937, 0.308569, 1)
+bg_color = Color(0.654902, 0.313726, 0.368627, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8akd5"]
+bg_color = Color(0.654902, 0.313726, 0.368627, 1)
 
 [resource]
 HSlider/styles/grabber_area = SubResource("StyleBoxFlat_oni22")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_8akd5")

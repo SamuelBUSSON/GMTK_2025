@@ -15,6 +15,8 @@ var rng := RandomNumberGenerator.new()
 @onready var pause_menu = $PauseMenu
 @onready var pause_button = $PauseButton
 
+@onready var score_text = $Score/ScoreText
+
 
 @onready var tool_buttons = [$Toolbar/ScissorsButton,$Toolbar/IronButton,$Toolbar/DyeSprayButton1,$Toolbar/DyeSprayButton2,$Toolbar/DyeSprayButton3]
 var button_selected_int = 0
@@ -40,7 +42,7 @@ func _process(delta: float) -> void:
 	change_cursor_on_click()
 	photo_front_texture.texture = GameGlobal.viewport_front.get_texture();
 	photo_back_texture.texture = GameGlobal.viewport_back.get_texture();
-	pass;
+	score_text.text = str("SCORE : ", GameGlobal.player_score)
 
 func talk(talker_text : String, time_talking : float):
 	if !dialogue_block.visible:
@@ -80,7 +82,7 @@ func _on_photo_timer_timeout() -> void:
 	photo_block.visible = false
 
 func _on_pause_button_pressed() -> void:
-	pause_menu.visible = true
+	pause_menu.open_menu()
 	pause_button.visible = false
 
 func _on_pause_menu_visibility_changed() -> void:
@@ -127,8 +129,11 @@ func button_neutral(id_button : int):
 		tool_buttons[id_button].modulate.a = 0.7
 
 func button_selected(id_button : int):
+	var other_tween = create_tween()
+	other_tween.tween_property(tool_buttons[button_selected_int], "scale", Vector2(1.6,1.6), 0.1).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
+	other_tween.tween_property(tool_buttons[button_selected_int], "scale", Vector2(1.0,1.0), 0.2).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	
 	for i in tool_buttons:
-		i.scale = Vector2(1.0,1.0)
 		i.pivot_offset = i.size/2
 		i.modulate.a = 0.7
 
@@ -143,7 +148,8 @@ func button_selected(id_button : int):
 	tool_buttons[id_button].modulate.a = 1
 
 	var tween = create_tween()
-	tween.tween_property(tool_buttons[id_button], "scale", Vector2(1.4,1.4), 0.3).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
+	tween.tween_property(tool_buttons[id_button], "scale", Vector2(1.6,1.6), 0.3).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
+	tween.tween_property(tool_buttons[id_button], "scale", Vector2(1.4,1.4), 0.1).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 
 func _on_scissors_button_mouse_entered() -> void:
 	button_hovered(0)
