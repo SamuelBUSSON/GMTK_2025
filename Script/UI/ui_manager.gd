@@ -26,8 +26,8 @@ var cursors = {"scissors_1" : load("res://Art/UI/Cursor/sci1.png"),
 "spray_1" : load("res://Art/UI/Cursor/spray1.png"),
 "spray_2" : load("res://Art/UI/Cursor/spray2.png")}
 
-var dialogue_pool = ["blabla","blabla"]
-var celebrity_names = ["Jean","Claude"]
+var dialogue_pool = ["Make my hair like Braid Pitt's!","Can you make me look like Ponytailor Swift?","Would love the Tony Mohawk cool look!","Antonio Bangderas' cut is what I want.","Take inspiration from Justin Biebun here!","I wanna look like Mullet Cyrus.","I have this photo of Katy Permy, make it similar!","Aim for the Bobert Downey Jr. look...","Could you try and make it like Hairiana Grande?","My reference is Jamie Lee Cutis.","Love the Audrey Auburn vibe.","Just like Ben Coiffleck please."]
+var celebrity_names = ["Braid Pitt","Ponytailor Swift","Tony Mohawk","Antonio Bangderas","Justin Biebun","Mullet Cyrus","Katy Permy","Bobert Downey Jr.","Hairiana Grande","Jamie Lee Cutis","Audrey Auburn","Ben Coiffleck"]
 
 func _ready() -> void:
 	Input.set_custom_mouse_cursor(cursors.get("scissors_1"))
