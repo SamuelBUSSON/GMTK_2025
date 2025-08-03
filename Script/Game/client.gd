@@ -15,7 +15,7 @@ var rng := RandomNumberGenerator.new()
 var hairLookUp : Dictionary;
 var hairMeshLookUp : Dictionary;
 var base_position : Vector3
-
+var is_first_done = false;
 
 func _ready():
 	rng.randomize()
@@ -31,6 +31,8 @@ func _ready():
 	if (!is_celebrity):
 		GlobalSignals.connect("on_hair_click", on_hair_click)
 		GlobalSignals.connect("on_celebrity_select", on_celebrity_select)
+		GlobalSignals.connect("on_game_start", on_game_start)
+		self.global_position = base_position - Vector3.FORWARD * 2
 		if (GameGlobal.current_celebrity != null):
 			_spawn_hair_style()
 
@@ -41,6 +43,9 @@ func _ready():
 
 func on_celebrity_select():
 	_spawn_hair_style();
+
+func on_game_start():
+	trigger_new_client();
 
 
 func on_hair_click(hair_click : hair, hit_position : Vector3 ):
@@ -82,20 +87,27 @@ func on_hair_click(hair_click : hair, hit_position : Vector3 ):
 func on_sucess():
 	GameGlobal.player_score += 1;
 	GlobalSignals.emit_signal("on_success_signal");
+	trigger_new_client();
 
+
+func trigger_new_client():
 	var tween = create_tween()
-	tween.tween_interval(0.5);
-	tween.tween_property(self, "global_position", global_position + Vector3.FORWARD * 2, 0.5).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN);
+	if (is_first_done):
+		tween.tween_interval(0.5);
+		tween.tween_property(self, "global_position", global_position + Vector3.FORWARD * 2, 0.5).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN);
 	tween.tween_callback(spawn_new_celebrity);
 	tween.tween_property(self, "global_position", base_position - Vector3.FORWARD * 2, 0)
 	tween.tween_property(self, "global_position", base_position, 0.5).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT);
 	tween.tween_callback(on_client_coming);
+	is_first_done = true;
+
 
 func spawn_new_celebrity():
 	GameGlobal.current_celebrity._spawn_hair_style()
 
 func on_client_coming():
 	GlobalSignals.emit_signal("on_new_celebrity");
+	GameGlobal.is_game_start = true;
 
 func replace_air_mesh(hair_click : hair):
 	var new_hash = GameGlobal._hair_hash(hair_click);
