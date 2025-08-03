@@ -86,6 +86,7 @@ func on_hair_match_event():
 
 func set_outline_base_color(new_col : Color):
 	outline_base_color = new_col;
+	outline_mat.albedo_color = outline_base_color
 	pass
 
 func free_lock() -> void:

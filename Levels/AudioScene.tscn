@@ -128,8 +128,8 @@ iron_select_sounds = Array[AudioStream]([ExtResource("12_0118t"), ExtResource("1
 cisors_use_sounds = Array[AudioStream]([ExtResource("16_eo4go"), ExtResource("17_jq7r6"), ExtResource("18_ku85l"), ExtResource("19_rpibi"), ExtResource("20_aqm3s"), ExtResource("21_16voi"), ExtResource("22_1i60i"), ExtResource("23_qj36m"), ExtResource("24_6dtub"), ExtResource("25_mj1pd"), ExtResource("26_cygom"), ExtResource("27_ns0l6"), ExtResource("28_rfrrm"), ExtResource("29_tiem3"), ExtResource("30_qwo1h"), ExtResource("31_613ve"), ExtResource("32_fum7r"), ExtResource("33_wex36"), ExtResource("34_psaib"), ExtResource("35_84ql4"), ExtResource("36_rf78n"), ExtResource("37_albsv"), ExtResource("38_70jfp"), ExtResource("39_vp8r4")])
 dye_use_sounds = Array[AudioStream]([ExtResource("40_32cr5"), ExtResource("41_48xhh"), ExtResource("42_shmac")])
 iron_use_sounds = Array[AudioStream]([ExtResource("43_qgvqb"), ExtResource("44_1t8f8"), ExtResource("45_5kfe4")])
-rotation_sound = ExtResource("73_fum7r")
 rotationPlayer = NodePath("rotatingChair")
+rotation_sound = ExtResource("73_fum7r")
 
 [node name="audioPlayer" type="AudioStreamPlayer3D" parent="Audio"]
 
