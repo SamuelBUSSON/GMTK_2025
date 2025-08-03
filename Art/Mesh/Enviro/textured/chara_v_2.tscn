@@ -18,8 +18,8 @@ surface_material_override/0 = ExtResource("3_nnrss")
 
 [node name="mouth" parent="chara" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000294647, 0.441567, 0.206161)
-surface_material_override/0 = ExtResource("3_64wv2")
+surface_material_override/0 = ExtResource("4_nnrss")
 
 [node name="body" parent="chara" index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.445677, 0)
-material_override = ExtResource("4_nnrss")
+material_override = ExtResource("3_64wv2")
