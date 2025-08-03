@@ -165,6 +165,7 @@ func _on_scissors_button_pressed() -> void:
 	GameGlobal.set_current_tool(0)
 	#change cursor
 	button_selected(0)
+	GlobalSignals.emit_signal("on_tool_select")
 
 func _on_iron_button_mouse_entered() -> void:
 	button_hovered(1)
@@ -176,6 +177,7 @@ func _on_iron_button_pressed() -> void:
 	GameGlobal.set_current_tool(1)
 	#change cursor
 	button_selected(1)
+	GlobalSignals.emit_signal("on_tool_select")
 
 func _on_dye_spray_button_1_mouse_entered() -> void:
 	button_hovered(2)
@@ -187,6 +189,7 @@ func _on_dye_spray_button_1_pressed() -> void:
 	GameGlobal.set_current_tool(2)
 	#change cursor
 	button_selected(2)
+	GlobalSignals.emit_signal("on_tool_select")
 
 func _on_dye_spray_button_2_mouse_entered() -> void:
 	button_hovered(3)
@@ -198,6 +201,7 @@ func _on_dye_spray_button_2_pressed() -> void:
 	GameGlobal.set_current_tool(3)
 	#change cursor
 	button_selected(3)
+	GlobalSignals.emit_signal("on_tool_select")
 
 func _on_dye_spray_button_3_mouse_entered() -> void:
 	button_hovered(4)
@@ -209,3 +213,4 @@ func _on_dye_spray_button_3_pressed() -> void:
 	GameGlobal.set_current_tool(4)
 	#change cursor
 	button_selected(4)
+	GlobalSignals.emit_signal("on_tool_select")
