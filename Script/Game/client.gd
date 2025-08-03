@@ -60,7 +60,10 @@ func on_hair_click(hair_click : hair, hit_position : Vector3 ):
 		GlobalSignals.emit_signal("is_using_cisors")
 
 		FxManager.request_fx("fx_cut_hair", hit_position);
-		FxManager.request_fx("fx_hair_dropping_cut", hit_position);
+		var fxHair : GPUParticles3D = FxManager.request_fx("fx_hair_dropping_cut", hit_position);
+		fxHair.draw_pass_1 = hair_click.get_mesh().mesh
+		(fxHair.material_override as StandardMaterial3D).albedo_color = hair_click.get_mesh_color()
+		
 		hair_click = replace_air_mesh(hair_click);
 
 	if (GameGlobal.is_using_dye()):
