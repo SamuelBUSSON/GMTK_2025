@@ -150,9 +150,19 @@ size = Vector3(6.6, 0.8, 3.9)
 material = ExtResource("7_m5lms")
 
 [node name="subwall1*" type="CSGBox3D" parent="GreyBox/wall1"]
-transform = Transform3D(1, 2.98023e-08, 7.11579e-09, -2.98023e-08, 1, 1.49012e-08, -2.2017e-08, -7.78537e-09, 1, -1.3, -0.49197, -0.7)
+transform = Transform3D(1, -5.96046e-08, 7.11579e-09, 5.96046e-08, 1, 1.49012e-08, -2.2017e-08, -7.78537e-09, 1, -1.34159, -0.49197, -1.46035)
 operation = 2
-size = Vector3(2.1, 0.455859, 1.3)
+size = Vector3(2.01682, 0.455859, 0.275781)
+
+[node name="subwall1*2" type="CSGBox3D" parent="GreyBox/wall1"]
+transform = Transform3D(1, -5.96046e-08, 7.11579e-09, 5.96046e-08, 1, 1.49012e-08, -2.2017e-08, -7.78537e-09, 1, -1.34159, -0.49197, -0.993985)
+operation = 2
+size = Vector3(2.01682, 0.455859, 0.275781)
+
+[node name="subwall1*3" type="CSGBox3D" parent="GreyBox/wall1"]
+transform = Transform3D(1, -5.96046e-08, 7.11579e-09, 5.96046e-08, 1, 1.49012e-08, -2.2017e-08, -7.78537e-09, 1, -1.34159, -0.49197, -0.465608)
+operation = 2
+size = Vector3(2.01682, 0.455859, 0.275781)
 
 [node name="Wall2" type="CSGBox3D" parent="GreyBox"]
 transform = Transform3D(0.426663, 0.90441, -1.26378e-08, -2.98023e-08, 0, -1, -0.90441, 0.426663, 4.34663e-08, -0.627273, 0.737288, -3.42829)
@@ -160,7 +170,7 @@ size = Vector3(6.6, 0.8, 3.9)
 material = ExtResource("7_m5lms")
 
 [node name="miroir" type="CSGBox3D" parent="GreyBox"]
-transform = Transform3D(0.325075, -0.424342, 1.81034e-08, -5.69007e-16, -4.37114e-08, -0.976, 0.152339, 0.905502, -3.86308e-08, -0.867479, 0.940856, -2.2757)
+transform = Transform3D(0.325075, -0.424342, 1.81034e-08, -5.69007e-16, -4.37114e-08, -0.976, 0.152339, 0.905502, -3.86308e-08, -0.869168, 0.945349, -2.27459)
 size = Vector3(1, 0.9, 1.5)
 material = ExtResource("8_25dgi")
 
