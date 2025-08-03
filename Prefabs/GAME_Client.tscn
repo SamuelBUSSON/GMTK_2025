@@ -7,9 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://bg2f1kr0nynw3" path="res://Prefabs/Hairs/GAME_Hair_Straight_Long.tscn" id="5_8bwxi"]
 [ext_resource type="PackedScene" uid="uid://c36lm5en1o0gk" path="res://Prefabs/Hairs/GAME_Hair_Straight_Medium.tscn" id="6_0a3ld"]
 [ext_resource type="PackedScene" uid="uid://xtxmotqc4s3u" path="res://Prefabs/Hairs/GAME_Hair_Straight_Short.tscn" id="7_ecsbc"]
-[ext_resource type="PackedScene" uid="uid://dm2kuxif382xq" path="res://Art/Mesh/Chara/chara.fbx" id="8_rw0qo"]
 [ext_resource type="PackedScene" uid="uid://drydtg1jrqn6r" path="res://eyes_2.tscn" id="9_0a3ld"]
 [ext_resource type="PackedScene" uid="uid://blvlevcrranql" path="res://eyes_3.tscn" id="10_ecsbc"]
+[ext_resource type="PackedScene" uid="uid://dg6o2pax6nrwg" path="res://Art/Mesh/Enviro/textured/chara_v_2.tscn" id="11_0a3ld"]
 [ext_resource type="PackedScene" uid="uid://d0cbxhaiwgssg" path="res://eye_1.tscn" id="11_4727f"]
 
 [node name="Client" type="Node3D" node_paths=PackedStringArray("spawn_positions", "eyes")]
@@ -19,8 +19,6 @@ spawn_positions = [NodePath("Spawn_Pos_0"), NodePath("Spawn_Pos_1"), NodePath("S
 eyes = [NodePath("eye 1"), NodePath("eyes 2"), NodePath("eyes 3")]
 angle_variation_degrees = Vector3(5, 5, 2)
 hair_styles = Array[PackedScene]([ExtResource("2_cdf56"), ExtResource("3_rw0qo"), ExtResource("4_4x0kx"), ExtResource("5_8bwxi"), ExtResource("6_0a3ld"), ExtResource("7_ecsbc")])
-
-[node name="chara" parent="." instance=ExtResource("8_rw0qo")]
 
 [node name="Spawn_Pos_0" type="Node3D" parent="."]
 transform = Transform3D(0.248203, -0.815481, -0.522864, 0.966052, 0.168421, 0.195908, -0.0716973, -0.553738, 0.829599, -0.154819, 0.116513, -0.128588)
@@ -42,3 +40,6 @@ transform = Transform3D(0.00845922, -0.00611314, -0.999946, 0.999185, 0.0395464,
 [node name="eyes 3" parent="." instance=ExtResource("10_ecsbc")]
 
 [node name="eye 1" parent="." instance=ExtResource("11_4727f")]
+
+[node name="charaV3" parent="." instance=ExtResource("11_0a3ld")]
+transform = Transform3D(1.03, 0, 0, 0, 1.03, 0, 0, 0, 1.03, 0, -0.506394, 0)
