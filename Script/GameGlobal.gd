@@ -17,6 +17,8 @@ var is_game_start := false;
 var viewport_back : SubViewport;
 var viewport_front : SubViewport;
 
+var audio_manager : audio_manager;
+
 func get_CISORS_id() -> int:
 	return CurrentTool.CISORS;
 func get_IRON_id() -> int:
