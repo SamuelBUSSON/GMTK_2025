@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfumelgycwypf"]
+
+[ext_resource type="ArrayMesh" uid="uid://h7757ty3y1el" path="res://Art/Mesh/TrueMesh/curl long.tres" id="1_8lmc2"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ttlos"]
+direction = Vector3(1, 1, 1)
+initial_velocity_min = 0.2
+initial_velocity_max = 2.0
+scale_min = 0.25
+scale_max = 0.25
+
+[node name="Node3D" type="Node3D"]
+
+[node name="particle" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 16
+lifetime = 0.75
+one_shot = true
+explosiveness = 1.0
+visibility_aabb = AABB(-0.594987, -3.23166, -0.374048, 1.87713, 3.63379, 1.94252)
+process_material = SubResource("ParticleProcessMaterial_ttlos")
+draw_pass_1 = ExtResource("1_8lmc2")

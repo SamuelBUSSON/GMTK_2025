@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=4 uid="uid://xtxmotqc4s3u"]
 
 [ext_resource type="Script" uid="uid://b88kw7pf52jqa" path="res://Script/Game/hair.gd" id="1_u6ixn"]
-[ext_resource type="ArrayMesh" uid="uid://ck7hlpeuvvgw0" path="res://Art/Mesh/TrueMesh/Strait short.tres" id="2_yp5mw"]
+[ext_resource type="ArrayMesh" uid="uid://byek2dk0fo8gp" path="res://Art/Mesh/TrueMesh/Strait short.tres" id="2_yp5mw"]
 [ext_resource type="Material" uid="uid://cvj3texur2jnj" path="res://Art/Materials/Outline.tres" id="3_sytnr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sytnr"]
@@ -34,6 +34,10 @@ mesh = ExtResource("2_yp5mw")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/RigidBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0179081, 0.00531006, 0.00753784)
 shape = SubResource("BoxShape3D_sytnr")
+
+[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="MeshInstance3D/RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0147704, 0.00080879, 0.0130005)
+size = Vector3(0.180908, 0.187958, 0.216431)
 
 [node name="Outline" type="MeshInstance3D" parent="MeshInstance3D"]
 unique_name_in_owner = true

@@ -8,9 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://c36lm5en1o0gk" path="res://Prefabs/Hairs/GAME_Hair_Straight_Medium.tscn" id="6_0a3ld"]
 [ext_resource type="PackedScene" uid="uid://xtxmotqc4s3u" path="res://Prefabs/Hairs/GAME_Hair_Straight_Short.tscn" id="7_ecsbc"]
 [ext_resource type="PackedScene" uid="uid://dm2kuxif382xq" path="res://Art/Mesh/Chara/chara.fbx" id="8_rw0qo"]
-[ext_resource type="PackedScene" uid="uid://b0180g5qx3qf3" path="res://Art/Mesh/Chara/eye 1.fbx" id="9_0a3ld"]
-[ext_resource type="PackedScene" uid="uid://bw6yom15a7gib" path="res://Art/Mesh/Chara/eyes 2.fbx" id="10_ecsbc"]
-[ext_resource type="PackedScene" uid="uid://b8buj2mb8m3fc" path="res://Art/Mesh/Chara/eyes 3.fbx" id="11_4727f"]
+[ext_resource type="PackedScene" uid="uid://drydtg1jrqn6r" path="res://eyes_2.tscn" id="9_0a3ld"]
+[ext_resource type="PackedScene" uid="uid://blvlevcrranql" path="res://eyes_3.tscn" id="10_ecsbc"]
+[ext_resource type="PackedScene" uid="uid://d0cbxhaiwgssg" path="res://eye_1.tscn" id="11_4727f"]
 
 [node name="Client" type="Node3D" node_paths=PackedStringArray("spawn_positions", "eyes")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00351608, 0.505171, 0.00166607)
@@ -21,12 +21,6 @@ angle_variation_degrees = Vector3(5, 5, 5)
 hair_styles = Array[PackedScene]([ExtResource("2_cdf56"), ExtResource("3_rw0qo"), ExtResource("4_4x0kx"), ExtResource("5_8bwxi"), ExtResource("6_0a3ld"), ExtResource("7_ecsbc")])
 
 [node name="chara" parent="." instance=ExtResource("8_rw0qo")]
-
-[node name="eye 1" parent="." instance=ExtResource("9_0a3ld")]
-
-[node name="eyes 2" parent="." instance=ExtResource("10_ecsbc")]
-
-[node name="eyes 3" parent="." instance=ExtResource("11_4727f")]
 
 [node name="Spawn_Pos_0" type="Node3D" parent="."]
 transform = Transform3D(-0.182151, 0.0704343, -0.980745, 0.428438, 0.903452, -0.0146894, 0.885021, -0.422864, -0.194741, 0, 0.281631, 0)
@@ -42,3 +36,11 @@ transform = Transform3D(0.0944527, 0.0321277, 0.995011, 0.893152, 0.438735, -0.0
 
 [node name="Spawn_Pos_4" type="Node3D" parent="."]
 transform = Transform3D(0.00845922, -0.00611314, -0.999946, 0.967125, 0.254217, 0.00662741, 0.254163, -0.967128, 0.00806263, -8.31186e-05, 0.220902, -0.148298)
+
+[node name="eyes 2" parent="." instance=ExtResource("9_0a3ld")]
+visible = false
+
+[node name="eyes 3" parent="." instance=ExtResource("10_ecsbc")]
+visible = false
+
+[node name="eye 1" parent="." instance=ExtResource("11_4727f")]

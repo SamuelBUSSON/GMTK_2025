@@ -6,7 +6,7 @@
 
 [node name="GameGameGlobal" type="Node3D"]
 script = ExtResource("1_or04w")
-dye_color = Array[Color]([Color(1, 0, 0, 1), Color(0, 1, 0, 1), Color(0, 0, 1, 1)])
+dye_color = Array[Color]([Color(0.690196, 0.235294, 0.188235, 1), Color(0.431373, 0, 0.556863, 1), Color(0.858824, 0.890196, 0.576471, 1)])
 
 [node name="UIManager" parent="." instance=ExtResource("2_ri526")]
 

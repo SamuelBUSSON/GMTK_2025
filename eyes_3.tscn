@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://blvlevcrranql"]
+
+[ext_resource type="PackedScene" uid="uid://b8buj2mb8m3fc" path="res://Art/Mesh/Chara/eyes 3.fbx" id="1_7sa43"]
+[ext_resource type="Material" uid="uid://dvh5qu81liil" path="res://Art/Materials/eyes.tres" id="2_d2iqt"]
+
+[node name="eyes 3" instance=ExtResource("1_7sa43")]
+
+[node name="eyes_3" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_d2iqt")
