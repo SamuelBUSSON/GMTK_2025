@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cdk6hwb4hi2wc" path="res://Player/player.tscn" id="1_ndiqr"]
 [ext_resource type="PackedScene" uid="uid://xf5n1prpkpxt" path="res://Prefabs/GAME_Client.tscn" id="2_ecytd"]
 [ext_resource type="PackedScene" uid="uid://b76n4885ldf8m" path="res://Prefabs/GAME_Chair.tscn" id="3_q2e3v"]
-[ext_resource type="PackedScene" uid="uid://b2n231sfdc2dh" path="res://Levels/AudioScene.tscn" id="4_nwgsj"]
+[ext_resource type="PackedScene" path="res://Levels/AudioScene.tscn" id="4_nwgsj"]
 [ext_resource type="Script" uid="uid://cyd5sr7auhq8t" path="res://Script/UI/game_score.gd" id="6_kng65"]
 [ext_resource type="Material" uid="uid://nr0j7j660s45" path="res://Art/Materials/mat_wall.tres" id="7_m5lms"]
 [ext_resource type="Material" uid="uid://d1gkpjjlnk4tf" path="res://Art/Materials/mat_floor.tres" id="8_wlehf"]
@@ -13,12 +13,12 @@
 [ext_resource type="Texture2D" uid="uid://bycsc2apfab67" path="res://Art/Texture/lareal.png" id="11_v4o67"]
 [ext_resource type="Texture2D" uid="uid://bqtvsaxrdg6ql" path="res://Art/Texture/prices.png" id="12_8n2e8"]
 [ext_resource type="PackedScene" uid="uid://bvqxybvysrsto" path="res://Art/Mesh/Enviro/carpet.fbx" id="14_fktxf"]
-[ext_resource type="PackedScene" path="res://Art/Mesh/Enviro/textured/vanity.tscn" id="14_tu7wk"]
-[ext_resource type="PackedScene" path="res://Art/Mesh/Enviro/textured/trophy.tscn" id="18_ibl7g"]
+[ext_resource type="PackedScene" uid="uid://dgs37q3tafv8b" path="res://Art/Mesh/Enviro/textured/vanity.tscn" id="14_tu7wk"]
+[ext_resource type="PackedScene" uid="uid://cydbvyq2mwab3" path="res://Art/Mesh/Enviro/textured/trophy.tscn" id="18_ibl7g"]
 [ext_resource type="PackedScene" path="res://Art/Mesh/Enviro/textured/brush.tscn" id="19_fktxf"]
-[ext_resource type="PackedScene" path="res://Art/Mesh/Enviro/textured/flacon_1.tscn" id="19_xqf6g"]
-[ext_resource type="PackedScene" path="res://Art/Mesh/Enviro/textured/miror.tscn" id="20_tu7wk"]
-[ext_resource type="PackedScene" path="res://Art/Mesh/Enviro/textured/hair_dryer.tscn" id="20_xqf6g"]
+[ext_resource type="PackedScene" uid="uid://c821855hmfdpv" path="res://Art/Mesh/Enviro/textured/flacon_1.tscn" id="19_xqf6g"]
+[ext_resource type="PackedScene" uid="uid://cg5pt4ly5ysxo" path="res://Art/Mesh/Enviro/textured/miror.tscn" id="20_tu7wk"]
+[ext_resource type="PackedScene" uid="uid://b7magkmehip1s" path="res://Art/Mesh/Enviro/textured/hair_dryer.tscn" id="20_xqf6g"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_yxtyg"]
 
@@ -153,6 +153,9 @@ is_celebrity = true
 
 [node name="Chair" parent="." instance=ExtResource("3_q2e3v")]
 transform = Transform3D(1.00286, 0, 0, 0, 1.00286, 0, 0, 0, 1.00286, 0.168753, 0.3, -1)
+spinning_speed = 0.5
+mouse_click_scale_speed = 5.0
+scale_speed_based_on_score = 0.5
 
 [node name="Client" parent="Chair" instance=ExtResource("2_ecytd")]
 transform = Transform3D(1.00115, 0, 0, 0, 1.00115, 0, 0, 0, 1.00115, 0.0019098, 0.790281, 0.00511092)
