@@ -150,7 +150,7 @@ size = Vector3(6.6, 0.8, 3.9)
 material = ExtResource("7_m5lms")
 
 [node name="subwall1*" type="CSGBox3D" parent="GreyBox/wall1"]
-transform = Transform3D(1, 2.98023e-08, 7.11579e-09, -2.98023e-08, 1, 1.49012e-08, -2.2017e-08, -7.78537e-09, 1, -1.3, -0.49197, -0.7)
+transform = Transform3D(1, 0, 7.11579e-09, 0, 1, 1.49012e-08, -2.2017e-08, -7.78537e-09, 1, -1.30017, -0.489773, -0.703335)
 operation = 2
 size = Vector3(2.1, 0.455859, 1.3)
 

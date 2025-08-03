@@ -51,6 +51,7 @@ func on_hair_click(hair_click : hair, hit_position : Vector3 ):
 			hair_click.size = 2;
 
 		FxManager.request_fx("fx_cut_hair", hit_position);
+		FxManager.request_fx("fx_hair_dropping_cut", hit_position);
 		replace_air_mesh(hair_click);
 
 	if (GameGlobal.is_using_dye()):
