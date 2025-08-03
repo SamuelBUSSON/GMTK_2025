@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cjtpw0470u6fh"
-path="res://.godot/imported/try2.fbx-4ee30b2bc3f6967c906fef6a2f69f6dc.scn"
+uid="uid://ck0qpibvm3kfa"
+path="res://.godot/imported/Strait short.fbx-8b838b26467d554ab0ea9d6856226798.scn"
 
 [deps]
 
-source_file="res://Art/Mesh/try2.fbx"
-dest_files=["res://.godot/imported/try2.fbx-4ee30b2bc3f6967c906fef6a2f69f6dc.scn"]
+source_file="res://Art/Mesh/Hair/Strait short.fbx"
+dest_files=["res://.godot/imported/Strait short.fbx-8b838b26467d554ab0ea9d6856226798.scn"]
 
 [params]
 
@@ -32,7 +32,16 @@ animation/trimming=true
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={}
+_subresources={
+"nodes": {
+"PATH:AnimationPlayer": {
+"import/skip_import": true
+},
+"PATH:long": {
+"import/skip_import": true
+}
+}
+}
 fbx/importer=0
 fbx/allow_geometry_helper_nodes=false
 fbx/embedded_image_handling=1

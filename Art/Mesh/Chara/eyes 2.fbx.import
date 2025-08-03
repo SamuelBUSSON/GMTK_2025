@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bw6yom15a7gib"
-path="res://.godot/imported/eyes 2.fbx-651ac5ddc09f2adf776b2933a6a3b093.scn"
+path="res://.godot/imported/eyes 2.fbx-34b1d821d0dbbd96304199ded0076213.scn"
 
 [deps]
 
-source_file="res://Art/Mesh/eyes 2.fbx"
-dest_files=["res://.godot/imported/eyes 2.fbx-651ac5ddc09f2adf776b2933a6a3b093.scn"]
+source_file="res://Art/Mesh/Chara/eyes 2.fbx"
+dest_files=["res://.godot/imported/eyes 2.fbx-34b1d821d0dbbd96304199ded0076213.scn"]
 
 [params]
 

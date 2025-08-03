@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dm2kuxif382xq"
-path="res://.godot/imported/chara.fbx-8c3cde23cef7b997b9a524a1e9545dff.scn"
+uid="uid://xppipuyerypf"
+path="res://.godot/imported/Strait long.fbx-3359d72f5980e90a52a64a69f53adde1.scn"
 
 [deps]
 
-source_file="res://Art/Mesh/chara.fbx"
-dest_files=["res://.godot/imported/chara.fbx-8c3cde23cef7b997b9a524a1e9545dff.scn"]
+source_file="res://Art/Mesh/Hair/Strait long.fbx"
+dest_files=["res://.godot/imported/Strait long.fbx-3359d72f5980e90a52a64a69f53adde1.scn"]
 
 [params]
 

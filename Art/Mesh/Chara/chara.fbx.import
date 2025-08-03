@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ncp5rrbudwxc"
-path="res://.godot/imported/curl med.fbx-829478170cf2b0a3046ebc588a4535f7.scn"
+uid="uid://dm2kuxif382xq"
+path="res://.godot/imported/chara.fbx-6d3e1de0ba41e3fe2d4e5154c5535fcc.scn"
 
 [deps]
 
-source_file="res://Art/Mesh/curl med.fbx"
-dest_files=["res://.godot/imported/curl med.fbx-829478170cf2b0a3046ebc588a4535f7.scn"]
+source_file="res://Art/Mesh/Chara/chara.fbx"
+dest_files=["res://.godot/imported/chara.fbx-6d3e1de0ba41e3fe2d4e5154c5535fcc.scn"]
 
 [params]
 

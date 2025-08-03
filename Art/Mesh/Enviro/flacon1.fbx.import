@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c32resfb2d3bs"
-path="res://.godot/imported/curl long.fbx-eda8589d554db7a99ab0b0295f84f378.scn"
+uid="uid://b2cdn38ht2vc6"
+path="res://.godot/imported/flacon1.fbx-bef8d016a313edf1140b52f61435fe04.scn"
 
 [deps]
 
-source_file="res://Art/Mesh/curl long.fbx"
-dest_files=["res://.godot/imported/curl long.fbx-eda8589d554db7a99ab0b0295f84f378.scn"]
+source_file="res://Art/Mesh/Enviro/flacon1.fbx"
+dest_files=["res://.godot/imported/flacon1.fbx-bef8d016a313edf1140b52f61435fe04.scn"]
 
 [params]
 
@@ -26,7 +26,7 @@ meshes/light_baking=1
 meshes/lightmap_texel_size=0.2
 meshes/force_disable_compression=false
 skins/use_named_skins=true
-animation/import=false
+animation/import=true
 animation/fps=30
 animation/trimming=true
 animation/remove_immutable_tracks=true
