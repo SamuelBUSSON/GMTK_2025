@@ -1,10 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://x8x5vcd0dhan"]
+[gd_scene load_steps=4 format=3 uid="uid://x8x5vcd0dhan"]
 
 [ext_resource type="Script" uid="uid://bl1ssca2pjq4n" path="res://Script/GameGlobal.gd" id="1_or04w"]
 [ext_resource type="PackedScene" uid="uid://b6naxhkl5slnh" path="res://Managers/UIManager/ui_manager.tscn" id="2_ri526"]
+[ext_resource type="PackedScene" uid="uid://biqhd664f548t" path="res://Managers/UIManager/start_menu.tscn" id="3_mim1c"]
 
 [node name="GameGameGlobal" type="Node3D"]
 script = ExtResource("1_or04w")
 dye_color = Array[Color]([Color(1, 0, 0, 1), Color(0, 1, 0, 1), Color(0, 0, 1, 1)])
 
 [node name="UIManager" parent="." instance=ExtResource("2_ri526")]
+
+[node name="StartMenu" parent="." instance=ExtResource("3_mim1c")]

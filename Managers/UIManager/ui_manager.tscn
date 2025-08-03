@@ -34,6 +34,7 @@ grow_vertical = 2
 script = ExtResource("1_fqe6j")
 
 [node name="Dialogue" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -126,10 +127,9 @@ expand_mode = 3
 
 [node name="PhotoStarName" type="Label" parent="Photo"]
 layout_mode = 0
-offset_left = 134.0
-offset_top = -59.0
-offset_right = 542.0
-offset_bottom = -11.0
+offset_left = 136.0
+offset_top = -48.0
+offset_right = 552.0
 theme = ExtResource("1_7m1sl")
 text = "Brad Pitt"
 horizontal_alignment = 1

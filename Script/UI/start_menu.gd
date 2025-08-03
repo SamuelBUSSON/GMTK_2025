@@ -7,6 +7,7 @@ func _ready() -> void:
 
 func _on_start_button_pressed() -> void:
 	animation_player.play("startgame")
+	#on start le jeu
 
 func start_game():
 	visible = false

@@ -30,6 +30,8 @@ var dialogue_pool = ["blabla","blabla"]
 var celebrity_names = ["Jean","Claude"]
 
 func _ready() -> void:
+	GlobalSignals.connect("on_new_celebrity", rdm_talk)
+	GlobalSignals.connect("on_success_signal", hide_photos)
 	Input.set_custom_mouse_cursor(cursors.get("scissors_1"))
 	for i in tool_buttons:
 		i.modulate.a = 0.7
@@ -60,13 +62,14 @@ func rdm_talk():
 
 func _on_dialogue_timer_timeout() -> void:
 	dialogue_block.visible = false
+	show_photos()
 
-func show_photos(photo_front : TextureRect, photo_back : TextureRect, star_name : float):
+func show_photos():
 	if !photo_block.visible:
 		photo_block.visible = true
 		# photo_front_texture.texture = photo_front
 		# photo_back_texture.texture = photo_back
-		photo_star_name.text = star_name
+		#photo_star_name.text = star_name
 	else:
 		print("je montre déjà une photo")
 
