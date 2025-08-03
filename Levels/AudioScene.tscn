@@ -4,7 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://60uhr4ptxvo1" path="res://Audio/AudioAssets/Ambiences/GMTK_Amb_TV_Background_01.wav" id="2_ngrou"]
 [ext_resource type="Script" uid="uid://pc16x5omxab2" path="res://Script/Audio/AudioManager.gd" id="3_ngrou"]
 [ext_resource type="AudioStream" uid="uid://ds51ey1u3urod" path="res://Audio/AudioAssets/Music/GMTK_Music_B_Normal.mp3" id="3_o3ykj"]
-[ext_resource type="Script" path="res://Script/Audio/audio_random_delay.gd" id="3_uudny"]
+[ext_resource type="Script" uid="uid://x2lknlpa4y25" path="res://Script/Audio/audio_random_delay.gd" id="3_uudny"]
 [ext_resource type="AudioStream" uid="uid://bfhsglhah1hpe" path="res://Audio/AudioAssets/Ambiences/GMTK_Amb_TV_Voices_01.wav" id="4_613ve"]
 [ext_resource type="AudioStream" uid="uid://bae12dxrd3xy8" path="res://Audio/AudioAssets/Tools/GMTK_Tool_Cisors_Select_01.wav" id="4_txlgv"]
 [ext_resource type="AudioStream" uid="uid://dojpuemwqs052" path="res://Audio/AudioAssets/Music/GMTK_Music_C_Normal.mp3" id="4_uudny"]
@@ -146,5 +146,6 @@ rotation_sound = ExtResource("73_fum7r")
 [node name="audioPlayer" type="AudioStreamPlayer3D" parent="Audio"]
 
 [node name="voice_audio_player" type="AudioStreamPlayer3D" parent="Audio"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0127658, 1.2428, -1.07787)
 
 [node name="rotatingChair" type="AudioStreamPlayer3D" parent="Audio"]
