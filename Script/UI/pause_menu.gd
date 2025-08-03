@@ -10,6 +10,7 @@ extends Control
 @onready var sfx_value = $MenuBlock/SoundBlock/SFXBlock/SFXValue
 
 @onready var quit_menu_button = $MenuBlock/QuitMenuButton
+@onready var quit_game_button = $MenuBlock/QuitGameButton
 
 @onready var menu_block = $MenuBlock
 
@@ -17,23 +18,27 @@ var bus_index = [0,0,0]
 
 func open_menu():
 	visible = true
+	quit_menu_button.button_pressed = false
 	var tween = get_tree().create_tween()
 	menu_block.pivot_offset = menu_block.size/2
 	menu_block.scale = Vector2(0.2,0.2)
-	tween.tween_property(menu_block, "scale", Vector2(1.3,1.3),0.4).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
-	tween.tween_property(menu_block, "scale", Vector2(1.0,1.0),0.2).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	tween.tween_property(menu_block, "scale", Vector2(1.0,1.0),0.6).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	#besoin de récupérer les valeurs des deux canaux pour les mettre dans les sliders
-	
+
 	bus_index[0] = AudioServer.get_bus_index("Master")
 	bus_index[1] = AudioServer.get_bus_index("Music")
 	bus_index[2] = AudioServer.get_bus_index("SFX")
+	GameGlobal.is_game_pause = true;
 
 func _on_quit_menu_button_pressed() -> void:
 	var tween = get_tree().create_tween()
 	menu_block.pivot_offset = menu_block.size/2
-	tween.tween_property(menu_block, "scale", Vector2(1.3,1.3),0.2).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
-	tween.tween_property(menu_block, "scale", Vector2(0.0,0.0),0.4).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	tween.tween_property(menu_block, "scale", Vector2(0.0,0.0),0.6).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
 	tween.tween_property($".", "visible", false, 0)
+	tween.tween_callback(reset_pause);
+
+func reset_pause():
+	GameGlobal.is_game_pause = false;
 
 func _on_global_slider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(bus_index[0], linear_to_db(value/100.0))

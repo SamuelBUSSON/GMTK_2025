@@ -211,6 +211,7 @@ offset_bottom = 172.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("4_3uemc")
+toggle_mode = true
 text = "Resume"
 
 [node name="QuitGameButton" type="Button" parent="MenuBlock"]
@@ -227,6 +228,7 @@ offset_bottom = 172.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("4_3uemc")
+toggle_mode = true
 text = "Quit Game"
 
 [connection signal="value_changed" from="MenuBlock/SoundBlock/GlobalBlock/GlobalSlider" to="." method="_on_global_slider_value_changed"]

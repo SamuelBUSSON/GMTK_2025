@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="voice_line" load_steps=11 format=3 uid="uid://bbmxy01hyujp"]
+
+[ext_resource type="AudioStream" uid="uid://btksuyte2fnve" path="res://Audio/AudioAssets/Char/GMTK_Characters_Chiara_Angry_01.wav" id="1_lw837"]
+[ext_resource type="AudioStream" uid="uid://tipqhx00jjbk" path="res://Audio/AudioAssets/Char/GMTK_Characters_Chiara_Angry_02.wav" id="2_tcqj8"]
+[ext_resource type="AudioStream" uid="uid://bpxlx8hxg00ot" path="res://Audio/AudioAssets/Char/GMTK_Characters_Chiara_Angry_03.wav" id="3_f41p1"]
+[ext_resource type="AudioStream" uid="uid://c8rp0a5ab4ba1" path="res://Audio/AudioAssets/Char/GMTK_Characters_Chiara_Happy_01.wav" id="4_yufld"]
+[ext_resource type="AudioStream" uid="uid://io84mr2fm32j" path="res://Audio/AudioAssets/Char/GMTK_Characters_Chiara_Happy_02.wav" id="5_rcb6v"]
+[ext_resource type="AudioStream" uid="uid://kuq4eecf5m4k" path="res://Audio/AudioAssets/Char/GMTK_Characters_Chiara_Happy_03.wav" id="6_ekwhv"]
+[ext_resource type="AudioStream" uid="uid://clqvtb8cb8mo8" path="res://Audio/AudioAssets/Char/GMTK_Characters_Chiara_Ask_01.wav" id="7_rpodr"]
+[ext_resource type="AudioStream" uid="uid://dwpy6reyn51d4" path="res://Audio/AudioAssets/Char/GMTK_Characters_Chiara_Ask_02.wav" id="8_ptslh"]
+[ext_resource type="AudioStream" uid="uid://cnj6hrw6ovnna" path="res://Audio/AudioAssets/Char/GMTK_Characters_Chiara_Ask_03.wav" id="9_hog8i"]
+[ext_resource type="Script" uid="uid://cwvejsk0cifop" path="res://Script/Audio/AudioVoiceLine.gd" id="10_tj8ib"]
+
+[resource]
+script = ExtResource("10_tj8ib")
+hello_voice_line = Array[AudioStream]([ExtResource("7_rpodr"), ExtResource("8_ptslh"), ExtResource("9_hog8i")])
+happy_voice_line = Array[AudioStream]([ExtResource("4_yufld"), ExtResource("5_rcb6v"), ExtResource("6_ekwhv")])
+angry_voice_line = Array[AudioStream]([ExtResource("1_lw837"), ExtResource("2_tcqj8"), ExtResource("3_f41p1")])
+metadata/_custom_type_script = "uid://cwvejsk0cifop"

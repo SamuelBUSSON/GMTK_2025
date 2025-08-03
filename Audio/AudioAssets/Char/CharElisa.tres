@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="voice_line" load_steps=11 format=3 uid="uid://dyiin5x5el0pj"]
+
+[ext_resource type="AudioStream" uid="uid://ck6ou63x724y8" path="res://Audio/AudioAssets/Char/GMTK_Characters_Elisa_Angry_01.wav" id="1_lawpp"]
+[ext_resource type="AudioStream" uid="uid://by5uo5b1ua0l5" path="res://Audio/AudioAssets/Char/GMTK_Characters_Elisa_Angry_02.wav" id="2_5dnqs"]
+[ext_resource type="AudioStream" uid="uid://c03v01qc3a3bl" path="res://Audio/AudioAssets/Char/GMTK_Characters_Elisa_Angry_03.wav" id="3_3tx8o"]
+[ext_resource type="AudioStream" uid="uid://chl0xyxfbq7xu" path="res://Audio/AudioAssets/Char/GMTK_Characters_Elisa_Happy_01.wav" id="4_iv6y2"]
+[ext_resource type="AudioStream" uid="uid://b27c3vlvgjmbk" path="res://Audio/AudioAssets/Char/GMTK_Characters_Elisa_Happy_02.wav" id="5_iwa1t"]
+[ext_resource type="AudioStream" uid="uid://38yveir2beyl" path="res://Audio/AudioAssets/Char/GMTK_Characters_Elisa_Happy_03.wav" id="6_bpsi2"]
+[ext_resource type="AudioStream" uid="uid://crig70mg4dxpl" path="res://Audio/AudioAssets/Char/GMTK_Characters_Elisa_Ask_01.wav" id="7_3t3mb"]
+[ext_resource type="AudioStream" uid="uid://od3r3qiel26g" path="res://Audio/AudioAssets/Char/GMTK_Characters_Elisa_Ask_02.wav" id="8_5tuod"]
+[ext_resource type="AudioStream" uid="uid://bluiutef06ejj" path="res://Audio/AudioAssets/Char/GMTK_Characters_Elisa_Ask_03.wav" id="9_4k2jq"]
+[ext_resource type="Script" uid="uid://cwvejsk0cifop" path="res://Script/Audio/AudioVoiceLine.gd" id="10_6lh3r"]
+
+[resource]
+script = ExtResource("10_6lh3r")
+hello_voice_line = Array[AudioStream]([ExtResource("7_3t3mb"), ExtResource("8_5tuod"), ExtResource("9_4k2jq")])
+happy_voice_line = Array[AudioStream]([ExtResource("4_iv6y2"), ExtResource("5_iwa1t"), ExtResource("6_bpsi2")])
+angry_voice_line = Array[AudioStream]([ExtResource("1_lawpp"), ExtResource("2_5dnqs"), ExtResource("3_3tx8o")])
+metadata/_custom_type_script = "uid://cwvejsk0cifop"

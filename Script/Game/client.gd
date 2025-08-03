@@ -152,6 +152,9 @@ func _process(delta):
 	if (is_celebrity):
 		return;
 
+	if (GameGlobal.is_game_pause):
+		return
+
 	_select_at_screen(get_viewport().get_mouse_position())
 
 	if Input.is_action_just_pressed("mouse_click"):
@@ -159,8 +162,8 @@ func _process(delta):
 			GlobalSignals.emit_signal("on_hair_click", current_hair, hit_position);
 	if Input.is_action_just_pressed("reroll_hair_style"):
 		_spawn_hair_style()
-	if Input.is_action_just_pressed("swap_tool"):
-		on_sucess()
+	# if Input.is_action_just_pressed("swap_tool"):
+	# 	on_sucess()
 
 func _spawn_hair_style():
 	for h in spawned_hair:

@@ -1,18 +1,21 @@
-[gd_scene load_steps=17 format=3 uid="uid://b6naxhkl5slnh"]
+[gd_scene load_steps=20 format=3 uid="uid://b6naxhkl5slnh"]
 
 [ext_resource type="Theme" uid="uid://c8x5dndyxu50h" path="res://UI/Themes/Title.tres" id="1_7m1sl"]
 [ext_resource type="Script" uid="uid://bvxlao2xvfpjx" path="res://Script/UI/ui_manager.gd" id="1_fqe6j"]
 [ext_resource type="Texture2D" uid="uid://csr3020j4844q" path="res://UI/Assets/dialogue_box.png" id="2_um27t"]
 [ext_resource type="Theme" uid="uid://cc5rcbqq2yosy" path="res://UI/Themes/dialogue.tres" id="3_1of8b"]
-[ext_resource type="Texture2D" uid="uid://cv70jdy1ux2hi" path="res://Art/Texture/plage.jpg" id="4_1of8b"]
+[ext_resource type="Texture2D" uid="uid://dsn8qaho7pqpb" path="res://UI/Assets/photoV2_3.png" id="4_vgb8b"]
 [ext_resource type="Texture2D" uid="uid://cukhldsl1yf67" path="res://Art/Texture/RT_Size_TEST.png" id="5_1of8b"]
 [ext_resource type="Texture2D" uid="uid://c02bioh8bi5wu" path="res://UI/Assets/bg_ui_2.png" id="6_jx2nd"]
 [ext_resource type="PackedScene" uid="uid://dqj7gfkx3u2s4" path="res://Managers/UIManager/pause_menu.tscn" id="6_lt6e0"]
+[ext_resource type="Theme" uid="uid://cger3kmfn1hhk" path="res://UI/Themes/text.tres" id="6_vgb8b"]
 [ext_resource type="Texture2D" uid="uid://bl0fvlksktqrc" path="res://Art/UI/2.png" id="7_lgbyi"]
 [ext_resource type="Texture2D" uid="uid://j803jjh7iwy4" path="res://UI/Assets/menu_button.png" id="8_jqsye"]
 [ext_resource type="Texture2D" uid="uid://y0bxv5j63lwy" path="res://Art/UI/3.png" id="8_um27t"]
+[ext_resource type="Texture2D" uid="uid://cn7b0xrc5vsrc" path="res://UI/Assets/menu_button_pressed.png" id="9_uxdpl"]
+[ext_resource type="Texture2D" uid="uid://bcdg744dk1c31" path="res://UI/Assets/menu_button_hovered.png" id="10_vgb8b"]
 [ext_resource type="Texture2D" uid="uid://d1ftr5bopmwjt" path="res://Art/UI/1_r.png" id="12_jqsye"]
-[ext_resource type="PackedScene" uid="uid://x1snkxly0ew2" path="res://Managers/UIManager/end_game_panel.tscn" id="12_jx2nd"]
+[ext_resource type="PackedScene" uid="uid://d0fl2m1otyfx1" path="res://Managers/UIManager/end_game_panel.tscn" id="12_jx2nd"]
 [ext_resource type="Texture2D" uid="uid://dxjh65nj2lu1" path="res://Art/UI/1_g.png" id="13_d7npq"]
 [ext_resource type="Script" path="res://Script/UI/timer_label.gd" id="13_eoi6x"]
 [ext_resource type="Texture2D" uid="uid://28fvi8do7y50" path="res://Art/UI/1_b.png" id="14_uosyp"]
@@ -83,41 +86,65 @@ grow_vertical = 0
 clip_contents = true
 layout_mode = 2
 offset_left = 8.0
-offset_top = -24.0
+offset_top = -88.0
 offset_right = 308.0
 offset_bottom = 276.0
-texture = ExtResource("4_1of8b")
+texture = ExtResource("4_vgb8b")
 expand_mode = 1
 
 [node name="PhotoFrontTexture" type="TextureRect" parent="Photo"]
 clip_contents = true
 layout_mode = 2
-offset_left = 24.0
-offset_top = 16.0
-offset_right = 284.0
-offset_bottom = 276.0
+offset_left = 32.0
+offset_top = -80.0
+offset_right = 292.0
+offset_bottom = 176.0
 texture = ExtResource("5_1of8b")
 expand_mode = 3
+
+[node name="Label" type="Label" parent="Photo"]
+layout_mode = 0
+offset_left = 208.0
+offset_top = 216.0
+offset_right = 288.0
+offset_bottom = 256.0
+theme = ExtResource("6_vgb8b")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Front"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Background" type="TextureRect" parent="Photo"]
 clip_contents = true
 layout_mode = 2
 offset_left = 352.0
-offset_top = -24.0
+offset_top = -88.0
 offset_right = 652.0
 offset_bottom = 276.0
-texture = ExtResource("4_1of8b")
+texture = ExtResource("4_vgb8b")
 expand_mode = 1
 
 [node name="PhotoBackTexture" type="TextureRect" parent="Photo"]
 clip_contents = true
 layout_mode = 2
 offset_left = 376.0
-offset_top = 16.0
+offset_top = -80.0
 offset_right = 636.0
-offset_bottom = 276.0
+offset_bottom = 176.0
 texture = ExtResource("5_1of8b")
 expand_mode = 3
+
+[node name="Label2" type="Label" parent="Photo"]
+layout_mode = 0
+offset_left = 552.0
+offset_top = 216.0
+offset_right = 632.0
+offset_bottom = 256.0
+theme = ExtResource("6_vgb8b")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Back"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="PhotoStarNameBg" type="TextureRect" parent="Photo"]
 layout_mode = 0
@@ -149,14 +176,14 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -72.0
+offset_left = -96.0
 offset_top = 24.0
 offset_right = -24.0
-offset_bottom = 72.0
+offset_bottom = 96.0
 grow_horizontal = 0
 texture_normal = ExtResource("8_jqsye")
-texture_pressed = ExtResource("8_jqsye")
-texture_hover = ExtResource("8_jqsye")
+texture_pressed = ExtResource("9_uxdpl")
+texture_hover = ExtResource("10_vgb8b")
 texture_disabled = ExtResource("8_jqsye")
 texture_focused = ExtResource("8_jqsye")
 ignore_texture_size = true
@@ -317,7 +344,19 @@ vertical_alignment = 1
 script = ExtResource("13_eoi6x")
 
 [node name="End_Game_Panel" parent="." instance=ExtResource("12_jx2nd")]
+visible = false
 layout_mode = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1520.0
+offset_top = 1040.0
+offset_right = 1900.0
+offset_bottom = 1065.0
+theme = ExtResource("6_vgb8b")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+text = "(Right Click to spin the chair faster)"
 
 [connection signal="timeout" from="Dialogue/DialogueTimer" to="." method="_on_dialogue_timer_timeout"]
 [connection signal="timeout" from="Photo/PhotoTimer" to="." method="_on_photo_timer_timeout"]
