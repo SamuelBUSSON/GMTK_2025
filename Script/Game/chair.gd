@@ -4,5 +4,6 @@ extends Node3D
 
 
 func _process(dt):
-	self.rotate_y(spinning_speed * dt)
+	if (GameGlobal.is_game_start):
+		self.rotate_y(spinning_speed * dt)
 	pass

@@ -5,10 +5,13 @@ enum CurrentTool  { CISORS, IRON, DYE_0, DYE_1, DYE_2 }
 @export var dye_color : Array[Color];
 @export_enum( "CISORS", "IRON", "DYE_0", "DYE_1", "DYE_2" ) var currentTool : int;
 
+
+
 var current_tool : int;
 var current_celebrity : hair_character
 var rng := RandomNumberGenerator.new()
 var player_score : int;
+var is_game_start := false;
 
 var viewport_back : SubViewport;
 var viewport_front : SubViewport;
@@ -41,7 +44,6 @@ func swap_tool():
 
 func set_current_tool(tool_id: int):
 	current_tool = tool_id;
-
 
 func _hair_hash(hair_scene : hair) -> int:
 	return _hash(hair_scene.style, hair_scene.size);
