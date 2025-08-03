@@ -144,14 +144,12 @@ func show_object_with_tween(obj : Object):
 	obj.visible = true
 	obj.pivot_offset = obj.size/2
 	obj.scale = Vector2(0.2,0.2)
-	tween.tween_property(obj, "scale", Vector2(1.3,1.3),0.4).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
-	tween.tween_property(obj, "scale", Vector2(1.0,1.0),0.2).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	tween.tween_property(obj, "scale", Vector2(1.0,1.0),0.35).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 
 func hide_object_with_tween(obj : Object):
 	var tween = get_tree().create_tween()
 	obj.pivot_offset = obj.size/2
-	tween.tween_property(obj, "scale", Vector2(1.3,1.3),0.1).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
-	tween.tween_property(obj, "scale", Vector2(0.1,0.1),0.2).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	tween.tween_property(obj, "scale", Vector2(0.1,0.1),0.35).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	tween.tween_property(obj, "visible", false, 0)
 
 func button_hovered(id_button : int):
