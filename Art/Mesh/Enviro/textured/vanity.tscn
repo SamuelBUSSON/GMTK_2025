@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgs37q3tafv8b"]
+
+[ext_resource type="PackedScene" uid="uid://df417v8fxj05x" path="res://Art/Mesh/Enviro/VANITY.fbx" id="1_3s2en"]
+[ext_resource type="Material" uid="uid://d1gkpjjlnk4tf" path="res://Art/Materials/mat_floor.tres" id="2_oofmc"]
+
+[node name="VANITY" instance=ExtResource("1_3s2en")]
+
+[node name="Vanity" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_oofmc")

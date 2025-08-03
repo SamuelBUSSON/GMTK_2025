@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7magkmehip1s"]
+
+[ext_resource type="PackedScene" uid="uid://br2m2yvd8mwyp" path="res://Art/Mesh/Enviro/hair dryer.fbx" id="1_pqjwr"]
+[ext_resource type="Material" uid="uid://nr0j7j660s45" path="res://Art/Materials/mat_wall.tres" id="2_nfn3g"]
+
+[node name="hair dryer" instance=ExtResource("1_pqjwr")]
+
+[node name="hair_dryer" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_nfn3g")

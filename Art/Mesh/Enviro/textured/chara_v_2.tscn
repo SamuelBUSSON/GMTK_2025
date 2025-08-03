@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://dg6o2pax6nrwg"]
+
+[ext_resource type="PackedScene" uid="uid://b5fnitjpm8fxu" path="res://Art/Mesh/Chara/charaV2.fbx" id="1_pfjgx"]
+[ext_resource type="Material" uid="uid://b2kypd82h2k4q" path="res://Art/Materials/mat_carpet.tres" id="2_4nan6"]
+[ext_resource type="Material" uid="uid://sqqjfhms1sms" path="res://Art/Materials/mat_monstre.tres" id="3_64wv2"]
+[ext_resource type="Material" uid="uid://73asatnsvev6" path="res://Art/Materials/mat_pink.tres" id="3_nnrss"]
+[ext_resource type="Material" uid="uid://bjrbenlqr5ogd" path="res://Art/Materials/mat_violet.tres" id="4_nnrss"]
+
+[node name="charaV2" instance=ExtResource("1_pfjgx")]
+
+[node name="teeth" parent="chara" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.445917, 0.273318)
+surface_material_override/0 = ExtResource("2_4nan6")
+
+[node name="tong" parent="chara" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.404847, 0.239928)
+surface_material_override/0 = ExtResource("3_nnrss")
+
+[node name="mouth" parent="chara" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000294647, 0.441567, 0.206161)
+surface_material_override/0 = ExtResource("4_nnrss")
+
+[node name="body" parent="chara" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.445677, 0)
+material_override = ExtResource("3_64wv2")

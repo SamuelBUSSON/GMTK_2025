@@ -13,9 +13,12 @@ var current_celebrity : hair_character
 var rng := RandomNumberGenerator.new()
 var player_score : int;
 var is_game_start := false;
+var is_game_pause := false;
 
 var viewport_back : SubViewport;
 var viewport_front : SubViewport;
+
+var audio_manager : audio_manager;
 
 func get_CISORS_id() -> int:
 	return CurrentTool.CISORS;
@@ -40,7 +43,7 @@ func _ready():
 	pass
 
 func _process(dt):
-	if (is_game_start):
+	if (is_game_start && !is_game_pause):
 		duration -= dt;
 		if (duration <= 0.0):
 			reset()

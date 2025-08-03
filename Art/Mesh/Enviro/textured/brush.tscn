@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://drtr1768wblda"]
+
+[ext_resource type="PackedScene" uid="uid://vg3b27hr5qpb" path="res://Art/Mesh/Enviro/brush.fbx" id="1_iwo6d"]
+[ext_resource type="Material" uid="uid://73asatnsvev6" path="res://Art/Materials/mat_pink.tres" id="2_7do81"]
+
+[node name="brush" instance=ExtResource("1_iwo6d")]
+
+[node name="brush" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_7do81")

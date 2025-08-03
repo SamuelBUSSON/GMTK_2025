@@ -16,6 +16,7 @@ var hairLookUp : Dictionary;
 var hairMeshLookUp : Dictionary;
 var base_position : Vector3
 var is_first_done = false;
+var chosen_audio_voice_line : voice_line;
 
 func _ready():
 	rng.randomize()
@@ -63,7 +64,7 @@ func on_hair_click(hair_click : hair, hit_position : Vector3 ):
 		var fxHair : GPUParticles3D = FxManager.request_fx("fx_hair_dropping_cut", hit_position);
 		fxHair.draw_pass_1 = hair_click.get_mesh().mesh
 		(fxHair.material_override as StandardMaterial3D).albedo_color = hair_click.get_mesh_color()
-		
+
 		hair_click = replace_air_mesh(hair_click);
 
 	if (GameGlobal.is_using_dye()):
@@ -85,8 +86,9 @@ func on_hair_click(hair_click : hair, hit_position : Vector3 ):
 	if (GameGlobal.is_hair_matching(hair_click)):
 		hair_click.on_hair_match_event();
 		hair_click.set_outline_base_color(Color.GREEN)
-		pass;
 	else:
+		if (hair_click.outline_base_color == Color.GREEN):
+			GameGlobal.audio_manager.play_random_sound(chosen_audio_voice_line.angry_voice_line);
 		hair_click.set_outline_base_color(Color.BLACK)
 
 	# increment score + switch character
@@ -100,6 +102,7 @@ func on_sucess():
 	GameGlobal.player_score += 1;
 	GlobalSignals.emit_signal("on_success_signal");
 	trigger_new_client();
+	GameGlobal.audio_manager.play_random_sound(chosen_audio_voice_line.happy_voice_line);
 
 
 func trigger_new_client():
@@ -120,6 +123,7 @@ func spawn_new_celebrity():
 func on_client_coming():
 	GlobalSignals.emit_signal("on_new_celebrity");
 	GameGlobal.is_game_start = true;
+	GameGlobal.audio_manager.play_random_sound(chosen_audio_voice_line.hello_voice_line);
 
 func replace_air_mesh(hair_click : hair) -> hair:
 	var new_hash = GameGlobal._hair_hash(hair_click);
@@ -147,6 +151,9 @@ var hit_position : Vector3;
 func _process(delta):
 	if (is_celebrity):
 		return;
+
+	if (GameGlobal.is_game_pause):
+		return
 
 	_select_at_screen(get_viewport().get_mouse_position())
 
@@ -195,6 +202,7 @@ func _spawn_hair_style():
 			var celebrity = GameGlobal.current_celebrity;
 			var celebrity_rot = celebrity.spawned_hair[i].rotation;
 			new_hair.rotation = celebrity_rot
+			chosen_audio_voice_line = GameGlobal.audio_manager.voice_lines.pick_random();
 
 		i = i + 1;
 		spawned_hair.append(new_hair)
@@ -227,8 +235,6 @@ func _select_at_screen(mouse_pos: Vector2) -> void:
 			hair_node.select_hair_mesh(true);
 			current_hair = hair_node;
 			hit_position = result["position"];
-
-
 
 
 func _find_hair_owner(obj: Object) -> hair:

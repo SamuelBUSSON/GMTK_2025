@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="voice_line" load_steps=11 format=3 uid="uid://dh8cf8b1co0gp"]
+
+[ext_resource type="Script" uid="uid://cwvejsk0cifop" path="res://Script/Audio/AudioVoiceLine.gd" id="1_crkl1"]
+[ext_resource type="AudioStream" uid="uid://b1b6lj3red3qd" path="res://Audio/AudioAssets/Char/GMTK_Characters_Fab_Angry_01.wav" id="1_j3tr1"]
+[ext_resource type="AudioStream" uid="uid://brs6ret73uduq" path="res://Audio/AudioAssets/Char/GMTK_Characters_Fab_Angry_02.wav" id="2_7tukl"]
+[ext_resource type="AudioStream" uid="uid://c0vg3qbnnnlfg" path="res://Audio/AudioAssets/Char/GMTK_Characters_Fab_Angry_03.wav" id="3_e63ir"]
+[ext_resource type="AudioStream" uid="uid://b5x6u4tngsi18" path="res://Audio/AudioAssets/Char/GMTK_Characters_Fab_Happy_01.wav" id="4_5woil"]
+[ext_resource type="AudioStream" uid="uid://b6uuokbcgfmc4" path="res://Audio/AudioAssets/Char/GMTK_Characters_Fab_Happy_02.wav" id="5_o6tgf"]
+[ext_resource type="AudioStream" uid="uid://bv8flq4nf2pn" path="res://Audio/AudioAssets/Char/GMTK_Characters_Fab_Happy_03.wav" id="6_yax03"]
+[ext_resource type="AudioStream" uid="uid://c15y3jqxetib0" path="res://Audio/AudioAssets/Char/GMTK_Characters_Fab_Ask_01.wav" id="7_y6etq"]
+[ext_resource type="AudioStream" uid="uid://cpeq7ftvscs8u" path="res://Audio/AudioAssets/Char/GMTK_Characters_Fab_Ask_02.wav" id="8_krrog"]
+[ext_resource type="AudioStream" uid="uid://ci23v43xl24rd" path="res://Audio/AudioAssets/Char/GMTK_Characters_Fab_Ask_03.wav" id="9_ftwpv"]
+
+[resource]
+script = ExtResource("1_crkl1")
+hello_voice_line = Array[AudioStream]([ExtResource("7_y6etq"), ExtResource("8_krrog"), ExtResource("9_ftwpv")])
+happy_voice_line = Array[AudioStream]([ExtResource("4_5woil"), ExtResource("5_o6tgf"), ExtResource("6_yax03")])
+angry_voice_line = Array[AudioStream]([ExtResource("1_j3tr1"), ExtResource("2_7tukl"), ExtResource("3_e63ir")])
+metadata/_custom_type_script = "uid://cwvejsk0cifop"
