@@ -54,13 +54,16 @@ func on_hair_click(hair_click : hair, hit_position : Vector3 ):
 		hair_click.size =  hair_click.size - 1;
 		if (hair_click.size < 0):
 			hair_click.size = 2;
+		GlobalSignals.emit_signal("is_using_cisors")
 
 		FxManager.request_fx("fx_cut_hair", hit_position);
+		FxManager.request_fx("fx_hair_dropping_cut", hit_position);
 		replace_air_mesh(hair_click);
 
 	if (GameGlobal.is_using_dye()):
 		var dye_color = GameGlobal.get_current_dye_color();
 		hair_click.set_mesh_color(dye_color);
+		GlobalSignals.emit_signal("is_using_cisors")
 		var particle = FxManager.request_fx("fx_dye", hit_position);
 		var mat = particle.process_material as ParticleProcessMaterial
 		mat.color = dye_color
@@ -70,6 +73,7 @@ func on_hair_click(hair_click : hair, hit_position : Vector3 ):
 		if (hair_click.style < 0):
 			hair_click.style = 1;
 		replace_air_mesh(hair_click);
+		GlobalSignals.emit_signal("is_using_cisors")
 
 	hair_click.set_outline_base_color(Color.BLACK)
 	if (GameGlobal.is_hair_matching(hair_click)):

@@ -34,6 +34,10 @@ mesh = ExtResource("2_icd1k")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0124512, -0.00205997, 0.0125427)
 shape = SubResource("BoxShape3D_0nm6a")
 
+[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="MeshInstance3D/RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0147704, -0.000198267, 0.0126648)
+size = Vector3(0.180908, 0.107208, 0.148743)
+
 [node name="Outline" type="MeshInstance3D" parent="MeshInstance3D"]
 unique_name_in_owner = true
 material_override = ExtResource("3_0nm6a")
