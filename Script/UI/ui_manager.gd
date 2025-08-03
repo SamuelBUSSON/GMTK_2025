@@ -53,7 +53,7 @@ func talk(talker_text : String, time_talking : float):
 func rdm_talk():
 	var tamp = rng.randi_range(0,dialogue_pool.size()-1)
 	if !dialogue_block.visible:
-		dialogue_block.visible = true
+		show_object_with_tween(dialogue_block)
 		dialogue_text.text = dialogue_pool[tamp]
 		photo_star_name.text = celebrity_names[tamp]
 		dialogue_timer.start(3.0)
@@ -61,12 +61,12 @@ func rdm_talk():
 		print("hého, je parle déjà là")
 
 func _on_dialogue_timer_timeout() -> void:
-	dialogue_block.visible = false
+	hide_object_with_tween(dialogue_block)
 	show_photos()
 
 func show_photos():
 	if !photo_block.visible:
-		photo_block.visible = true
+		show_object_with_tween(photo_block)
 		# photo_front_texture.texture = photo_front
 		# photo_back_texture.texture = photo_back
 		#photo_star_name.text = star_name
@@ -74,7 +74,7 @@ func show_photos():
 		print("je montre déjà une photo")
 
 func hide_photos():
-	photo_block.visible = false
+	hide_object_with_tween(photo_block)
 
 func _on_photo_timer_timeout() -> void:
 	photo_block.visible = false
@@ -102,6 +102,21 @@ func change_cursor_on_click():
 			Input.set_custom_mouse_cursor(cursors.get("iron_1"))
 		elif button_selected_int >= 2:
 			Input.set_custom_mouse_cursor(cursors.get("spray_1"))
+
+func show_object_with_tween(obj : Object):
+	var tween = get_tree().create_tween()
+	obj.visible = true
+	obj.pivot_offset = obj.size/2
+	obj.scale = Vector2(0.2,0.2)
+	tween.tween_property(obj, "scale", Vector2(1.3,1.3),0.4).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
+	tween.tween_property(obj, "scale", Vector2(1.0,1.0),0.2).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+
+func hide_object_with_tween(obj : Object):
+	var tween = get_tree().create_tween()
+	obj.pivot_offset = obj.size/2
+	tween.tween_property(obj, "scale", Vector2(1.3,1.3),0.1).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
+	tween.tween_property(obj, "scale", Vector2(0.1,0.1),0.2).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	tween.tween_property(obj, "visible", false, 0)
 
 func button_hovered(id_button : int):
 	if button_selected_int != id_button:
