@@ -11,6 +11,8 @@ var rng := RandomNumberGenerator.new()
 @onready var photo_back_texture = $Photo/BackgroundBack/PhotoBackTexture
 @onready var photo_star_name = $Photo/PhotoStarName
 @onready var photo_timer = $Photo/PhotoTimer
+@onready var photo_background_back = $Photo/BackgroundBack/Background
+@onready var photo_background_front = $Photo/BackgroundFront/Background2
 
 @onready var pause_menu = $PauseMenu
 @onready var pause_button = $PauseButton
@@ -26,8 +28,12 @@ var cursors = {"scissors_1" : load("res://Art/UI/Cursor/sci1.png"),
 "spray_1" : load("res://Art/UI/Cursor/spray1.png"),
 "spray_2" : load("res://Art/UI/Cursor/spray2.png")}
 
-var dialogue_pool = ["Make my hair like Braid Pitt's!","Can you make me look like Ponytailor Swift?","Would love the Tony Mohawk cool look!","Antonio Bangderas' cut is what I want.","Take inspiration from Justin Biebun here!","I wanna look like Mullet Cyrus.","I have this photo of Katy Permy, make it similar!","Aim for the Bobert Downey Jr. look...","Could you try and make it like Hairiana Grande?","My reference is Jamie Lee Cutis.","Love the Audrey Auburn vibe.","Just like Ben Coiffleck please."]
-var celebrity_names = ["Braid Pitt","Ponytailor Swift","Tony Mohawk","Antonio Bangderas","Justin Biebun","Mullet Cyrus","Katy Permy","Bobert Downey Jr.","Hairiana Grande","Jamie Lee Cutis","Audrey Auburn","Ben Coiffleck"]
+var dialogue_pool = ["Make my hair like Braid Pitt's!","Can you make me look like Ponytailor Swift?","Would love the Tony Mohawk cool look!","Antonio Bangderas' cut is what I want.","Take inspiration from Justin Biebun here!","I wanna look like Mullet Cyrus.","I have this photo of Katy Permy, make it similar!","Aim for the Bobert Downey Jr. look...","Could you try and make it like Hairiana Grande?","My reference is Jamie Lee Cutis.","Love the Audrey Auburn vibe.","Just like Ben Coiffleck please.","Copy what Scal Pacino has on his head!","Can my hair be like Orlando Comb's?","I would like to be Trim Cruise's hair twin please!"]
+var celebrity_names = ["Braid Pitt","Ponytailor Swift","Tony Mohawk","Antonio Bangderas","Justin Biebun","Mullet Cyrus","Katy Permy","Bobert Downey Jr.","Hairiana Grande","Jamie Lee Cutis","Audrey Auburn","Ben Coiffleck","Scal Pacino","Orlando Comb","Trim Cruise"]
+
+var photo_backgrounds_images = [load("res://Art/UI/picture/photo1.png")
+,load("res://Art/UI/picture/photo2.png"),
+load("res://Art/UI/picture/photo3.png")]
 
 func _ready() -> void:
 	GlobalSignals.connect("on_new_celebrity", rdm_talk)
@@ -53,7 +59,7 @@ func talk(talker_text : String, time_talking : float):
 func rdm_talk():
 	var tamp = rng.randi_range(0,dialogue_pool.size()-1)
 	if !dialogue_block.visible:
-		dialogue_block.visible = true
+		show_object_with_tween(dialogue_block)
 		dialogue_text.text = dialogue_pool[tamp]
 		photo_star_name.text = celebrity_names[tamp]
 		dialogue_timer.start(3.0)
@@ -61,20 +67,24 @@ func rdm_talk():
 		print("hého, je parle déjà là")
 
 func _on_dialogue_timer_timeout() -> void:
-	dialogue_block.visible = false
+	hide_object_with_tween(dialogue_block)
 	show_photos()
 
 func show_photos():
 	if !photo_block.visible:
-		photo_block.visible = true
+		show_object_with_tween(photo_block)
 		# photo_front_texture.texture = photo_front
 		# photo_back_texture.texture = photo_back
 		#photo_star_name.text = star_name
+		var bg = photo_backgrounds_images.pick_random()
+		photo_background_back.texture = bg
+		photo_background_front.texture = bg
+		
 	else:
 		print("je montre déjà une photo")
 
 func hide_photos():
-	photo_block.visible = false
+	hide_object_with_tween(photo_block)
 
 func _on_photo_timer_timeout() -> void:
 	photo_block.visible = false
@@ -102,6 +112,21 @@ func change_cursor_on_click():
 			Input.set_custom_mouse_cursor(cursors.get("iron_1"))
 		elif button_selected_int >= 2:
 			Input.set_custom_mouse_cursor(cursors.get("spray_1"))
+
+func show_object_with_tween(obj : Object):
+	var tween = get_tree().create_tween()
+	obj.visible = true
+	obj.pivot_offset = obj.size/2
+	obj.scale = Vector2(0.2,0.2)
+	tween.tween_property(obj, "scale", Vector2(1.3,1.3),0.4).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
+	tween.tween_property(obj, "scale", Vector2(1.0,1.0),0.2).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+
+func hide_object_with_tween(obj : Object):
+	var tween = get_tree().create_tween()
+	obj.pivot_offset = obj.size/2
+	tween.tween_property(obj, "scale", Vector2(1.3,1.3),0.1).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
+	tween.tween_property(obj, "scale", Vector2(0.1,0.1),0.2).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	tween.tween_property(obj, "visible", false, 0)
 
 func button_hovered(id_button : int):
 	if button_selected_int != id_button:
@@ -140,6 +165,7 @@ func _on_scissors_button_pressed() -> void:
 	GameGlobal.set_current_tool(0)
 	#change cursor
 	button_selected(0)
+	GlobalSignals.emit_signal("on_tool_select")
 
 func _on_iron_button_mouse_entered() -> void:
 	button_hovered(1)
@@ -151,6 +177,7 @@ func _on_iron_button_pressed() -> void:
 	GameGlobal.set_current_tool(1)
 	#change cursor
 	button_selected(1)
+	GlobalSignals.emit_signal("on_tool_select")
 
 func _on_dye_spray_button_1_mouse_entered() -> void:
 	button_hovered(2)
@@ -162,6 +189,7 @@ func _on_dye_spray_button_1_pressed() -> void:
 	GameGlobal.set_current_tool(2)
 	#change cursor
 	button_selected(2)
+	GlobalSignals.emit_signal("on_tool_select")
 
 func _on_dye_spray_button_2_mouse_entered() -> void:
 	button_hovered(3)
@@ -173,6 +201,7 @@ func _on_dye_spray_button_2_pressed() -> void:
 	GameGlobal.set_current_tool(3)
 	#change cursor
 	button_selected(3)
+	GlobalSignals.emit_signal("on_tool_select")
 
 func _on_dye_spray_button_3_mouse_entered() -> void:
 	button_hovered(4)
@@ -184,3 +213,4 @@ func _on_dye_spray_button_3_pressed() -> void:
 	GameGlobal.set_current_tool(4)
 	#change cursor
 	button_selected(4)
+	GlobalSignals.emit_signal("on_tool_select")

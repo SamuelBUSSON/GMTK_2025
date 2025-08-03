@@ -5,20 +5,34 @@ enum CurrentTool  { CISORS, IRON, DYE_0, DYE_1, DYE_2 }
 @export var dye_color : Array[Color];
 @export_enum( "CISORS", "IRON", "DYE_0", "DYE_1", "DYE_2" ) var currentTool : int;
 
+
+
 var current_tool : int;
 var current_celebrity : hair_character
 var rng := RandomNumberGenerator.new()
 var player_score : int;
+var is_game_start := false;
 
 var viewport_back : SubViewport;
 var viewport_front : SubViewport;
+
+func get_CISORS_id() -> int:
+	return CurrentTool.CISORS;
+func get_IRON_id() -> int:
+	return CurrentTool.IRON;
+func get_DYE_0_id() -> int:
+	return CurrentTool.DYE_0;
+func get_DYE_1_id() -> int:
+	return CurrentTool.DYE_1;
+func get_DYE_2_id() -> int:
+	return CurrentTool.DYE_2;
 
 func is_current_tool(tool_id : int):
 	return current_tool == tool_id;
 
 func is_using_cisors() -> bool:
 	return current_tool == CurrentTool.CISORS;
-
+	
 func is_using_iron() -> bool:
 	return current_tool == CurrentTool.IRON;
 

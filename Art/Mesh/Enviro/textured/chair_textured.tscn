@@ -5,5 +5,8 @@
 
 [node name="chair" instance=ExtResource("1_0nmil")]
 
+[node name="roues" parent="chair" index="0"]
+transform = Transform3D(1, 0, 0, 0, 3.95551, 0, 0, 0, 1, 0.00287038, -0.0314489, -0.00125512)
+
 [node name="assise" parent="chair" index="1"]
 surface_material_override/0 = ExtResource("2_84sjq")
