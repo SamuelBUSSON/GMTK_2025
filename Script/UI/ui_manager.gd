@@ -11,6 +11,8 @@ var rng := RandomNumberGenerator.new()
 @onready var photo_back_texture = $Photo/BackgroundBack/PhotoBackTexture
 @onready var photo_star_name = $Photo/PhotoStarName
 @onready var photo_timer = $Photo/PhotoTimer
+@onready var photo_background_back = $Photo/BackgroundBack/Background
+@onready var photo_background_front = $Photo/BackgroundFront/Background2
 
 @onready var pause_menu = $PauseMenu
 @onready var pause_button = $PauseButton
@@ -28,6 +30,10 @@ var cursors = {"scissors_1" : load("res://Art/UI/Cursor/sci1.png"),
 
 var dialogue_pool = ["Make my hair like Braid Pitt's!","Can you make me look like Ponytailor Swift?","Would love the Tony Mohawk cool look!","Antonio Bangderas' cut is what I want.","Take inspiration from Justin Biebun here!","I wanna look like Mullet Cyrus.","I have this photo of Katy Permy, make it similar!","Aim for the Bobert Downey Jr. look...","Could you try and make it like Hairiana Grande?","My reference is Jamie Lee Cutis.","Love the Audrey Auburn vibe.","Just like Ben Coiffleck please."]
 var celebrity_names = ["Braid Pitt","Ponytailor Swift","Tony Mohawk","Antonio Bangderas","Justin Biebun","Mullet Cyrus","Katy Permy","Bobert Downey Jr.","Hairiana Grande","Jamie Lee Cutis","Audrey Auburn","Ben Coiffleck"]
+
+var photo_backgrounds_images = [load("res://Art/UI/picture/photo1.png")
+,load("res://Art/UI/picture/photo2.png"),
+load("res://Art/UI/picture/photo3.png")]
 
 func _ready() -> void:
 	GlobalSignals.connect("on_new_celebrity", rdm_talk)
@@ -70,6 +76,10 @@ func show_photos():
 		# photo_front_texture.texture = photo_front
 		# photo_back_texture.texture = photo_back
 		#photo_star_name.text = star_name
+		var bg = photo_backgrounds_images.pick_random()
+		photo_background_back.texture = bg
+		photo_background_front.texture = bg
+		
 	else:
 		print("je montre déjà une photo")
 
