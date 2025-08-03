@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvmocgedkuev5"]
+
+[ext_resource type="PackedScene" uid="uid://bvqxybvysrsto" path="res://Art/Mesh/Enviro/carpet.fbx" id="1_lpwd5"]
+[ext_resource type="Material" uid="uid://b2kypd82h2k4q" path="res://Art/Materials/mat_carpet.tres" id="2_aqlv1"]
+
+[node name="carpet" instance=ExtResource("1_lpwd5")]
+
+[node name="carpet" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_aqlv1")

@@ -26,7 +26,7 @@ script = ExtResource("1_u6ixn")
 size = 1
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -0.0259966, 0.0171916, 0.0351319)
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -0.0259966, 0.0646541, 0.0351319)
 mesh = ExtResource("2_yp5mw")
 
 [node name="RigidBody3D" type="StaticBody3D" parent="MeshInstance3D"]

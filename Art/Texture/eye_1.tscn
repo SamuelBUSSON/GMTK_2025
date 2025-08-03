@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cc0rqibdd36rh"]
+
+[ext_resource type="PackedScene" uid="uid://b2cdn38ht2vc6" path="res://Art/Mesh/Enviro/flacon1.fbx" id="1_q6a67"]
+[ext_resource type="Material" uid="uid://bjrbenlqr5ogd" path="res://Art/Materials/mat_violet.tres" id="2_eu7jk"]
+
+[node name="flacon1" instance=ExtResource("1_q6a67")]
+
+[node name="parfum" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_eu7jk")

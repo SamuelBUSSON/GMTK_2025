@@ -17,30 +17,28 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00351608, 0.505171, 0.00166
 script = ExtResource("1_scgdo")
 spawn_positions = [NodePath("Spawn_Pos_0"), NodePath("Spawn_Pos_1"), NodePath("Spawn_Pos_2"), NodePath("Spawn_Pos_3"), NodePath("Spawn_Pos_4")]
 eyes = [NodePath("eye 1"), NodePath("eyes 2"), NodePath("eyes 3")]
-angle_variation_degrees = Vector3(5, 5, 5)
+angle_variation_degrees = Vector3(5, 5, 2)
 hair_styles = Array[PackedScene]([ExtResource("2_cdf56"), ExtResource("3_rw0qo"), ExtResource("4_4x0kx"), ExtResource("5_8bwxi"), ExtResource("6_0a3ld"), ExtResource("7_ecsbc")])
 
 [node name="chara" parent="." instance=ExtResource("8_rw0qo")]
 
 [node name="Spawn_Pos_0" type="Node3D" parent="."]
-transform = Transform3D(-0.182151, 0.0704343, -0.980745, 0.428438, 0.903452, -0.0146894, 0.885021, -0.422864, -0.194741, 0, 0.281631, 0)
+transform = Transform3D(0.248203, -0.815481, -0.522864, 0.966052, 0.168421, 0.195908, -0.0716973, -0.553738, 0.829599, -0.154819, 0.116513, -0.128588)
 
 [node name="Spawn_Pos_1" type="Node3D" parent="."]
-transform = Transform3D(-0.560959, 0.820035, 0.113439, 0.818065, 0.570103, -0.0758462, -0.126868, 0.0502538, -0.990646, 0.153986, 0.231671, 0.00127444)
+transform = Transform3D(0.00177561, 0.817032, -0.57659, 0.986849, 0.0917688, 0.133076, 0.161641, -0.569243, -0.806123, 0.189829, 0.140333, -0.0716944)
 
 [node name="Spawn_Pos_2" type="Node3D" parent="."]
-transform = Transform3D(0.16995, -0.970706, 0.169842, 0.979916, 0.184711, 0.0751476, -0.104318, 0.15366, 0.982602, -0.171103, 0.199632, -0.00122979)
+transform = Transform3D(-0.0842857, -0.83863, 0.53814, 0.996387, -0.0765902, 0.0367006, 0.0104381, 0.53929, 0.842056, -0.149527, 0.165398, 0.0930436)
 
 [node name="Spawn_Pos_3" type="Node3D" parent="."]
-transform = Transform3D(0.0944527, 0.0321277, 0.995011, 0.893152, 0.438735, -0.0989498, -0.439725, 0.898042, 0.0127448, 0.00332001, 0.236365, 0.134577)
+transform = Transform3D(-0.0418131, 0.959125, 0.279876, 0.996278, 0.0611586, -0.0607454, -0.0753793, 0.276294, -0.958113, 0.126767, 0.111347, 0.128592)
 
 [node name="Spawn_Pos_4" type="Node3D" parent="."]
-transform = Transform3D(0.00845922, -0.00611314, -0.999946, 0.967125, 0.254217, 0.00662741, 0.254163, -0.967128, 0.00806263, -8.31186e-05, 0.220902, -0.148298)
+transform = Transform3D(0.00845922, -0.00611314, -0.999946, 0.999185, 0.0395464, 0.008211, 0.0394943, -0.999199, 0.00644267, -0.000690929, 0.070132, -0.208164)
 
 [node name="eyes 2" parent="." instance=ExtResource("9_0a3ld")]
-visible = false
 
 [node name="eyes 3" parent="." instance=ExtResource("10_ecsbc")]
-visible = false
 
 [node name="eye 1" parent="." instance=ExtResource("11_4727f")]

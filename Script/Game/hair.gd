@@ -57,6 +57,9 @@ func set_mesh_color(color : Color):
 	mat.albedo_color = color
 	hair_color = color;
 
+func get_mesh_color() -> Color:
+	return hair_color
+
 func on_hair_match_event():
 	if (lock):
 		return
