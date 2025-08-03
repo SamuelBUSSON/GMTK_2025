@@ -179,13 +179,13 @@ label = NodePath(".")
 transparent_bg = true
 
 [node name="Camera3D" type="Camera3D" parent="FrontViewPort"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.8, 1.24605, -10)
+transform = Transform3D(-3.91542e-08, -0.444573, 0.895743, -1.94329e-08, 0.895743, 0.444573, -1, -1.77636e-15, -4.37114e-08, 0.815324, 1.61219, -10)
 
 [node name="BackViewPort" type="SubViewport" parent="."]
 transparent_bg = true
 
 [node name="Camera3D" type="Camera3D" parent="BackViewPort"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.8, 1.24605, -10)
+transform = Transform3D(-4.12624e-08, 0.33002, -0.943974, 1.44256e-08, 0.943974, 0.33002, 1, -1.77636e-15, -4.37114e-08, -0.955709, 1.50032, -10)
 
 [node name="GreyBox" type="Node" parent="."]
 
