@@ -1,12 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://b76n4885ldf8m"]
 
 [ext_resource type="Script" uid="uid://c7k3drx1jpnmm" path="res://Script/Game/chair.gd" id="1_8kdrm"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_8irhp"]
+[ext_resource type="PackedScene" uid="uid://cshq8stafwvp2" path="res://Art/Mesh/Enviro/textured/chair_textured.tscn" id="2_6q8lm"]
 
 [node name="Chair" type="Node3D"]
 script = ExtResource("1_8kdrm")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
-mesh = SubResource("BoxMesh_8irhp")
+[node name="chair2" parent="." instance=ExtResource("2_6q8lm")]
+transform = Transform3D(8.16584, 0, 0, 0, 8.16584, 0, 0, 0, 8.16584, 0, 0, 0)

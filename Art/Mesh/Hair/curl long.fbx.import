@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b8buj2mb8m3fc"
-path="res://.godot/imported/eyes 3.fbx-646f176d08f1a590c0d1ab6e712a2153.scn"
+uid="uid://c32resfb2d3bs"
+path="res://.godot/imported/curl long.fbx-d9095d0bec72aab4add6deb69e7bc072.scn"
 
 [deps]
 
-source_file="res://Art/Mesh/eyes 3.fbx"
-dest_files=["res://.godot/imported/eyes 3.fbx-646f176d08f1a590c0d1ab6e712a2153.scn"]
+source_file="res://Art/Mesh/Hair/curl long.fbx"
+dest_files=["res://.godot/imported/curl long.fbx-d9095d0bec72aab4add6deb69e7bc072.scn"]
 
 [params]
 
@@ -26,7 +26,7 @@ meshes/light_baking=1
 meshes/lightmap_texel_size=0.2
 meshes/force_disable_compression=false
 skins/use_named_skins=true
-animation/import=true
+animation/import=false
 animation/fps=30
 animation/trimming=true
 animation/remove_immutable_tracks=true

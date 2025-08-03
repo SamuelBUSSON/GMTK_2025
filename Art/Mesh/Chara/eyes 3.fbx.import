@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://xppipuyerypf"
-path="res://.godot/imported/Strait long.fbx-428f432098019434df80300aa9ade676.scn"
+uid="uid://b8buj2mb8m3fc"
+path="res://.godot/imported/eyes 3.fbx-24418c5370fdfa34890c032f5afc03fd.scn"
 
 [deps]
 
-source_file="res://Art/Mesh/Strait long.fbx"
-dest_files=["res://.godot/imported/Strait long.fbx-428f432098019434df80300aa9ade676.scn"]
+source_file="res://Art/Mesh/Chara/eyes 3.fbx"
+dest_files=["res://.godot/imported/eyes 3.fbx-24418c5370fdfa34890c032f5afc03fd.scn"]
 
 [params]
 

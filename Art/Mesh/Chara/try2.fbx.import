@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dnewpgx15015g"
-path="res://.godot/imported/Strait med.fbx-bb2681e6863fd2b5be3f6f03cd0e0fc5.scn"
+uid="uid://cjtpw0470u6fh"
+path="res://.godot/imported/try2.fbx-b0e25dbdb8a59ba3790a753e1bdcb71e.scn"
 
 [deps]
 
-source_file="res://Art/Mesh/Strait med.fbx"
-dest_files=["res://.godot/imported/Strait med.fbx-bb2681e6863fd2b5be3f6f03cd0e0fc5.scn"]
+source_file="res://Art/Mesh/Chara/try2.fbx"
+dest_files=["res://.godot/imported/try2.fbx-b0e25dbdb8a59ba3790a753e1bdcb71e.scn"]
 
 [params]
 

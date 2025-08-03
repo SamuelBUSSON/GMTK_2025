@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cvciuelo28413"
-path="res://.godot/imported/curl short.fbx-372e1970a180ba43563cf2a832ccc7ef.scn"
+uid="uid://dnewpgx15015g"
+path="res://.godot/imported/Strait med.fbx-86aa21a9ab025b17c02726394c62bbca.scn"
 
 [deps]
 
-source_file="res://Art/Mesh/curl short.fbx"
-dest_files=["res://.godot/imported/curl short.fbx-372e1970a180ba43563cf2a832ccc7ef.scn"]
+source_file="res://Art/Mesh/Hair/Strait med.fbx"
+dest_files=["res://.godot/imported/Strait med.fbx-86aa21a9ab025b17c02726394c62bbca.scn"]
 
 [params]
 
