@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cydbvyq2mwab3"]
+
+[ext_resource type="PackedScene" uid="uid://cn3k11mwanayx" path="res://Art/Mesh/Enviro/trophy.fbx" id="1_ofhuq"]
+[ext_resource type="Material" uid="uid://c1o6altg54q33" path="res://Art/Materials/mat_lightsr.tres" id="2_0mosa"]
+
+[node name="trophy" instance=ExtResource("1_ofhuq")]
+
+[node name="trophy" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_0mosa")

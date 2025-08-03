@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cg5pt4ly5ysxo"]
+
+[ext_resource type="PackedScene" uid="uid://c7xd6fdv86iwd" path="res://Art/Mesh/Enviro/miror.fbx" id="1_46uk5"]
+[ext_resource type="Material" uid="uid://b2kypd82h2k4q" path="res://Art/Materials/mat_carpet.tres" id="2_grpkf"]
+
+[node name="miror" instance=ExtResource("1_46uk5")]
+
+[node name="miror" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_grpkf")
