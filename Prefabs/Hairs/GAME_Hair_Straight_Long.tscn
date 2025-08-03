@@ -5,7 +5,7 @@
 [ext_resource type="Material" uid="uid://cvj3texur2jnj" path="res://Art/Materials/Outline.tres" id="3_w56jv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_w56jv"]
-size = Vector3(0.178223, 0.278809, 0.211182)
+size = Vector3(0.178223, 0.324097, 0.211182)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_pwras"]
 _surfaces = [{
@@ -25,13 +25,13 @@ script = ExtResource("1_ei1k8")
 size = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -0.189968, -0.172928, -0.00441131)
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -0.176552, -0.150385, 0.0502015)
 mesh = ExtResource("2_0xu8a")
 
 [node name="RigidBody3D" type="StaticBody3D" parent="MeshInstance3D"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.238525, 0.0710449, -0.0211182)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.238525, 0.0936888, -0.0211182)
 shape = SubResource("BoxShape3D_w56jv")
 
 [node name="Outline" type="MeshInstance3D" parent="MeshInstance3D"]
