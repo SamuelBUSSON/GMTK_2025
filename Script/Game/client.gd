@@ -152,6 +152,9 @@ func _process(delta):
 	if (is_celebrity):
 		return;
 
+	if (GameGlobal.is_game_pause):
+		return
+
 	_select_at_screen(get_viewport().get_mouse_position())
 
 	if Input.is_action_just_pressed("mouse_click"):
