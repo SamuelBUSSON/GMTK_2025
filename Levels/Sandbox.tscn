@@ -1,13 +1,13 @@
 [gd_scene load_steps=16 format=3 uid="uid://2r2xorepwlip"]
 
-[ext_resource type="Script" uid="uid://dsr476vjg31mu" path="res://Script/GameWorld.gd" id="1_25dgi"]
+[ext_resource type="Script" path="res://Script/GameWorld.gd" id="1_25dgi"]
 [ext_resource type="PackedScene" uid="uid://cdk6hwb4hi2wc" path="res://Player/player.tscn" id="1_ndiqr"]
 [ext_resource type="PackedScene" uid="uid://xf5n1prpkpxt" path="res://Prefabs/GAME_Client.tscn" id="2_ecytd"]
 [ext_resource type="PackedScene" uid="uid://b76n4885ldf8m" path="res://Prefabs/GAME_Chair.tscn" id="3_q2e3v"]
 [ext_resource type="PackedScene" uid="uid://b2n231sfdc2dh" path="res://Levels/AudioScene.tscn" id="4_nwgsj"]
 [ext_resource type="Script" uid="uid://cyd5sr7auhq8t" path="res://Script/UI/game_score.gd" id="6_kng65"]
 [ext_resource type="Material" uid="uid://nr0j7j660s45" path="res://Art/Materials/mat_wall.tres" id="7_m5lms"]
-[ext_resource type="Material" path="res://Art/Texture/prototype_dark.material" id="8_25dgi"]
+[ext_resource type="Material" uid="uid://bok1camfpa3l3" path="res://Art/Texture/prototype_dark.material" id="8_25dgi"]
 [ext_resource type="Material" uid="uid://d1gkpjjlnk4tf" path="res://Art/Materials/mat_floor.tres" id="8_wlehf"]
 [ext_resource type="Material" uid="uid://c1o6altg54q33" path="res://Art/Materials/mat_lightsr.tres" id="9_5hxgg"]
 [ext_resource type="PackedScene" uid="uid://b2cdn38ht2vc6" path="res://Art/Mesh/Enviro/flacon1.fbx" id="12_chuaw"]
@@ -101,6 +101,19 @@ shadow_enabled = true
 transform = Transform3D(-4.37114e-08, -0.573577, 0.819152, 0, 0.819152, 0.573577, -1, 2.50718e-08, -3.58063e-08, 0.750475, 1.51959, -0.999597)
 
 [node name="AudioScene" parent="." instance=ExtResource("4_nwgsj")]
+
+[node name="GMTK_Amb_Hairdresser" parent="AudioScene/AudioRoom/Game/Ambiences" index="0"]
+autoplay = true
+bus = &"SFX"
+
+[node name="GMTK_Amb_TV_Background" parent="AudioScene/AudioRoom/Game/Ambiences" index="1"]
+autoplay = true
+bus = &"SFX"
+
+[node name="AudioStreamPlayer3D" parent="AudioScene/Audio" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.180184, 1.28876, -1.00206)
+max_polyphony = 4
+bus = &"SFX"
 
 [node name="Celebrity" parent="." instance=ExtResource("2_ecytd")]
 transform = Transform3D(-4.37617e-08, 0, 1.00115, 0, 1.00115, 0, -1.00115, 0, -4.37617e-08, 0, 1, -10)
@@ -225,3 +238,5 @@ transform = Transform3D(6.74856, 0, 0, 0, 6.74856, 0, 0, 0, 6.74856, -0.708078, 
 
 [node name="VANITY" parent="." instance=ExtResource("13_v4o67")]
 transform = Transform3D(-11.6482, 0.00944706, -25.4621, -0.13352, 27.9996, 0.0714704, 25.4618, 0.15115, -11.648, -0.521445, 0.111444, -2.11505)
+
+[editable path="AudioScene"]
