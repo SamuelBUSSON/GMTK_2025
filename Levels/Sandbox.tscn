@@ -52,7 +52,7 @@ transform = Transform3D(-0.290983, -0.00651406, 0.956706, 0.0097841, 0.999904, 0
 light_energy = 0.45
 
 [node name="OmniLight3D" type="OmniLight3D" parent="WorldEnvironment"]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -0.636813, 1.79102, -2.22963)
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -0.493306, 1.79264, -2.46854)
 light_color = Color(1, 1, 0.282353, 1)
 light_energy = 0.091
 light_indirect_energy = 0.939
@@ -60,7 +60,7 @@ light_size = 0.169
 light_specular = 0.53
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="WorldEnvironment"]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -0.608644, 1.49312, -2.25535)
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -0.465137, 1.49474, -2.49426)
 light_color = Color(1, 1, 0.282353, 1)
 light_energy = 0.091
 light_indirect_energy = 0.939
@@ -68,7 +68,7 @@ light_size = 0.169
 light_specular = 0.53
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="WorldEnvironment"]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -0.917037, 1.49312, -1.61062)
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -0.77353, 1.49474, -1.84953)
 light_color = Color(1, 1, 0.282353, 1)
 light_energy = 0.091
 light_indirect_energy = 0.939
@@ -76,7 +76,7 @@ light_size = 0.169
 light_specular = 0.53
 
 [node name="OmniLight3D4" type="OmniLight3D" parent="WorldEnvironment"]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -0.914392, 1.79546, -1.6103)
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -0.770885, 1.79708, -1.84921)
 light_color = Color(1, 1, 0.282353, 1)
 light_energy = 0.091
 light_indirect_energy = 0.939
@@ -84,7 +84,7 @@ light_size = 0.169
 light_specular = 0.53
 
 [node name="OmniLight3D5" type="OmniLight3D" parent="WorldEnvironment"]
-transform = Transform3D(-0.912134, 0, 0.409891, 0, 1, 0, -0.409891, 0, -0.912134, -0.82193, 2.04158, -1.98036)
+transform = Transform3D(-0.912134, 0, 0.409891, 0, 1, 0, -0.409891, 0, -0.912134, -0.678423, 2.0432, -2.21927)
 light_color = Color(1, 1, 0.282353, 1)
 light_energy = 0.091
 light_indirect_energy = 0.939
@@ -165,7 +165,7 @@ size = Vector3(1, 0.9, 1.5)
 material = ExtResource("8_25dgi")
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="GreyBox/miroir"]
-transform = Transform3D(-9.7407e-08, 0.835655, 0, 5.24537e-08, 0, 0.8, 0.819672, 1.34359e-08, -5.37435e-08, 0.0555964, -4.76837e-07, -0.751397)
+transform = Transform3D(-9.7407e-08, 0.835655, 0, 5.24537e-08, -7.45058e-09, 0.8, 0.819672, 1.34359e-08, -5.37435e-08, 0.0545368, 6.07967e-06, -0.753059)
 radius = 0.5625
 height = 1.05
 sides = 12
@@ -183,27 +183,27 @@ use_collision = true
 size = Vector3(6.6, 0.2, 5.7)
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="."]
-transform = Transform3D(0.909054, 0, -0.416678, 0, 1, 0, 0.416678, 0, 0.909054, -0.710133, 2.01149, -2.19942)
+transform = Transform3D(0.909054, 0, -0.416678, 0, 1, 0, 0.416678, 0, 0.909054, -0.71048, 2.01311, -2.19958)
 radius = 0.0610386
 material = ExtResource("9_5hxgg")
 
 [node name="CSGSphere3D2" type="CSGSphere3D" parent="."]
-transform = Transform3D(0.909054, 0, -0.416678, 0, 1, 0, 0.416678, 0, 0.909054, -0.841664, 1.79365, -1.88663)
+transform = Transform3D(0.909054, 0, -0.416678, 0, 1, 0, 0.416678, 0, 0.909054, -0.842011, 1.79527, -1.88679)
 radius = 0.0610386
 material = ExtResource("9_5hxgg")
 
 [node name="CSGSphere3D3" type="CSGSphere3D" parent="."]
-transform = Transform3D(0.909054, 0, -0.416678, 0, 1, 0, 0.416678, 0, 0.909054, -0.558444, 1.79365, -2.50451)
+transform = Transform3D(0.909054, 0, -0.416678, 0, 1, 0, 0.416678, 0, 0.909054, -0.558791, 1.79527, -2.50467)
 radius = 0.0610386
 material = ExtResource("9_5hxgg")
 
 [node name="CSGSphere3D4" type="CSGSphere3D" parent="."]
-transform = Transform3D(0.909054, 0, -0.416678, 0, 1, 0, 0.416678, 0, 0.909054, -0.841664, 1.45167, -1.88663)
+transform = Transform3D(0.909054, 0, -0.416678, 0, 1, 0, 0.416678, 0, 0.909054, -0.842011, 1.45329, -1.88679)
 radius = 0.0610386
 material = ExtResource("9_5hxgg")
 
 [node name="CSGSphere3D5" type="CSGSphere3D" parent="."]
-transform = Transform3D(0.909054, 0, -0.416678, 0, 1, 0, 0.416678, 0, 0.909054, -0.558444, 1.45167, -2.50451)
+transform = Transform3D(0.909054, 0, -0.416678, 0, 1, 0, 0.416678, 0, 0.909054, -0.558791, 1.45329, -2.50467)
 radius = 0.0610386
 material = ExtResource("9_5hxgg")
 
