@@ -1,14 +1,26 @@
-[gd_scene load_steps=4 format=3 uid="uid://x8x5vcd0dhan"]
+[gd_scene load_steps=6 format=3 uid="uid://x8x5vcd0dhan"]
 
 [ext_resource type="Script" uid="uid://bl1ssca2pjq4n" path="res://Script/GameGlobal.gd" id="1_or04w"]
 [ext_resource type="PackedScene" uid="uid://b6naxhkl5slnh" path="res://Managers/UIManager/ui_manager.tscn" id="2_ri526"]
+[ext_resource type="AudioStream" uid="uid://dut8wm1c02ixr" path="res://Audio/AudioAssets/UI/GMTK_UI_ClickStart.wav" id="3_jypkk"]
 [ext_resource type="PackedScene" uid="uid://biqhd664f548t" path="res://Managers/UIManager/start_menu.tscn" id="3_mim1c"]
+[ext_resource type="AudioStream" uid="uid://f08whki5hl57" path="res://Audio/AudioAssets/UI/GMTK_UI_Pause.wav" id="4_0l1bu"]
 
 [node name="GameGameGlobal" type="Node3D"]
 script = ExtResource("1_or04w")
 dye_color = Array[Color]([Color(0.690196, 0.235294, 0.188235, 1), Color(0.431373, 0, 0.556863, 1), Color(0.858824, 0.890196, 0.576471, 1)])
 game_duration = 120.0
 
-[node name="UIManager" parent="." instance=ExtResource("2_ri526")]
+[node name="UIManager" parent="." node_paths=PackedStringArray("ui_pause_sound") instance=ExtResource("2_ri526")]
+ui_pause_sound = NodePath("ui_pause_sound")
 
-[node name="StartMenu" parent="." instance=ExtResource("3_mim1c")]
+[node name="ui_pause_sound" type="AudioStreamPlayer" parent="UIManager"]
+stream = ExtResource("4_0l1bu")
+volume_db = 6.0
+
+[node name="StartMenu" parent="." node_paths=PackedStringArray("ui_start_sound") instance=ExtResource("3_mim1c")]
+ui_start_sound = NodePath("ui_start_sound")
+
+[node name="ui_start_sound" type="AudioStreamPlayer" parent="StartMenu"]
+stream = ExtResource("3_jypkk")
+volume_db = 6.0

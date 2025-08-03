@@ -1,12 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://x1snkxly0ew2"]
+[gd_scene load_steps=7 format=3 uid="uid://d0fl2m1otyfx1"]
 
 [ext_resource type="Script" uid="uid://pito3aff11ax" path="res://Script/UI/end_game_panel.gd" id="1_ayfe0"]
 [ext_resource type="Texture2D" uid="uid://c02bioh8bi5wu" path="res://UI/Assets/bg_ui_2.png" id="2_l0u2i"]
 [ext_resource type="Theme" uid="uid://bun827w3kwxd2" path="res://UI/Themes/button.tres" id="2_sqroq"]
 [ext_resource type="Theme" uid="uid://c8x5dndyxu50h" path="res://UI/Themes/Title.tres" id="3_v2jlc"]
 [ext_resource type="Script" uid="uid://cyd5sr7auhq8t" path="res://Script/UI/game_score.gd" id="4_16uhc"]
+[ext_resource type="AudioStream" uid="uid://cgs61coageddl" path="res://Audio/AudioAssets/UI/GMTK_UI_Restart.wav" id="6_v2jlc"]
 
-[node name="End_Game_Panel" type="Control"]
+[node name="End_Game_Panel" type="Control" node_paths=PackedStringArray("ui_restart_sound")]
 z_index = 1055
 layout_mode = 3
 anchors_preset = 15
@@ -16,6 +17,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_ayfe0")
+ui_restart_sound = NodePath("ui_restart_sound")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -112,5 +114,9 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_sqroq")
 text = "NEW GAME"
+
+[node name="ui_restart_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_v2jlc")
+volume_db = 6.0
 
 [connection signal="pressed" from="NewGame" to="." method="_on_new_game_pressed"]
