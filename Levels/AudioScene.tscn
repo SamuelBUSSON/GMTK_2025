@@ -1,6 +1,60 @@
-[gd_scene load_steps=2 format=3 uid="uid://b2n231sfdc2dh"]
+[gd_scene load_steps=48 format=3 uid="uid://b2n231sfdc2dh"]
 
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_3bh5w"]
+[ext_resource type="AudioStream" uid="uid://871i4ee040hj" path="res://Audio/AudioAssets/Ambiences/GMTK_Amb_Hairdresser_01.wav" id="1_3xbsj"]
+[ext_resource type="AudioStream" uid="uid://60uhr4ptxvo1" path="res://Audio/AudioAssets/Ambiences/GMTK_Amb_TV_Background_01.wav" id="2_ngrou"]
+[ext_resource type="Script" uid="uid://pc16x5omxab2" path="res://Script/Audio/AudioManager.gd" id="3_ngrou"]
+[ext_resource type="AudioStream" uid="uid://bae12dxrd3xy8" path="res://Audio/AudioAssets/Tools/GMTK_Tool_Cisors_Select_01.wav" id="4_txlgv"]
+[ext_resource type="AudioStream" uid="uid://bhxkvsrw57752" path="res://Audio/AudioAssets/Tools/GMTK_Tool_Cisors_Select_02.wav" id="5_adtrs"]
+[ext_resource type="AudioStream" uid="uid://b8nkei24ffh8l" path="res://Audio/AudioAssets/Tools/GMTK_Tool_Cisors_Select_03.wav" id="6_o3ykj"]
+[ext_resource type="AudioStream" uid="uid://b6xldshlkb1oc" path="res://Audio/AudioAssets/Tools/GMTK_Tool_Cisors_Select_04.wav" id="7_uudny"]
+[ext_resource type="AudioStream" uid="uid://2mobwmkiqiyr" path="res://Audio/AudioAssets/Tools/GMTK_Tool_Dye_Select_01.wav" id="8_7b1af"]
+[ext_resource type="AudioStream" uid="uid://dybs0gdi8w6wm" path="res://Audio/AudioAssets/Tools/GMTK_Tool_Dye_Select_02.wav" id="9_fo7s3"]
+[ext_resource type="AudioStream" uid="uid://bpgd6ryogg1wo" path="res://Audio/AudioAssets/Tools/GMTK_Tool_Dye_Select_03.wav" id="10_tt87t"]
+[ext_resource type="AudioStream" uid="uid://bwuo05uqacy51" path="res://Audio/AudioAssets/Tools/GMTK_Tool_Dye_Select_04.wav" id="11_a0fm8"]
+[ext_resource type="AudioStream" uid="uid://dfce4bjnnj784" path="res://Audio/AudioAssets/Tools/GMTK_Tool_Iron_Select_01.wav" id="12_0118t"]
+[ext_resource type="AudioStream" uid="uid://bmpte807ok3m8" path="res://Audio/AudioAssets/Tools/GMTK_Tool_Iron_Select_02.wav" id="13_qoo2f"]
+[ext_resource type="AudioStream" uid="uid://c3tpylr8vms3" path="res://Audio/AudioAssets/Tools/GMTK_Tool_Iron_Select_03.wav" id="14_4jap7"]
+[ext_resource type="AudioStream" uid="uid://dcrrr4iyhgey1" path="res://Audio/AudioAssets/Tools/GMTK_Tool_Iron_Select_04.wav" id="15_5qwvo"]
+[ext_resource type="AudioStream" uid="uid://dq45d0of4e2ec" path="res://Audio/AudioAssets/Tools/GMTK_Tool_Cisors_Cut_Slow_01.wav" id="16_eo4go"]
+[ext_resource type="AudioStream" uid="uid://ddpwjpeyps1px" path="res://Audio/AudioAssets/Tools/GMTK_Tool_Cisors_Cut_Slow_02.wav" id="17_jq7r6"]
+[ext_resource type="AudioStream" uid="uid://b0725pkdrrudm" path="res://Audio/AudioAssets/Tools/GMTK_Tool_Cisors_Cut_Slow_03.wav" id="18_ku85l"]
+[ext_resource type="AudioStream" uid="uid://bk6fepshnvjby" path="res://Audio/AudioAssets/Tools/GMTK_Tool_Cisors_Cut_Slow_04.wav" id="19_rpibi"]
+[ext_resource type="AudioStream" uid="uid://bdb3xncat51un" path="res://Audio/AudioAssets/Tools/GMTK_Tool_Cisors_Cut_Slow_05.wav" id="20_aqm3s"]
+[ext_resource type="AudioStream" uid="uid://dwvmmw4jlwq1w" path="res://Audio/AudioAssets/Tools/GMTK_Tool_Cisors_Cut_Slow_06.wav" id="21_16voi"]
+[ext_resource type="AudioStream" uid="uid://dv6i81c106eye" path="res://Audio/AudioAssets/Tools/GMTK_Tool_Cisors_Cut_Slow_07.wav" id="22_1i60i"]
+[ext_resource type="AudioStream" uid="uid://dqyg7cs0h267u" path="res://Audio/AudioAssets/Tools/GMTK_Tool_Cisors_Cut_Slow_08.wav" id="23_qj36m"]
+[ext_resource type="AudioStream" uid="uid://dbgca4i0nvk4" path="res://Audio/AudioAssets/Tools/GMTK_Tool_Cisors_Cut_Slow_09.wav" id="24_6dtub"]
+[ext_resource type="AudioStream" uid="uid://bsffx17rp5sw0" path="res://Audio/AudioAssets/Tools/GMTK_Tool_Cisors_Cut_Slow_10.wav" id="25_mj1pd"]
+[ext_resource type="AudioStream" uid="uid://cnxi4ylat26nk" path="res://Audio/AudioAssets/Tools/GMTK_Tool_Cisors_Cut_Slow_11.wav" id="26_cygom"]
+[ext_resource type="AudioStream" uid="uid://o0a8mhwqnum4" path="res://Audio/AudioAssets/Tools/GMTK_Tool_Cisors_Cut_Slow_12.wav" id="27_ns0l6"]
+[ext_resource type="AudioStream" uid="uid://esl314p0nf2f" path="res://Audio/AudioAssets/Tools/GMTK_Tool_Cisors_Cut_Twice_01.wav" id="28_rfrrm"]
+[ext_resource type="AudioStream" uid="uid://dk78juvt0veyy" path="res://Audio/AudioAssets/Tools/GMTK_Tool_Cisors_Cut_Twice_02.wav" id="29_tiem3"]
+[ext_resource type="AudioStream" uid="uid://dac8xbqrkfciu" path="res://Audio/AudioAssets/Tools/GMTK_Tool_Cisors_Cut_Twice_03.wav" id="30_qwo1h"]
+[ext_resource type="AudioStream" uid="uid://cwwyaj28ta7jm" path="res://Audio/AudioAssets/Tools/GMTK_Tool_Cisors_Cut_Twice_04.wav" id="31_613ve"]
+[ext_resource type="AudioStream" uid="uid://bdywpiwab0j78" path="res://Audio/AudioAssets/Tools/GMTK_Tool_Cisors_Cut_Twice_05.wav" id="32_fum7r"]
+[ext_resource type="AudioStream" uid="uid://dy1lwf46qmyuc" path="res://Audio/AudioAssets/Tools/GMTK_Tool_Cisors_Cut_Twice_06.wav" id="33_wex36"]
+[ext_resource type="AudioStream" uid="uid://dg4xll1qgl4pb" path="res://Audio/AudioAssets/Tools/GMTK_Tool_Cisors_Cut_Twice_07.wav" id="34_psaib"]
+[ext_resource type="AudioStream" uid="uid://b43a242k7iokx" path="res://Audio/AudioAssets/Tools/GMTK_Tool_Cisors_Cut_Twice_08.wav" id="35_84ql4"]
+[ext_resource type="AudioStream" uid="uid://c0103cvkw5s4j" path="res://Audio/AudioAssets/Tools/GMTK_Tool_Cisors_Cut_Twice_09.wav" id="36_rf78n"]
+[ext_resource type="AudioStream" uid="uid://botrclrqm8gav" path="res://Audio/AudioAssets/Tools/GMTK_Tool_Cisors_Cut_Twice_10.wav" id="37_albsv"]
+[ext_resource type="AudioStream" uid="uid://8hgwcnccmcwu" path="res://Audio/AudioAssets/Tools/GMTK_Tool_Cisors_Cut_Twice_11.wav" id="38_70jfp"]
+[ext_resource type="AudioStream" uid="uid://fb4tyep5tuu" path="res://Audio/AudioAssets/Tools/GMTK_Tool_Cisors_Cut_Twice_12.wav" id="39_vp8r4"]
+[ext_resource type="AudioStream" uid="uid://okcd5w3e2ss" path="res://Audio/AudioAssets/Tools/GMTK_Tool_Dye_Use_01.wav" id="40_32cr5"]
+[ext_resource type="AudioStream" uid="uid://dv4diyg5pmlrj" path="res://Audio/AudioAssets/Tools/GMTK_Tool_Dye_Use_02.wav" id="41_48xhh"]
+[ext_resource type="AudioStream" uid="uid://cmd55v5o4q47g" path="res://Audio/AudioAssets/Tools/GMTK_Tool_Dye_Use_03.wav" id="42_shmac"]
+[ext_resource type="AudioStream" uid="uid://bwt0xvy21teag" path="res://Audio/AudioAssets/Tools/GMTK_Tool_Iron_Use_01.wav" id="43_qgvqb"]
+[ext_resource type="AudioStream" uid="uid://dxpstyp3jk1ov" path="res://Audio/AudioAssets/Tools/GMTK_Tool_Iron_Use_02.wav" id="44_1t8f8"]
+[ext_resource type="AudioStream" uid="uid://c0e0hj8qeile7" path="res://Audio/AudioAssets/Tools/GMTK_Tool_Iron_Use_03.wav" id="45_5kfe4"]
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_7yniv"]
+fade_time = 1.0
+stream_count = 1
+stream_0 = ExtResource("1_3xbsj")
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_45rxy"]
+fade_time = 1.0
+stream_count = 1
+stream_0 = ExtResource("2_ngrou")
 
 [node name="AudioScene" type="Node3D"]
 
@@ -10,9 +64,22 @@
 
 [node name="Game" type="Node3D" parent="AudioRoom"]
 
-[node name="AudioSources" type="Node3D" parent="."]
+[node name="Ambiences" type="Node3D" parent="AudioRoom/Game"]
 
-[node name="Node3D" type="Node3D" parent="AudioSources"]
+[node name="GMTK_Amb_Hairdresser" type="AudioStreamPlayer" parent="AudioRoom/Game/Ambiences"]
+stream = SubResource("AudioStreamPlaylist_7yniv")
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="AudioSources/Node3D"]
-stream = SubResource("AudioStreamRandomizer_3bh5w")
+[node name="GMTK_Amb_TV_Background" type="AudioStreamPlayer3D" parent="AudioRoom/Game/Ambiences"]
+stream = SubResource("AudioStreamPlaylist_45rxy")
+
+[node name="Audio" type="Node3D" parent="." node_paths=PackedStringArray("audioPlayer")]
+script = ExtResource("3_ngrou")
+audioPlayer = NodePath("AudioStreamPlayer3D")
+cisors_select_sounds = Array[AudioStream]([ExtResource("4_txlgv"), ExtResource("5_adtrs"), ExtResource("6_o3ykj"), ExtResource("7_uudny")])
+dye_select_sounds = Array[AudioStream]([ExtResource("8_7b1af"), ExtResource("9_fo7s3"), ExtResource("10_tt87t"), ExtResource("11_a0fm8")])
+iron_select_sounds = Array[AudioStream]([ExtResource("12_0118t"), ExtResource("13_qoo2f"), ExtResource("14_4jap7"), ExtResource("15_5qwvo")])
+cisors_use_sounds = Array[AudioStream]([ExtResource("16_eo4go"), ExtResource("17_jq7r6"), ExtResource("18_ku85l"), ExtResource("19_rpibi"), ExtResource("20_aqm3s"), ExtResource("21_16voi"), ExtResource("22_1i60i"), ExtResource("23_qj36m"), ExtResource("24_6dtub"), ExtResource("25_mj1pd"), ExtResource("26_cygom"), ExtResource("27_ns0l6"), ExtResource("28_rfrrm"), ExtResource("29_tiem3"), ExtResource("30_qwo1h"), ExtResource("31_613ve"), ExtResource("32_fum7r"), ExtResource("33_wex36"), ExtResource("34_psaib"), ExtResource("35_84ql4"), ExtResource("36_rf78n"), ExtResource("37_albsv"), ExtResource("38_70jfp"), ExtResource("39_vp8r4")])
+dye_use_sounds = Array[AudioStream]([ExtResource("40_32cr5"), ExtResource("41_48xhh"), ExtResource("42_shmac")])
+iron_use_sounds = Array[AudioStream]([ExtResource("43_qgvqb"), ExtResource("44_1t8f8"), ExtResource("45_5kfe4")])
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Audio"]

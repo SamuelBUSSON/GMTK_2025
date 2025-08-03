@@ -6,8 +6,8 @@ extends Node3D
 var elapsed = 0.0;
 
 func _process(dt):
-    elapsed += dt;
-    if (elapsed >= cooldown):
-        elapsed = 0.0;
-        AudioManager.request_audio(audio_id, self.position)
-    pass
+	elapsed += dt;
+	if (elapsed >= cooldown):
+		elapsed = 0.0;
+		AudioManager.request_audio(audio_id, self.position)
+	pass
