@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b2n231sfdc2dh" path="res://Levels/AudioScene.tscn" id="4_nwgsj"]
 [ext_resource type="Script" uid="uid://cyd5sr7auhq8t" path="res://Script/UI/game_score.gd" id="6_kng65"]
 [ext_resource type="Material" uid="uid://nr0j7j660s45" path="res://Art/Materials/mat_wall.tres" id="7_m5lms"]
-[ext_resource type="Material" path="res://Art/Texture/prototype_dark.material" id="8_25dgi"]
+[ext_resource type="Material" uid="uid://bok1camfpa3l3" path="res://Art/Texture/prototype_dark.material" id="8_25dgi"]
 [ext_resource type="Material" uid="uid://d1gkpjjlnk4tf" path="res://Art/Materials/mat_floor.tres" id="8_wlehf"]
 [ext_resource type="Material" uid="uid://c1o6altg54q33" path="res://Art/Materials/mat_lightsr.tres" id="9_5hxgg"]
 
@@ -19,10 +19,11 @@ sky_material = SubResource("ProceduralSkyMaterial_yxtyg")
 [sub_resource type="Environment" id="Environment_k5onh"]
 background_mode = 1
 sky = SubResource("Sky_edr0k")
-ambient_light_source = 3
+ambient_light_source = 2
 ambient_light_color = Color(0.825719, 0.829118, 0.578352, 1)
 ambient_light_sky_contribution = 0.4
 ambient_light_energy = 0.69
+glow_enabled = true
 
 [node name="World" type="Node3D" node_paths=PackedStringArray("viewport_front", "viewport_back")]
 script = ExtResource("1_25dgi")
@@ -37,6 +38,58 @@ transform = Transform3D(0.691036, -0.672467, 0.265062, -0.28523, 0.0832558, 0.95
 light_color = Color(0.9505, 1, 0.73, 1)
 light_energy = 0.511
 sky_mode = 1
+
+[node name="SpotLight3D" type="SpotLight3D" parent="WorldEnvironment"]
+transform = Transform3D(0.675693, 0, 0.737183, 0, 1, 0, -0.737183, 0, 0.675693, 1.32937, 0.982518, 0.0720713)
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="WorldEnvironment"]
+transform = Transform3D(-0.290983, -0.00651406, 0.956706, 0.0097841, 0.999904, 0.00978404, -0.956678, 0.0122075, -0.290891, 1.32937, 0.982518, -1.52341)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="WorldEnvironment"]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -0.636813, 1.79102, -2.22963)
+light_color = Color(1, 1, 0.282353, 1)
+light_energy = 0.091
+light_indirect_energy = 0.939
+light_size = 0.169
+light_specular = 0.53
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="WorldEnvironment"]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -0.608644, 1.49312, -2.25535)
+light_color = Color(1, 1, 0.282353, 1)
+light_energy = 0.091
+light_indirect_energy = 0.939
+light_size = 0.169
+light_specular = 0.53
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="WorldEnvironment"]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -0.917037, 1.49312, -1.61062)
+light_color = Color(1, 1, 0.282353, 1)
+light_energy = 0.091
+light_indirect_energy = 0.939
+light_size = 0.169
+light_specular = 0.53
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="WorldEnvironment"]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -0.914392, 1.79546, -1.6103)
+light_color = Color(1, 1, 0.282353, 1)
+light_energy = 0.091
+light_indirect_energy = 0.939
+light_size = 0.169
+light_specular = 0.53
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="WorldEnvironment"]
+transform = Transform3D(-0.912134, 0, 0.409891, 0, 1, 0, -0.409891, 0, -0.912134, -0.82193, 2.04158, -1.98036)
+light_color = Color(1, 1, 0.282353, 1)
+light_energy = 0.091
+light_indirect_energy = 0.939
+light_size = 0.169
+light_specular = 0.53
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 0.263823, 0.964571, 0, -0.964571, 0.263823, 0.205032, 3.42457, -0.425466)
+light_color = Color(1, 1, 0.552941, 1)
+light_energy = 2.116
+shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_ndiqr")]
 transform = Transform3D(-4.37114e-08, -0.34202, 0.939693, 0, 0.939693, 0.34202, -1, 1.49502e-08, -4.10753e-08, 0.751203, 1.35047, -1)
