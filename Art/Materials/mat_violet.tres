@@ -4,7 +4,7 @@
 
 [resource]
 diffuse_mode = 3
-albedo_color = Color(0.306587, 0.569856, 0.986103, 1)
+albedo_color = Color(0.25098, 0.0392157, 0.337255, 1)
 normal_enabled = true
 normal_scale = -1.17
 normal_texture = SubResource("PlaceholderTexture2D_5eyak")
