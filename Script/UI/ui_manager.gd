@@ -11,8 +11,8 @@ var rng := RandomNumberGenerator.new()
 @onready var photo_back_texture = $Photo/PhotoBackTexture
 @onready var photo_star_name = $Photo/PhotoStarName
 @onready var photo_timer = $Photo/PhotoTimer
-@onready var photo_background_back = $Photo/BackgroundBack/Background
-@onready var photo_background_front = $Photo/BackgroundFront/Background2
+@onready var photo_background_back = $Photo/Background
+@onready var photo_background_front = $Photo/Background2
 
 @onready var pause_menu = $PauseMenu
 @onready var pause_button = $PauseButton
