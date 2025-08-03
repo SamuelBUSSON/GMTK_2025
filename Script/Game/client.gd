@@ -63,8 +63,10 @@ func on_hair_click(hair_click : hair, hit_position : Vector3 ):
 			hair_click.style = 1;
 		replace_air_mesh(hair_click);
 
+	hair_click.set_outline_base_color(Color.BLACK)
 	if (GameGlobal.is_hair_matching(hair_click)):
 		hair_click.on_hair_match_event();
+		hair_click.set_outline_base_color(Color.GREEN)
 		pass;
 
 	# increment score + switch character
@@ -188,6 +190,7 @@ func _select_at_screen(mouse_pos: Vector2) -> void:
 	if (current_hair != null):
 		current_hair.select_hair_mesh(false);
 
+	current_hair = null;
 	if result.size() > 0:
 		var obj = result["collider"] as CollisionObject3D
 		var hair_node = _find_hair_owner(obj)

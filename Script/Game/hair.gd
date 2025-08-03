@@ -14,6 +14,7 @@ var lock : bool;
 var spawn_nodex_index : int;
 var select : bool;
 var outline_mat : StandardMaterial3D;
+var outline_base_color = Color.BLACK;
 
 func _ready():
 	var outline_mesh : MeshInstance3D = %Outline
@@ -39,7 +40,7 @@ func select_hair_mesh(is_selected : bool):
 		return
 	select = is_selected
 
-	var target_color =   Color.WHITE if is_selected else Color.BLACK
+	var target_color =   Color.WHITE if is_selected else outline_base_color
 	outline_mat.albedo_color = target_color
 
 
@@ -82,6 +83,10 @@ func on_hair_match_event():
 	tween.tween_callback(free_lock);
 	lock = true;
 	pass;
+
+func set_outline_base_color(new_col : Color):
+	outline_base_color = new_col;
+	pass
 
 func free_lock() -> void:
 	lock = false;

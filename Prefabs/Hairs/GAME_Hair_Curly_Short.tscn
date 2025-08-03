@@ -5,7 +5,7 @@
 [ext_resource type="Material" uid="uid://cvj3texur2jnj" path="res://Art/Materials/Outline.tres" id="3_0nm6a"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0nm6a"]
-size = Vector3(0.0844727, 0.139282, 0.156067)
+size = Vector3(0.0844727, 0.107819, 0.156067)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_n6trp"]
 _surfaces = [{
@@ -31,7 +31,7 @@ mesh = ExtResource("2_icd1k")
 [node name="RigidBody3D" type="StaticBody3D" parent="MeshInstance3D"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0124512, -0.00372315, 0.0125427)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0124512, -0.00205997, 0.0125427)
 shape = SubResource("BoxShape3D_0nm6a")
 
 [node name="Outline" type="MeshInstance3D" parent="MeshInstance3D"]
