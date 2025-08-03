@@ -56,7 +56,7 @@ func rdm_talk():
 		dialogue_block.visible = true
 		dialogue_text.text = dialogue_pool[tamp]
 		photo_star_name.text = celebrity_names[tamp]
-		dialogue_timer.start(2.0)
+		dialogue_timer.start(3.0)
 	else:
 		print("hého, je parle déjà là")
 
