@@ -104,15 +104,17 @@ metadata/_custom_type_script = "uid://cwvejsk0cifop"
 
 [node name="GMTK_Amb_Hairdresser" type="AudioStreamPlayer" parent="AudioRoom/Game/Ambiences"]
 stream = SubResource("AudioStreamPlaylist_7yniv")
+volume_db = -6.0
 autoplay = true
 
 [node name="GMTK_Amb_TV_Background" type="AudioStreamPlayer3D" parent="AudioRoom/Game/Ambiences"]
 stream = SubResource("AudioStreamPlaylist_45rxy")
+volume_db = -16.0
 autoplay = true
 bus = &"SFX"
 
 [node name="GMTK_Amb_TV_Voices" type="AudioStreamPlayer3D" parent="AudioRoom/Game/Ambiences"]
-volume_db = -16.598
+volume_db = -20.0
 max_polyphony = 2
 bus = &"SFX"
 script = ExtResource("3_uudny")
@@ -120,6 +122,7 @@ sound_files = Array[AudioStream]([ExtResource("4_613ve"), ExtResource("5_fum7r")
 max_delay = 15.0
 
 [node name="GMTK_Music_Radio" type="AudioStreamPlayer3D" parent="AudioRoom/Game/Ambiences"]
+volume_db = -9.0
 autoplay = true
 bus = &"Music"
 playback_type = 1
