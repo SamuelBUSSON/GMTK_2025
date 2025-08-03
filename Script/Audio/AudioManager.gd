@@ -18,11 +18,13 @@ var current_tool: CurrentTool = CurrentTool.CISORS
 var is_looping: bool = false
 
 func _ready() -> void:
-		GlobalSignals.connect("is_using_cisors", on_using_cisors)
-		GlobalSignals.connect("is_using_dye", on_using_dye)
-		GlobalSignals.connect("is_using_iron", on_using_iron)
-		GlobalSignals.connect("on_tool_select", on_tool_selected)
-
+	GlobalSignals.connect("is_using_cisors", on_using_cisors)
+	GlobalSignals.connect("is_using_dye", on_using_dye)
+	GlobalSignals.connect("is_using_iron", on_using_iron)
+	GlobalSignals.connect("on_tool_select", on_tool_selected)
+	
+	#audioPlayer.set_max_polyphony(4)
+	
 func on_using_cisors():
 	current_tool = CurrentTool.CISORS
 	play_tool_use_sound()
@@ -52,7 +54,7 @@ func play_tool_select_sound():
 		var random_sound = sound_array[randi() % sound_array.size()]
 		audioPlayer.stream = random_sound
 		audioPlayer.play()
-		
+
 func play_tool_use_sound():
 	var sound_array: Array[AudioStream] = []
 	
