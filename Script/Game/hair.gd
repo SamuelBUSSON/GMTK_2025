@@ -57,6 +57,9 @@ func set_mesh_color(color : Color):
 	mat.albedo_color = color
 	hair_color = color;
 
+func get_mesh_color() -> Color:
+	return hair_color
+
 func on_hair_match_event():
 	if (lock):
 		return
@@ -86,6 +89,7 @@ func on_hair_match_event():
 
 func set_outline_base_color(new_col : Color):
 	outline_base_color = new_col;
+	outline_mat.albedo_color = outline_base_color
 	pass
 
 func free_lock() -> void:

@@ -1,6 +1,6 @@
-[gd_scene load_steps=25 format=3 uid="uid://2r2xorepwlip"]
+[gd_scene load_steps=22 format=3 uid="uid://2r2xorepwlip"]
 
-[ext_resource type="Script" uid="uid://dsr476vjg31mu" path="res://Script/GameWorld.gd" id="1_25dgi"]
+[ext_resource type="Script" path="res://Script/GameWorld.gd" id="1_25dgi"]
 [ext_resource type="PackedScene" uid="uid://cdk6hwb4hi2wc" path="res://Player/player.tscn" id="1_ndiqr"]
 [ext_resource type="PackedScene" uid="uid://xf5n1prpkpxt" path="res://Prefabs/GAME_Client.tscn" id="2_ecytd"]
 [ext_resource type="PackedScene" uid="uid://b76n4885ldf8m" path="res://Prefabs/GAME_Chair.tscn" id="3_q2e3v"]
@@ -15,9 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://b2cdn38ht2vc6" path="res://Art/Mesh/Enviro/flacon1.fbx" id="12_chuaw"]
 [ext_resource type="PackedScene" uid="uid://br2m2yvd8mwyp" path="res://Art/Mesh/Enviro/hair dryer.fbx" id="13_fopw0"]
 [ext_resource type="PackedScene" uid="uid://df417v8fxj05x" path="res://Art/Mesh/Enviro/VANITY.fbx" id="13_v4o67"]
-[ext_resource type="PackedScene" uid="uid://vg3b27hr5qpb" path="res://Art/Mesh/Enviro/brush.fbx" id="15_tu7wk"]
-[ext_resource type="PackedScene" uid="uid://cn3k11mwanayx" path="res://Art/Mesh/Enviro/trophy.fbx" id="16_xqf6g"]
-[ext_resource type="PackedScene" uid="uid://c7xd6fdv86iwd" path="res://Art/Mesh/Enviro/miror.fbx" id="17_noaln"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_yxtyg"]
 
@@ -117,17 +114,21 @@ transform = Transform3D(-4.37114e-08, -0.573577, 0.819152, 0, 0.819152, 0.573577
 
 [node name="AudioScene" parent="." instance=ExtResource("4_nwgsj")]
 
+[node name="GMTK_Amb_Hairdresser" parent="AudioScene/AudioRoom/Game/Ambiences" index="0"]
+volume_db = -3.0
+bus = &"SFX"
+
 [node name="GMTK_Amb_TV_Background" parent="AudioScene/AudioRoom/Game/Ambiences" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.20389, 0)
-bus = &"Master"
+volume_db = -9.0
 
 [node name="GMTK_Amb_TV_Voices" parent="AudioScene/AudioRoom/Game/Ambiences" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.20389, 0)
-bus = &"Master"
+volume_db = -22.636
 
 [node name="GMTK_Music_Radio" parent="AudioScene/AudioRoom/Game/Ambiences" index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.178283, 1.30727, -2.21458)
-bus = &"Master"
+volume_db = -20.0
 
 [node name="audioPlayer" parent="AudioScene/Audio" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.153514, 1.24356, -0.991139)
@@ -227,6 +228,12 @@ material_override = SubResource("StandardMaterial3D_8n2e8")
 use_collision = true
 size = Vector3(1.3, 0.00220947, 0.970581)
 
+[node name="posterlareal3" type="CSGBox3D" parent="GreyBox"]
+transform = Transform3D(0.650973, 6.53414e-08, -1.40005, 1.55685e-07, -1.56718, -5.6036e-09, -1.27277, -2.61365e-07, -0.71607, 0.340118, 0.150116, -1.55108)
+material_override = SubResource("StandardMaterial3D_8n2e8")
+use_collision = true
+size = Vector3(1.3, 0.0723297, 0.975037)
+
 [node name="posterlareal2" type="CSGBox3D" parent="GreyBox"]
 transform = Transform3D(4.048e-09, 0.254554, 0.130195, 0.285917, -1.0435e-08, 2.49957e-08, 2.57875e-08, 0.130195, -0.254554, -0.429907, 1.40988, -2.81626)
 material_override = SubResource("StandardMaterial3D_w2yne")
@@ -261,15 +268,6 @@ material = ExtResource("9_5hxgg")
 [node name="VANITY" parent="GreyBox" instance=ExtResource("13_v4o67")]
 transform = Transform3D(-11.6482, 0.00944706, -25.4621, -0.13352, 27.9996, 0.0714704, 25.4618, 0.15115, -11.648, -0.521445, 0.111444, -2.11505)
 
-[node name="brush" parent="GreyBox" instance=ExtResource("15_tu7wk")]
-transform = Transform3D(-4.67058, 0, -5.48946, 0, 7.20753, 0, 5.48946, 0, -4.67058, -0.950933, 1.45425, -0.500458)
-
-[node name="trophy" parent="GreyBox" instance=ExtResource("16_xqf6g")]
-transform = Transform3D(-8.80347, 0, 12.7091, 0, 15.4603, 0, -12.7091, 0, -8.80347, -0.89583, 0.527873, -0.312405)
-
-[node name="miror" parent="GreyBox" instance=ExtResource("17_noaln")]
-transform = Transform3D(4.9825, 0, 8.43905, 0, 9.80015, 0, -8.43905, 0, 4.9825, -0.765677, 0.840175, -2.13269)
-
 [node name="flacon1" parent="." instance=ExtResource("12_chuaw")]
 transform = Transform3D(0.983119, 0, 4.96648, 0, 5.06285, 0, -4.96648, 0, 0.983119, -0.880857, 1.46356, -0.141569)
 
@@ -277,7 +275,7 @@ transform = Transform3D(0.983119, 0, 4.96648, 0, 5.06285, 0, -4.96648, 0, 0.9831
 transform = Transform3D(1.31046, 0, 6.6201, 0, 6.74856, 0, -6.6201, 0, 1.31046, -1.01782, 1.46356, -0.352466)
 
 [node name="flacon3" parent="." instance=ExtResource("12_chuaw")]
-transform = Transform3D(-4.13203, -0.0353653, -5.33555, 0.0146803, -6.74846, 0.0333615, -5.33564, 0.00882021, 4.13206, -0.64741, 0.828094, 0.0344103)
+transform = Transform3D(-1.31042, -0.0505292, -6.61992, 0.00981186, -6.74837, 0.0495675, -6.6201, 4.47562e-08, 1.31046, -1.10629, 1.7192, -0.16317)
 
 [node name="hair dryer" parent="." instance=ExtResource("13_fopw0")]
 transform = Transform3D(8.999, 0, -5.0624, 0, 10.3252, 0, 5.0624, 0, 8.999, -0.510385, 1.08348, -1.72746)
