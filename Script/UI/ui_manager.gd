@@ -59,7 +59,7 @@ func _process(delta: float) -> void:
 	change_cursor_on_click()
 	photo_front_texture.texture = GameGlobal.viewport_front.get_texture();
 	photo_back_texture.texture = GameGlobal.viewport_back.get_texture();
-	score_text.text = str("SCORE : ", GameGlobal.player_score)
+	score_text.text = str("Customers satisfied : ", GameGlobal.player_score)
 
 func show_ui():
 	var tween = get_tree().create_tween()

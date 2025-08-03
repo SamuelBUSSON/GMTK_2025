@@ -72,9 +72,9 @@ grow_vertical = 2
 
 [node name="SoundTitle" type="Label" parent="MenuBlock/SoundBlock"]
 layout_mode = 0
-offset_left = -220.0
+offset_left = -212.0
 offset_top = -104.0
-offset_right = 260.0
+offset_right = 252.0
 offset_bottom = -56.0
 theme = ExtResource("1_445gp")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -211,6 +211,7 @@ offset_bottom = 172.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("4_3uemc")
+theme_override_font_sizes/font_size = 28
 toggle_mode = true
 text = "Resume"
 
@@ -228,6 +229,7 @@ offset_bottom = 172.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("4_3uemc")
+theme_override_font_sizes/font_size = 28
 toggle_mode = true
 text = "Quit Game"
 

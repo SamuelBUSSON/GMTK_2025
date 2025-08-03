@@ -1,11 +1,10 @@
-[gd_scene load_steps=26 format=3 uid="uid://2r2xorepwlip"]
+[gd_scene load_steps=25 format=3 uid="uid://2r2xorepwlip"]
 
 [ext_resource type="Script" uid="uid://dsr476vjg31mu" path="res://Script/GameWorld.gd" id="1_25dgi"]
 [ext_resource type="PackedScene" uid="uid://cdk6hwb4hi2wc" path="res://Player/player.tscn" id="1_ndiqr"]
 [ext_resource type="PackedScene" uid="uid://xf5n1prpkpxt" path="res://Prefabs/GAME_Client.tscn" id="2_ecytd"]
 [ext_resource type="PackedScene" uid="uid://b76n4885ldf8m" path="res://Prefabs/GAME_Chair.tscn" id="3_q2e3v"]
 [ext_resource type="PackedScene" uid="uid://b2n231sfdc2dh" path="res://Levels/AudioScene.tscn" id="4_nwgsj"]
-[ext_resource type="Script" uid="uid://cyd5sr7auhq8t" path="res://Script/UI/game_score.gd" id="6_kng65"]
 [ext_resource type="Material" uid="uid://nr0j7j660s45" path="res://Art/Materials/mat_wall.tres" id="7_m5lms"]
 [ext_resource type="Material" uid="uid://d1gkpjjlnk4tf" path="res://Art/Materials/mat_floor.tres" id="8_wlehf"]
 [ext_resource type="Material" uid="uid://c1o6altg54q33" path="res://Art/Materials/mat_lightsr.tres" id="9_5hxgg"]
@@ -144,7 +143,7 @@ bus = &"Master"
 [node name="audioPlayer" parent="AudioScene/Audio" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.153514, 1.24356, -0.991139)
 
-[node name="rotatingChair" parent="AudioScene/Audio" index="1"]
+[node name="rotatingChair" parent="AudioScene/Audio" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.180229, 0.559342, -0.99945)
 
 [node name="Celebrity" parent="." instance=ExtResource("2_ecytd")]
@@ -156,24 +155,6 @@ transform = Transform3D(1.00286, 0, 0, 0, 1.00286, 0, 0, 0, 1.00286, 0.168753, 0
 
 [node name="Client" parent="Chair" instance=ExtResource("2_ecytd")]
 transform = Transform3D(1.00115, 0, 0, 0, 1.00115, 0, 0, 0, 1.00115, 0.0019098, 0.790281, 0.00511092)
-
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="Score Label" type="Label" parent="Control" node_paths=PackedStringArray("label")]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-theme_override_font_sizes/font_size = 50
-text = "asasd"
-script = ExtResource("6_kng65")
-label = NodePath(".")
 
 [node name="FrontViewPort" type="SubViewport" parent="."]
 transparent_bg = true
