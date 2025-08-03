@@ -1,4 +1,7 @@
-[gd_resource type="Theme" format=3 uid="uid://c8x5dndyxu50h"]
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://c8x5dndyxu50h"]
+
+[ext_resource type="FontFile" uid="uid://cwakrwgnuny77" path="res://UI/Fonts/Choco Shake.ttf" id="1_2kr1m"]
 
 [resource]
 Label/font_sizes/font_size = 32
+Label/fonts/font = ExtResource("1_2kr1m")

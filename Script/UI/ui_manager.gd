@@ -26,10 +26,12 @@ var cursors = {"scissors_1" : load("res://Art/UI/Cursor/sci1.png"),
 "spray_1" : load("res://Art/UI/Cursor/spray1.png"),
 "spray_2" : load("res://Art/UI/Cursor/spray2.png")}
 
-var dialogue_pool = ["blabla","blabla"]
-var celebrity_names = ["Jean","Claude"]
+var dialogue_pool = ["Make my hair like Braid Pitt's!","Can you make me look like Ponytailor Swift?","Would love the Tony Mohawk cool look!","Antonio Bangderas' cut is what I want.","Take inspiration from Justin Biebun here!","I wanna look like Mullet Cyrus.","I have this photo of Katy Permy, make it similar!","Aim for the Bobert Downey Jr. look...","Could you try and make it like Hairiana Grande?","My reference is Jamie Lee Cutis.","Love the Audrey Auburn vibe.","Just like Ben Coiffleck please."]
+var celebrity_names = ["Braid Pitt","Ponytailor Swift","Tony Mohawk","Antonio Bangderas","Justin Biebun","Mullet Cyrus","Katy Permy","Bobert Downey Jr.","Hairiana Grande","Jamie Lee Cutis","Audrey Auburn","Ben Coiffleck"]
 
 func _ready() -> void:
+	GlobalSignals.connect("on_new_celebrity", rdm_talk)
+	GlobalSignals.connect("on_success_signal", hide_photos)
 	Input.set_custom_mouse_cursor(cursors.get("scissors_1"))
 	for i in tool_buttons:
 		i.modulate.a = 0.7
@@ -54,19 +56,20 @@ func rdm_talk():
 		dialogue_block.visible = true
 		dialogue_text.text = dialogue_pool[tamp]
 		photo_star_name.text = celebrity_names[tamp]
-		dialogue_timer.start(2.0)
+		dialogue_timer.start(3.0)
 	else:
 		print("hého, je parle déjà là")
 
 func _on_dialogue_timer_timeout() -> void:
 	dialogue_block.visible = false
+	show_photos()
 
-func show_photos(photo_front : TextureRect, photo_back : TextureRect, star_name : float):
+func show_photos():
 	if !photo_block.visible:
 		photo_block.visible = true
 		# photo_front_texture.texture = photo_front
 		# photo_back_texture.texture = photo_back
-		photo_star_name.text = star_name
+		#photo_star_name.text = star_name
 	else:
 		print("je montre déjà une photo")
 
