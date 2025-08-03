@@ -12,7 +12,13 @@ func play_random_sound():
 	var random_sound = sound_files[randi() % sound_files.size()]
 	self.stream = random_sound
 	self.play()
-
+	
+	# Wait for the audio to finish playing
+	await self.finished
+	
+	# Then wait for the random delay
 	var random_delay = randf_range(min_delay, max_delay)
 	await get_tree().create_timer(random_delay).timeout
+	
+	# Play the next sound
 	play_random_sound()
