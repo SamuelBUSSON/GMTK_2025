@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b6naxhkl5slnh"]
+[gd_scene load_steps=16 format=3 uid="uid://b6naxhkl5slnh"]
 
 [ext_resource type="Theme" uid="uid://c8x5dndyxu50h" path="res://UI/Themes/Title.tres" id="1_7m1sl"]
 [ext_resource type="Script" uid="uid://bvxlao2xvfpjx" path="res://Script/UI/ui_manager.gd" id="1_fqe6j"]
@@ -11,7 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://dqj7gfkx3u2s4" path="res://Managers/UIManager/pause_menu.tscn" id="6_lt6e0"]
 [ext_resource type="Texture2D" uid="uid://bl0fvlksktqrc" path="res://Art/UI/2.png" id="7_lgbyi"]
 [ext_resource type="Texture2D" uid="uid://y0bxv5j63lwy" path="res://Art/UI/3.png" id="8_um27t"]
-[ext_resource type="Texture2D" uid="uid://bmoljrulfye8p" path="res://Art/UI/1.png" id="9_1of8b"]
+[ext_resource type="Texture2D" uid="uid://d1ftr5bopmwjt" path="res://Art/UI/1_r.png" id="12_jqsye"]
+[ext_resource type="Texture2D" uid="uid://dxjh65nj2lu1" path="res://Art/UI/1_g.png" id="13_d7npq"]
+[ext_resource type="Texture2D" uid="uid://28fvi8do7y50" path="res://Art/UI/1_b.png" id="14_uosyp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_um27t"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -74,6 +76,7 @@ autowrap_mode = 3
 one_shot = true
 
 [node name="Photo" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -130,18 +133,18 @@ expand_mode = 3
 
 [node name="PhotoStarNameBg" type="TextureRect" parent="Photo"]
 layout_mode = 0
-offset_left = 200.0
+offset_left = 152.0
 offset_top = 296.0
-offset_right = 464.0
+offset_right = 512.0
 offset_bottom = 374.0
 texture = ExtResource("6_jx2nd")
 expand_mode = 1
 
 [node name="PhotoStarName" type="Label" parent="Photo"]
 layout_mode = 0
-offset_left = 128.0
+offset_left = 176.0
 offset_top = 312.0
-offset_right = 544.0
+offset_right = 496.0
 offset_bottom = 360.0
 theme = ExtResource("1_7m1sl")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -229,7 +232,7 @@ offset_left = -80.0
 offset_top = -72.0
 offset_right = 48.0
 offset_bottom = 56.0
-texture_normal = ExtResource("9_1of8b")
+texture_normal = ExtResource("12_jqsye")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -244,7 +247,7 @@ offset_left = -80.0
 offset_top = -56.0
 offset_right = 48.0
 offset_bottom = 72.0
-texture_normal = ExtResource("9_1of8b")
+texture_normal = ExtResource("14_uosyp")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -259,7 +262,7 @@ offset_left = -80.0
 offset_top = -40.0
 offset_right = 48.0
 offset_bottom = 88.0
-texture_normal = ExtResource("9_1of8b")
+texture_normal = ExtResource("13_d7npq")
 ignore_texture_size = true
 stretch_mode = 0
 

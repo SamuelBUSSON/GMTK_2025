@@ -1,15 +1,15 @@
 extends Control
 
-@onready var global_slider = $SoundBlock/GlobalBlock/GlobalSlider
-@onready var global_value = $SoundBlock/GlobalBlock/GlobalValue
+@onready var global_slider = $MenuBlock/SoundBlock/GlobalBlock/GlobalSlider
+@onready var global_value = $MenuBlock/SoundBlock/GlobalBlock/GlobalValue
 
-@onready var music_slider = $SoundBlock/MusicBlock/MusicSlider
-@onready var music_value = $SoundBlock/MusicBlock/MusicValue
+@onready var music_slider = $MenuBlock/SoundBlock/MusicBlock/MusicSlider
+@onready var music_value = $MenuBlock/SoundBlock/MusicBlock/MusicValue
 
-@onready var sfx_slider = $SoundBlock/SFXBlock/SFXSlider
-@onready var sfx_value = $SoundBlock/SFXBlock/SFXValue
+@onready var sfx_slider = $MenuBlock/SoundBlock/SFXBlock/SFXSlider
+@onready var sfx_value = $MenuBlock/SoundBlock/SFXBlock/SFXValue
 
-@onready var quit_menu_button = $QuitMenuButton
+@onready var quit_menu_button = $MenuBlock/QuitMenuButton
 
 @onready var menu_block = $MenuBlock
 
@@ -22,9 +22,9 @@ func open_menu():
 	tween.tween_property(menu_block, "scale", Vector2(1.0,1.0),0.2).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	#besoin de récupérer les valeurs des deux canaux pour les mettre dans les sliders
 	
-	#global_value.text = str(global_slider.value) + "%"
-	#music_value.text = str(music_slider.value) + "%"
-	#sfx_value.text = str(sfx_slider.value) + "%"
+	global_value.text = str(global_slider.value).pad_decimals(0) + "%"
+	music_value.text = str(music_slider.value).pad_decimals(0) + "%"
+	sfx_value.text = str(sfx_slider.value).pad_decimals(0) + "%"
 
 func _on_quit_menu_button_pressed() -> void:
 	var tween = get_tree().create_tween()

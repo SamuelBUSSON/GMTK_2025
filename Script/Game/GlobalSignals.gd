@@ -13,4 +13,3 @@ signal on_tool_select()
 signal is_hair_matching()
 signal is_character_matching()
 signal on_game_end()
-

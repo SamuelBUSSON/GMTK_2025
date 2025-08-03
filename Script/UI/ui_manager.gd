@@ -28,8 +28,12 @@ var cursors = {"scissors_1" : load("res://Art/UI/Cursor/sci1.png"),
 "scissors_2" : load("res://Art/UI/Cursor/sci2.png"),
 "iron_1" : load("res://Art/UI/Cursor/fer1.png"),
 "iron_2" : load("res://Art/UI/Cursor/fer2.png"),
-"spray_1" : load("res://Art/UI/Cursor/spray1.png"),
-"spray_2" : load("res://Art/UI/Cursor/spray2.png")}
+"spray_r_1" : load("res://Art/UI/Cursor/spray (6).png"),
+"spray_r_2" : load("res://Art/UI/Cursor/spray (5).png"),
+"spray_v_1" : load("res://Art/UI/Cursor/spray (2).png"),
+"spray_v_2" : load("res://Art/UI/Cursor/spray (1).png"),
+"spray_y_1" : load("res://Art/UI/Cursor/spray (4).png"),
+"spray_y_2" : load("res://Art/UI/Cursor/spray (3).png")}
 
 var dialogue_pool = ["Make my hair like Braid Pitt's!","Can you make me look like Ponytailor Swift?","Would love the Tony Mohawk cool look!","Antonio Bangderas' cut is what I want.","Take inspiration from Justin Biebun here!","I wanna look like Mullet Cyrus.","I have this photo of Katy Permy, make it similar!","Aim for the Bobert Downey Jr. look...","Could you try and make it like Hairiana Grande?","My reference is Jamie Lee Cutis.","Love the Audrey Auburn vibe.","Just like Ben Coiffleck please.","Copy what Scal Pacino has on his head!","Can my hair be like Orlando Comb's?","I would like to be Trim Cruise's hair twin please!"]
 var celebrity_names = ["Braid Pitt","Ponytailor Swift","Tony Mohawk","Antonio Bangderas","Justin Biebun","Mullet Cyrus","Katy Permy","Bobert Downey Jr.","Hairiana Grande","Jamie Lee Cutis","Audrey Auburn","Ben Coiffleck","Scal Pacino","Orlando Comb","Trim Cruise"]
@@ -69,7 +73,7 @@ func rdm_talk():
 		show_object_with_tween(dialogue_block)
 		dialogue_text.text = dialogue_pool[tamp]
 		photo_star_name.text = celebrity_names[tamp]
-		dialogue_timer.start(3.0)
+		dialogue_timer.start(3.5)
 	else:
 		print("hého, je parle déjà là")
 
@@ -97,28 +101,40 @@ func _on_photo_timer_timeout() -> void:
 	photo_block.visible = false
 
 func _on_pause_button_pressed() -> void:
+	Input.set_custom_mouse_cursor(cursors.get("scissors_1"))
 	pause_menu.open_menu()
 	pause_button.visible = false
+	
 
 func _on_pause_menu_visibility_changed() -> void:
 	if !pause_menu.visible:
 		pause_button.visible = true
+		update_cursor()
 
 func change_cursor_on_click():
-	if Input.is_action_just_pressed("mouse_click"):
-		if button_selected_int == 0:
-			Input.set_custom_mouse_cursor(cursors.get("scissors_2"))
-		elif button_selected_int == 1:
-			Input.set_custom_mouse_cursor(cursors.get("iron_2"))
-		elif button_selected_int >= 2:
-			Input.set_custom_mouse_cursor(cursors.get("spray_2"))
-	elif Input.is_action_just_released("mouse_click"):
-		if button_selected_int == 0:
-			Input.set_custom_mouse_cursor(cursors.get("scissors_1"))
-		elif button_selected_int == 1:
-			Input.set_custom_mouse_cursor(cursors.get("iron_1"))
-		elif button_selected_int >= 2:
-			Input.set_custom_mouse_cursor(cursors.get("spray_1"))
+	if !pause_menu.visible:
+		if Input.is_action_just_pressed("mouse_click"):
+			if button_selected_int == 0:
+				Input.set_custom_mouse_cursor(cursors.get("scissors_2"))
+			elif button_selected_int == 1:
+				Input.set_custom_mouse_cursor(cursors.get("iron_2"))
+			elif button_selected_int == 2:
+				Input.set_custom_mouse_cursor(cursors.get("spray_r_2"))
+			elif button_selected_int == 3:
+				Input.set_custom_mouse_cursor(cursors.get("spray_v_2"))
+			elif button_selected_int == 4:
+				Input.set_custom_mouse_cursor(cursors.get("spray_y_2"))
+		elif Input.is_action_just_released("mouse_click"):
+			if button_selected_int == 0:
+				Input.set_custom_mouse_cursor(cursors.get("scissors_1"))
+			elif button_selected_int == 1:
+				Input.set_custom_mouse_cursor(cursors.get("iron_1"))
+			elif button_selected_int == 2:
+				Input.set_custom_mouse_cursor(cursors.get("spray_r_1"))
+			elif button_selected_int == 3:
+				Input.set_custom_mouse_cursor(cursors.get("spray_v_1"))
+			elif button_selected_int == 4:
+				Input.set_custom_mouse_cursor(cursors.get("spray_y_1"))
 
 func show_object_with_tween(obj : Object):
 	var tween = get_tree().create_tween()
@@ -152,19 +168,25 @@ func button_selected(id_button : int):
 		i.pivot_offset = i.size/2
 		i.modulate.a = 0.7
 
-	if id_button == 0:
-		Input.set_custom_mouse_cursor(cursors.get("scissors_1"))
-	elif id_button == 1:
-		Input.set_custom_mouse_cursor(cursors.get("iron_1"))
-	elif id_button >= 2:
-		Input.set_custom_mouse_cursor(cursors.get("spray_1"))
-
 	button_selected_int = id_button
 	tool_buttons[id_button].modulate.a = 1
+	update_cursor()
 
 	var tween = create_tween()
 	tween.tween_property(tool_buttons[id_button], "scale", Vector2(1.6,1.6), 0.3).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
 	tween.tween_property(tool_buttons[id_button], "scale", Vector2(1.4,1.4), 0.1).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+
+func update_cursor():
+	if button_selected_int == 0:
+		Input.set_custom_mouse_cursor(cursors.get("scissors_1"))
+	elif button_selected_int == 1:
+		Input.set_custom_mouse_cursor(cursors.get("iron_1"))
+	elif button_selected_int == 2:
+		Input.set_custom_mouse_cursor(cursors.get("spray_r_1"))
+	elif button_selected_int == 3:
+		Input.set_custom_mouse_cursor(cursors.get("spray_v_1"))
+	elif button_selected_int == 4:
+		Input.set_custom_mouse_cursor(cursors.get("spray_y_1"))
 
 func _on_scissors_button_mouse_entered() -> void:
 	button_hovered(0)
