@@ -38,9 +38,9 @@ var cursors = {"scissors_1" : load("res://Art/UI/Cursor/sci1.png"),
 var dialogue_pool = ["Make my hair like Braid Pitt's!","Can you make me look like Ponytailor Swift?","Would love the Tony Mohawk cool look!","Antonio Bangderas' cut is what I want.","Take inspiration from Justin Biebun here!","I wanna look like Mullet Cyrus.","I have this photo of Katy Permy, make it similar!","Aim for the Bobert Downey Jr. look...","Could you try and make it like Hairiana Grande?","My reference is Jamie Lee Cutis.","Love the Audrey Auburn vibe.","Just like Ben Coiffleck please.","Copy what Scal Pacino has on his head!","Can my hair be like Orlando Comb's?","I would like to be Trim Cruise's hair twin please!"]
 var celebrity_names = ["Braid Pitt","Ponytailor Swift","Tony Mohawk","Antonio Bangderas","Justin Biebun","Mullet Cyrus","Katy Permy","Bobert Downey Jr.","Hairiana Grande","Jamie Lee Cutis","Audrey Auburn","Ben Coiffleck","Scal Pacino","Orlando Comb","Trim Cruise"]
 
-var photo_backgrounds_images = [load("res://Art/UI/picture/photo1.png")
-,load("res://Art/UI/picture/photo2.png"),
-load("res://Art/UI/picture/photo3.png")]
+var photo_backgrounds_images = [load("res://UI/Assets/photoV2.png")
+,load("res://UI/Assets/photoV2_2.png"),
+load("res://UI/Assets/photoV2_3.png")]
 
 func _ready() -> void:
 	modulate.a = 0.0

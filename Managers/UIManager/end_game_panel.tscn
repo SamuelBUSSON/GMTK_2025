@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://x1snkxly0ew2"]
 
-[ext_resource type="Script" uid="uid://pito3aff11ax" path="res://Script/UI/end_game_panel.gd" id="1_ayfe0"]
+[ext_resource type="Script" path="res://Script/UI/end_game_panel.gd" id="1_ayfe0"]
 [ext_resource type="Texture2D" uid="uid://c02bioh8bi5wu" path="res://UI/Assets/bg_ui_2.png" id="2_l0u2i"]
 [ext_resource type="Theme" uid="uid://bun827w3kwxd2" path="res://UI/Themes/button.tres" id="2_sqroq"]
 [ext_resource type="Theme" uid="uid://c8x5dndyxu50h" path="res://UI/Themes/Title.tres" id="3_v2jlc"]
@@ -31,17 +31,18 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -199.0
-offset_top = 76.0
-offset_right = 200.0
-offset_bottom = 155.0
+offset_left = -528.0
+offset_top = 184.0
+offset_right = 532.0
+offset_bottom = 455.0
 grow_horizontal = 2
 theme = ExtResource("3_v2jlc")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 133
-text = "GAME END"
+text = "Let's call it a hairy day !"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="Score" type="Control" parent="."]
 layout_mode = 1
@@ -50,10 +51,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -24.0
+offset_top = 68.0
+offset_right = 16.0
+offset_bottom = 108.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -66,7 +67,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -200.0
 offset_top = -75.0
-offset_right = 200.0
+offset_right = 204.0
 offset_bottom = 75.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -82,10 +83,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -160.0
+offset_left = -156.0
 offset_top = -36.0
-offset_right = 160.0
-offset_bottom = 36.0
+offset_right = 164.0
+offset_bottom = 43.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3_v2jlc")
@@ -105,12 +106,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -192.0
-offset_top = 164.0
+offset_top = 228.0
 offset_right = 192.0
-offset_bottom = 244.0
+offset_bottom = 308.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_sqroq")
-text = "NEW GAME"
+text = "Next day"
 
 [connection signal="pressed" from="NewGame" to="." method="_on_new_game_pressed"]

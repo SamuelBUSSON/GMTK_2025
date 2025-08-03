@@ -10,6 +10,7 @@ extends Control
 @onready var sfx_value = $MenuBlock/SoundBlock/SFXBlock/SFXValue
 
 @onready var quit_menu_button = $MenuBlock/QuitMenuButton
+@onready var quit_game_button = $MenuBlock/QuitGameButton
 
 @onready var menu_block = $MenuBlock
 
@@ -17,6 +18,7 @@ var bus_index = [0,0,0]
 
 func open_menu():
 	visible = true
+	quit_menu_button.button_pressed = false
 	var tween = get_tree().create_tween()
 	menu_block.pivot_offset = menu_block.size/2
 	menu_block.scale = Vector2(0.2,0.2)
